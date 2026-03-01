@@ -41,18 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Büro-Illustration in Kachel, Buchseite und Karte injizieren ───
   // Die SVG-Instanzen brauchen je eigene Gradienten-IDs damit url(#id)
   // korrekt aufgelöst wird (kein Cross-SVG-Shadow-Tree-Problem).
-  function injectBueroSVG(placeholderId, gradPrefix, svgAttrs) {
-    const el = document.getElementById(placeholderId);
-    if (!el) return;
-    const svg = bueroSVG()
-      .replace('class="modal-illu"', svgAttrs)
-      .replace(/id="bue-/g,    `id="${gradPrefix}-`)
-      .replace(/url\(#bue-/g,  `url(#${gradPrefix}-`);
-    el.outerHTML = svg;
-  }
-
-  injectBueroSVG('buero-kachel-illu', 'bue-k', 'class="ort-illu"');
-  injectBueroSVG('buero-buch-illu',   'bue-b', 'style="width:100%;display:block"');
 
 });
 
@@ -317,187 +305,205 @@ function bauernhofSVG() {
 }
 
 function bueroSVG() {
-  return `<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
+  /* Gebäude: x=220–480 (260px breit), y=10–355 (345px hoch) → schlankes Hochhaus
+     Isometrische Seite: x=480–516
+     3 Garage-Öffnungen (50px) mit 27–28px Abstand: cx=272, 350, 428
+     3 Fenster-Etagen darunter                                              */
+  return `<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
     <defs>
       <linearGradient id="bue-sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#5aa8d8"/><stop offset="100%" stop-color="#b8ddf5"/>
+        <stop offset="0%" stop-color="#4a9fd4"/><stop offset="100%" stop-color="#aad4f0"/>
       </linearGradient>
       <linearGradient id="bue-gold" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#d4920a"/><stop offset="40%" stop-color="#ffd84a"/><stop offset="100%" stop-color="#b87808"/>
+        <stop offset="0%" stop-color="#c48808"/><stop offset="30%" stop-color="#ffd848"/><stop offset="70%" stop-color="#f0c020"/><stop offset="100%" stop-color="#a07010"/>
       </linearGradient>
       <linearGradient id="bue-silver" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#8098b8"/><stop offset="45%" stop-color="#d8eaf8"/><stop offset="100%" stop-color="#6880a0"/>
+        <stop offset="0%" stop-color="#6888a8"/><stop offset="45%" stop-color="#cce0f4"/><stop offset="100%" stop-color="#5070a0"/>
       </linearGradient>
       <linearGradient id="bue-garage" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#c8ccd4"/><stop offset="100%" stop-color="#a0a8b4"/>
+        <stop offset="0%" stop-color="#b8c0cc"/><stop offset="100%" stop-color="#8890a0"/>
       </linearGradient>
       <linearGradient id="bue-floor" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#b8a878"/><stop offset="100%" stop-color="#907848"/>
+        <stop offset="0%" stop-color="#b8a870"/><stop offset="100%" stop-color="#907040"/>
       </linearGradient>
       <linearGradient id="bue-light" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ffe06088"/><stop offset="100%" stop-color="#ffe06000"/>
+        <stop offset="0%" stop-color="#ffe06090"/><stop offset="100%" stop-color="#ffe06000"/>
       </linearGradient>
       <linearGradient id="bue-glass" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#d8f0ff"/><stop offset="50%" stop-color="#a8d8f8"/><stop offset="100%" stop-color="#78b8e8"/>
+        <stop offset="0%" stop-color="#d8f0ff"/><stop offset="50%" stop-color="#98c8f0"/><stop offset="100%" stop-color="#68a8e0"/>
       </linearGradient>
       <linearGradient id="bue-door" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ffe060"/><stop offset="100%" stop-color="#c88010"/>
+        <stop offset="0%" stop-color="#ffe060"/><stop offset="100%" stop-color="#c07808"/>
+      </linearGradient>
+      <linearGradient id="bue-side" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#a08840"/><stop offset="100%" stop-color="#786020"/>
       </linearGradient>
     </defs>
+
     <!-- Himmel -->
-    <rect width="680" height="300" fill="url(#bue-sky)"/>
-    <g opacity="0.88"><ellipse cx="80" cy="44" rx="50" ry="20" fill="white"/><ellipse cx="112" cy="35" rx="34" ry="16" fill="white"/></g>
-    <g opacity="0.82"><ellipse cx="590" cy="40" rx="44" ry="18" fill="white"/><ellipse cx="624" cy="31" rx="28" ry="14" fill="white"/></g>
-    <!-- Schatten -->
-    <rect x="178" y="20" width="328" height="254" rx="8" fill="#00000022"/>
-    <!-- Fassaden-Bänder: Silber-Basis -->
-    <rect x="175" y="18" width="324" height="252" rx="7" fill="url(#bue-silver)"/>
-    <!-- Gold-Bänder -->
-    <rect x="175" y="18"  width="324" height="42" rx="7" fill="url(#bue-gold)"/>
-    <rect x="175" y="102" width="324" height="36" fill="url(#bue-gold)"/>
-    <rect x="175" y="180" width="324" height="36" fill="url(#bue-gold)"/>
-    <!-- Silber-Trennlinien -->
-    <rect x="175" y="59"  width="324" height="2" fill="#fff8" opacity="0.4"/>
-    <rect x="175" y="137" width="324" height="2" fill="#fff8" opacity="0.4"/>
-    <rect x="175" y="215" width="324" height="2" fill="#fff8" opacity="0.4"/>
-    <!-- Tiefgarage oben -->
-    <rect x="175" y="18" width="324" height="86" rx="7" fill="url(#bue-garage)"/>
-    <!-- Schild -->
-    <rect x="190" y="20" width="294" height="18" fill="#00000015" rx="3"/>
-    <text x="337" y="33" font-family="Nunito" font-weight="900" font-size="11" fill="#304050cc" text-anchor="middle">TIEFGARAGE · oben!</text>
-    <!-- Garage-Öffnungen (Einfahrtsbögen) -->
-    <rect x="195" y="35" width="68" height="50" fill="#80909880" rx="4"/>
-    <path d="M195 55 Q229 38 263 55" fill="#60707888"/>
-    <rect x="279" y="35" width="68" height="50" fill="#80909880" rx="4"/>
-    <path d="M279 55 Q313 38 347 55" fill="#60707888"/>
-    <rect x="363" y="35" width="68" height="50" fill="#80909880" rx="4"/>
-    <path d="M363 55 Q397 38 431 55" fill="#60707888"/>
-    <!-- Auto 1: Rot -->
-    <rect x="198" y="60" width="52" height="20" fill="#c83020" rx="5"/>
-    <path d="M208 60 Q212 50 230 49 Q248 50 252 60" fill="#e04030"/>
-    <path d="M246 60 Q252 55 252 60" fill="#c8e8f8" opacity="0.9"/>
-    <path d="M208 60 Q208 54 214 52 L228 50 L228 60" fill="#c8e8f8" opacity="0.7"/>
-    <rect x="218" y="52" width="22" height="8" fill="#c8e8f8" rx="2" opacity="0.85"/>
-    <line x1="232" y1="60" x2="232" y2="79" stroke="#a02010" stroke-width="1" opacity="0.5"/>
-    <rect x="224" y="68" width="8" height="3" fill="#ff9090" rx="1"/>
-    <rect x="238" y="68" width="8" height="3" fill="#ff9090" rx="1"/>
-    <rect x="246" y="63" width="7" height="5" fill="#fffaaa" rx="2" stroke="#c0c0c0" stroke-width="0.5"/>
-    <rect x="197" y="63" width="5" height="5" fill="#ff4444" rx="1"/>
-    <rect x="196" y="74" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <rect x="246" y="74" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <circle cx="212" cy="81" r="8" fill="#222"/><circle cx="212" cy="81" r="5" fill="#555"/><circle cx="212" cy="81" r="2.5" fill="#aaa"/>
-    <circle cx="238" cy="81" r="8" fill="#222"/><circle cx="238" cy="81" r="5" fill="#555"/><circle cx="238" cy="81" r="2.5" fill="#aaa"/>
-    <rect x="200" y="78" width="50" height="3" fill="#901808" rx="1"/>
-    <!-- Auto 2: Blau -->
-    <rect x="282" y="62" width="52" height="20" fill="#1858a8" rx="5"/>
-    <path d="M292 62 Q296 51 314 50 Q332 51 336 62" fill="#2070c0"/>
-    <path d="M330 62 Q336 57 336 62" fill="#c8e8f8" opacity="0.9"/>
-    <path d="M292 62 Q292 55 298 53 L312 51 L312 62" fill="#c8e8f8" opacity="0.7"/>
-    <rect x="302" y="53" width="22" height="8" fill="#c8e8f8" rx="2" opacity="0.85"/>
-    <line x1="316" y1="62" x2="316" y2="81" stroke="#104090" stroke-width="1" opacity="0.5"/>
-    <rect x="308" y="70" width="8" height="3" fill="#80a8e8" rx="1"/>
-    <rect x="322" y="70" width="8" height="3" fill="#80a8e8" rx="1"/>
-    <rect x="330" y="65" width="7" height="5" fill="#fffaaa" rx="2" stroke="#c0c0c0" stroke-width="0.5"/>
-    <rect x="281" y="65" width="5" height="5" fill="#ff4444" rx="1"/>
-    <rect x="280" y="76" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <rect x="330" y="76" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <circle cx="296" cy="83" r="8" fill="#222"/><circle cx="296" cy="83" r="5" fill="#555"/><circle cx="296" cy="83" r="2.5" fill="#aaa"/>
-    <circle cx="322" cy="83" r="8" fill="#222"/><circle cx="322" cy="83" r="5" fill="#555"/><circle cx="322" cy="83" r="2.5" fill="#aaa"/>
-    <rect x="284" y="80" width="50" height="3" fill="#0a3878" rx="1"/>
-    <!-- Auto 3: Grün -->
-    <rect x="366" y="61" width="52" height="20" fill="#207830" rx="5"/>
-    <path d="M376 61 Q380 50 398 49 Q416 50 420 61" fill="#30a040"/>
-    <path d="M414 61 Q420 56 420 61" fill="#c8e8f8" opacity="0.9"/>
-    <path d="M376 61 Q376 54 382 52 L396 50 L396 61" fill="#c8e8f8" opacity="0.7"/>
-    <rect x="386" y="52" width="22" height="8" fill="#c8e8f8" rx="2" opacity="0.85"/>
-    <line x1="400" y1="61" x2="400" y2="80" stroke="#105020" stroke-width="1" opacity="0.5"/>
-    <rect x="392" y="69" width="8" height="3" fill="#70c880" rx="1"/>
-    <rect x="406" y="69" width="8" height="3" fill="#70c880" rx="1"/>
-    <rect x="414" y="64" width="7" height="5" fill="#fffaaa" rx="2" stroke="#c0c0c0" stroke-width="0.5"/>
-    <rect x="365" y="64" width="5" height="5" fill="#ff4444" rx="1"/>
-    <rect x="364" y="75" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <rect x="414" y="75" width="8" height="4" fill="#d0d0d0" rx="1"/>
-    <circle cx="380" cy="82" r="8" fill="#222"/><circle cx="380" cy="82" r="5" fill="#555"/><circle cx="380" cy="82" r="2.5" fill="#aaa"/>
-    <circle cx="406" cy="82" r="8" fill="#222"/><circle cx="406" cy="82" r="5" fill="#555"/><circle cx="406" cy="82" r="2.5" fill="#aaa"/>
-    <rect x="368" y="79" width="50" height="3" fill="#0a4018" rx="1"/>
-    <!-- Lichtlöcher im Garagenboden -->
-    <ellipse cx="250" cy="105" rx="24" ry="10" fill="#a0c8e8" stroke="#c8a010" stroke-width="2"/>
-    <ellipse cx="337" cy="105" rx="24" ry="10" fill="#a0c8e8" stroke="#c8a010" stroke-width="2"/>
-    <ellipse cx="424" cy="105" rx="24" ry="10" fill="#a0c8e8" stroke="#c8a010" stroke-width="2"/>
+    <rect width="680" height="400" fill="url(#bue-sky)"/>
+    <g opacity="0.88"><ellipse cx="76" cy="44" rx="54" ry="22" fill="white"/><ellipse cx="110" cy="33" rx="36" ry="16" fill="white"/></g>
+    <g opacity="0.80"><ellipse cx="580" cy="38" rx="48" ry="19" fill="white"/><ellipse cx="618" cy="27" rx="30" ry="13" fill="white"/></g>
+
+    <!-- Isometrische Seitenwand -->
+    <polygon points="480,10 516,28 516,358 480,354" fill="url(#bue-side)"/>
+    <!-- Gebäude-Schatten -->
+    <rect x="226" y="18" width="306" height="348" rx="8" fill="#00000025"/>
+    <!-- Silber-Fassade -->
+    <rect x="220" y="10" width="260" height="345" rx="5" fill="url(#bue-silver)"/>
+
+    <!-- Kranzgesims oben (passt genau auf Breite Fassade + Seite) -->
+    <rect x="215" y="6" width="307" height="11" rx="3" fill="url(#bue-gold)"/>
+    <!-- Dachzierleisten -->
+    <rect x="250" y="0" width="9" height="9" rx="2" fill="url(#bue-gold)"/>
+    <rect x="288" y="0" width="9" height="7" rx="2" fill="url(#bue-gold)"/>
+    <rect x="432" y="0" width="9" height="7" rx="2" fill="url(#bue-gold)"/>
+    <rect x="470" y="0" width="9" height="9" rx="2" fill="url(#bue-gold)"/>
+    <!-- Fähnchen -->
+    <line x1="350" y1="0" x2="350" y2="7" stroke="#906010" stroke-width="2"/>
+    <polygon points="350,0 365,3 350,6" fill="#c83020"/>
+
+    <!-- Gold-Trennbänder (zwischen Etagen) -->
+    <rect x="220" y="100" width="260" height="32" fill="url(#bue-gold)"/>
+    <rect x="220" y="202" width="260" height="26" fill="url(#bue-gold)"/>
+    <rect x="220" y="290" width="260" height="22" fill="url(#bue-gold)"/>
+
+    <!-- ── TIEFGARAGE (oben, y=10–100) ── -->
+    <rect x="220" y="10" width="260" height="92" rx="5" fill="url(#bue-garage)"/>
+    <!-- Schild im Gold-Band -->
+    <rect x="224" y="102" width="252" height="17" fill="#00000015" rx="3"/>
+    <text x="350" y="114" font-family="Nunito" font-weight="900" font-size="10" fill="#4a3000cc" text-anchor="middle">TIEFGARAGE · oben!</text>
+
+    <!-- Garage-Öffnungen (3×50px, 27-28px Rand/Abstand)
+         x=247–297 (cx=272), x=325–375 (cx=350), x=403–453 (cx=428) -->
+    <rect x="247" y="24" width="50" height="64" fill="#68788892" rx="4"/>
+    <path d="M247 46 Q272 28 297 46" fill="#5868789a"/>
+    <rect x="325" y="24" width="50" height="64" fill="#68788892" rx="4"/>
+    <path d="M325 46 Q350 28 375 46" fill="#5868789a"/>
+    <rect x="403" y="24" width="50" height="64" fill="#68788892" rx="4"/>
+    <path d="M403 46 Q428 28 453 46" fill="#5868789a"/>
+
+    <!-- ── AUTOS (zentriert in Öffnungen: cx=272, 350, 428) ── -->
+    <!-- Auto 1: Rot, cx=272 (x=249–295) -->
+    <rect x="249" y="54" width="46" height="20" fill="#c83020" rx="5"/>
+    <path d="M258 54 Q262 43 272 42 Q282 43 286 54" fill="#e04030"/>
+    <path d="M285 54 Q295 49 295 54" fill="#d0eeff" opacity="0.9"/>
+    <path d="M258 54 Q258 49 262 47 L271 43 L271 54" fill="#d0eeff" opacity="0.7"/>
+    <rect x="265" y="46" width="18" height="8" fill="#d0eeff" rx="2" opacity="0.85"/>
+    <rect x="292" y="57" width="5" height="5" fill="#fffaaa" rx="1"/>
+    <rect x="249" y="57" width="4" height="5" fill="#ff3333" rx="1"/>
+    <circle cx="261" cy="80" r="7" fill="#1a1a1a"/><circle cx="261" cy="80" r="4.5" fill="#444"/><circle cx="261" cy="80" r="2" fill="#999"/>
+    <circle cx="283" cy="80" r="7" fill="#1a1a1a"/><circle cx="283" cy="80" r="4.5" fill="#444"/><circle cx="283" cy="80" r="2" fill="#999"/>
+    <rect x="251" y="73" width="44" height="5" fill="#901808" rx="2"/>
+    <!-- Auto 2: Blau, cx=350 (x=327–373) -->
+    <rect x="327" y="56" width="46" height="20" fill="#1858a8" rx="5"/>
+    <path d="M336 56 Q340 45 350 44 Q360 45 364 56" fill="#2070c0"/>
+    <path d="M363 56 Q373 51 373 56" fill="#d0eeff" opacity="0.9"/>
+    <path d="M336 56 Q336 51 340 49 L349 45 L349 56" fill="#d0eeff" opacity="0.7"/>
+    <rect x="343" y="48" width="18" height="8" fill="#d0eeff" rx="2" opacity="0.85"/>
+    <rect x="370" y="59" width="5" height="5" fill="#fffaaa" rx="1"/>
+    <rect x="327" y="59" width="4" height="5" fill="#ff3333" rx="1"/>
+    <circle cx="339" cy="82" r="7" fill="#1a1a1a"/><circle cx="339" cy="82" r="4.5" fill="#444"/><circle cx="339" cy="82" r="2" fill="#999"/>
+    <circle cx="361" cy="82" r="7" fill="#1a1a1a"/><circle cx="361" cy="82" r="4.5" fill="#444"/><circle cx="361" cy="82" r="2" fill="#999"/>
+    <rect x="329" y="75" width="44" height="5" fill="#0a3878" rx="2"/>
+    <!-- Auto 3: Grün, cx=428 (x=405–451) -->
+    <rect x="405" y="55" width="46" height="20" fill="#207830" rx="5"/>
+    <path d="M414 55 Q418 44 428 43 Q438 44 442 55" fill="#30a040"/>
+    <path d="M441 55 Q451 50 451 55" fill="#d0eeff" opacity="0.9"/>
+    <path d="M414 55 Q414 50 418 48 L427 44 L427 55" fill="#d0eeff" opacity="0.7"/>
+    <rect x="421" y="47" width="18" height="8" fill="#d0eeff" rx="2" opacity="0.85"/>
+    <rect x="448" y="58" width="5" height="5" fill="#fffaaa" rx="1"/>
+    <rect x="405" y="58" width="4" height="5" fill="#ff3333" rx="1"/>
+    <circle cx="417" cy="81" r="7" fill="#1a1a1a"/><circle cx="417" cy="81" r="4.5" fill="#444"/><circle cx="417" cy="81" r="2" fill="#999"/>
+    <circle cx="439" cy="81" r="7" fill="#1a1a1a"/><circle cx="439" cy="81" r="4.5" fill="#444"/><circle cx="439" cy="81" r="2" fill="#999"/>
+    <rect x="407" y="74" width="44" height="5" fill="#0a4018" rx="2"/>
+
+    <!-- Lichtlöcher am Garagenboden (cx=272, 350, 428, y=100) -->
+    <ellipse cx="272" cy="100" rx="20" ry="8" fill="#88b8e0" stroke="#c8a010" stroke-width="2"/>
+    <ellipse cx="350" cy="100" rx="20" ry="8" fill="#88b8e0" stroke="#c8a010" stroke-width="2"/>
+    <ellipse cx="428" cy="100" rx="20" ry="8" fill="#88b8e0" stroke="#c8a010" stroke-width="2"/>
     <!-- Lichtstrahlen -->
-    <polygon points="228,104 240,152 262,152 274,104" fill="url(#bue-light)" opacity="0.8"/>
-    <polygon points="314,104 326,152 348,152 360,104" fill="url(#bue-light)" opacity="0.8"/>
-    <polygon points="402,104 414,152 436,152 448,104" fill="url(#bue-light)" opacity="0.8"/>
-    <!-- Bürofenster Reihe 1 -->
-    <rect x="192" y="142" width="56" height="62" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="220" y1="142" x2="220" y2="204" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <line x1="192" y1="173" x2="248" y2="173" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="192,142 220,158 192,175" fill="white" opacity="0.12"/>
-    <rect x="196" y="188" width="48" height="7" fill="#8a6030" rx="2" opacity="0.5"/>
-    <circle cx="220" cy="178" r="7" fill="#ffcc88"/>
-    <rect x="213" y="186" width="14" height="10" fill="#3050a060" rx="2"/>
-    <rect x="260" y="142" width="56" height="62" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="288" y1="142" x2="288" y2="204" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <line x1="260" y1="173" x2="316" y2="173" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="260,142 288,158 260,175" fill="white" opacity="0.12"/>
-    <rect x="264" y="188" width="48" height="7" fill="#8a6030" rx="2" opacity="0.5"/>
-    <circle cx="288" cy="178" r="7" fill="#ffaa66"/>
-    <rect x="281" y="186" width="14" height="10" fill="#3050a060" rx="2"/>
-    <rect x="328" y="142" width="56" height="62" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="356" y1="142" x2="356" y2="204" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <line x1="328" y1="173" x2="384" y2="173" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="328,142 356,158 328,175" fill="white" opacity="0.12"/>
-    <rect x="332" y="188" width="48" height="7" fill="#8a6030" rx="2" opacity="0.5"/>
-    <circle cx="356" cy="178" r="7" fill="#ffcc88"/>
-    <rect x="349" y="186" width="14" height="10" fill="#3050a060" rx="2"/>
-    <rect x="396" y="142" width="56" height="62" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="424" y1="142" x2="424" y2="204" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <line x1="396" y1="173" x2="452" y2="173" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="396,142 424,158 396,175" fill="white" opacity="0.12"/>
-    <rect x="400" y="188" width="48" height="7" fill="#8a6030" rx="2" opacity="0.5"/>
-    <circle cx="424" cy="178" r="7" fill="#ffaa66"/>
-    <rect x="417" y="186" width="14" height="10" fill="#3050a060" rx="2"/>
-    <!-- Bürofenster Reihe 2 -->
-    <rect x="192" y="220" width="56" height="42" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="220" y1="220" x2="220" y2="262" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="192,220 220,233 192,246" fill="white" opacity="0.12"/>
-    <rect x="260" y="220" width="56" height="42" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="288" y1="220" x2="288" y2="262" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="260,220 288,233 260,246" fill="white" opacity="0.12"/>
-    <rect x="328" y="220" width="56" height="42" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="356" y1="220" x2="356" y2="262" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="328,220 356,233 328,246" fill="white" opacity="0.12"/>
-    <rect x="396" y="220" width="56" height="42" rx="5" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
-    <line x1="424" y1="220" x2="424" y2="262" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
-    <polygon points="396,220 424,233 396,246" fill="white" opacity="0.12"/>
-    <!-- Eingangstür (Bogen, gold) -->
-    <rect x="296" y="262" width="82" height="7" fill="#b89040" rx="2"/>
-    <rect x="302" y="257" width="70" height="7" fill="#c8a050" rx="2"/>
-    <rect x="308" y="210" width="58" height="52" fill="url(#bue-door)" rx="4" stroke="#a07008" stroke-width="3"/>
-    <path d="M308 226 Q337 210 366 226" fill="#e8b820" stroke="#a07008" stroke-width="2"/>
-    <rect x="310" y="228" width="26" height="34" fill="#d4980e" rx="2" stroke="#a07008" stroke-width="1.5"/>
-    <rect x="338" y="228" width="26" height="34" fill="#d4980e" rx="2" stroke="#a07008" stroke-width="1.5"/>
-    <circle cx="332" cy="247" r="4" fill="#fffb80" stroke="#c8a000" stroke-width="1"/>
-    <circle cx="342" cy="247" r="4" fill="#fffb80" stroke="#c8a000" stroke-width="1"/>
-    <path d="M308 228 Q337 212 366 228" fill="#a0d8f8" stroke="#a07008" stroke-width="1.5"/>
-    <!-- Boden / Gehsteig -->
-    <rect y="268" width="680" height="32" fill="url(#bue-floor)"/>
-    <line x1="220" y1="268" x2="220" y2="300" stroke="#907040" stroke-width="1" opacity="0.4"/>
-    <line x1="460" y1="268" x2="460" y2="300" stroke="#907040" stroke-width="1" opacity="0.4"/>
-    <!-- Thomas-Figur -->
-    <ellipse cx="140" cy="293" rx="16" ry="5" fill="#00000020"/>
-    <path d="M132 265 Q128 278 130 290" stroke="#203870" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M148 265 Q152 278 150 290" stroke="#203870" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <rect x="128" y="238" width="24" height="28" fill="#2848a0" rx="5"/>
-    <path d="M128 246 Q116 240 108 232" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <path d="M152 246 Q164 240 172 232" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <circle cx="140" cy="226" r="17" fill="#ffcc88"/>
-    <path d="M124 223 Q126 208 140 206 Q154 208 156 223" fill="#803010" stroke="#601808" stroke-width="1.5"/>
-    <circle cx="134" cy="223" r="3.5" fill="#4a2800"/>
-    <circle cx="146" cy="223" r="3.5" fill="#4a2800"/>
-    <path d="M134 233 Q140 238 146 233" stroke="#a06030" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="88" y="193" width="52" height="20" fill="white" rx="5" stroke="#c8a010" stroke-width="1.5"/>
-    <text x="114" y="207" font-family="Nunito" font-weight="900" font-size="10" fill="#5a4000" text-anchor="middle">Thomas</text>
+    <polygon points="253,100 261,146 283,146 291,100" fill="url(#bue-light)" opacity="0.75"/>
+    <polygon points="331,100 339,146 361,146 369,100" fill="url(#bue-light)" opacity="0.75"/>
+    <polygon points="409,100 417,146 439,146 447,100" fill="url(#bue-light)" opacity="0.75"/>
+
+    <!-- ── ETAGE 3 (y=136–198, 62px, 3 Fenster) ── -->
+    <rect x="247" y="136" width="50" height="62" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="272" y1="136" x2="272" y2="198" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="247" y1="167" x2="297" y2="167" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="247,136 272,152 247,168" fill="white" opacity="0.13"/>
+    <circle cx="272" cy="178" r="6" fill="#ffcc88"/>
+    <rect x="265" y="185" width="14" height="9" fill="#3050a060" rx="2"/>
+    <rect x="325" y="136" width="50" height="62" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="350" y1="136" x2="350" y2="198" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="325" y1="167" x2="375" y2="167" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="325,136 350,152 325,168" fill="white" opacity="0.13"/>
+    <circle cx="350" cy="175" r="6" fill="#ffaa66"/>
+    <rect x="343" y="182" width="14" height="9" fill="#3050a060" rx="2"/>
+    <rect x="403" y="136" width="50" height="62" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="428" y1="136" x2="428" y2="198" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="403" y1="167" x2="453" y2="167" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="403,136 428,152 403,168" fill="white" opacity="0.13"/>
+    <circle cx="428" cy="178" r="6" fill="#ffcc88"/>
+    <rect x="421" y="185" width="14" height="9" fill="#3050a060" rx="2"/>
+
+    <!-- ── ETAGE 2 (y=232–286, 54px, 3 Fenster) ── -->
+    <rect x="247" y="232" width="50" height="54" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="272" y1="232" x2="272" y2="286" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="247" y1="259" x2="297" y2="259" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="247,232 272,246 247,260" fill="white" opacity="0.13"/>
+    <circle cx="272" cy="270" r="6" fill="#ffcc88"/>
+    <rect x="325" y="232" width="50" height="54" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="350" y1="232" x2="350" y2="286" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="325" y1="259" x2="375" y2="259" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="325,232 350,246 325,260" fill="white" opacity="0.13"/>
+    <circle cx="350" cy="266" r="6" fill="#ffaa66"/>
+    <rect x="403" y="232" width="50" height="54" rx="4" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2.5"/>
+    <line x1="428" y1="232" x2="428" y2="286" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <line x1="403" y1="259" x2="453" y2="259" stroke="#c8a010" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="403,232 428,246 403,260" fill="white" opacity="0.13"/>
+    <circle cx="428" cy="268" r="6" fill="#ffcc88"/>
+
+    <!-- ── ERDGESCHOSS: Eingang + Seitenfenster (y=316–355) ── -->
+    <!-- Linkes Seitenfenster -->
+    <rect x="226" y="318" width="44" height="24" rx="3" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2"/>
+    <line x1="248" y1="318" x2="248" y2="342" stroke="#c8a010" stroke-width="1" opacity="0.4"/>
+    <!-- Rechtes Seitenfenster -->
+    <rect x="430" y="318" width="44" height="24" rx="3" fill="url(#bue-glass)" stroke="#c8a010" stroke-width="2"/>
+    <line x1="452" y1="318" x2="452" y2="342" stroke="#c8a010" stroke-width="1" opacity="0.4"/>
+    <!-- Eingangsportal -->
+    <rect x="291" y="300" width="118" height="55" fill="url(#bue-door)" rx="4" stroke="#a07008" stroke-width="2.5"/>
+    <path d="M291 316 Q350 298 409 316" fill="#e8b820" stroke="#a07008" stroke-width="2"/>
+    <rect x="293" y="319" width="54" height="36" fill="#c8900e" rx="2" stroke="#a07008" stroke-width="1.5"/>
+    <rect x="353" y="319" width="54" height="36" fill="#c8900e" rx="2" stroke="#a07008" stroke-width="1.5"/>
+    <circle cx="344" cy="339" r="4" fill="#fffb80" stroke="#c8a000" stroke-width="1"/>
+    <circle cx="356" cy="339" r="4" fill="#fffb80" stroke="#c8a000" stroke-width="1"/>
+    <path d="M291 319 Q350 301 409 319" fill="#a0d8f8" stroke="#a07008" stroke-width="1.5"/>
+    <!-- Stufen -->
+    <rect x="279" y="355" width="142" height="7" fill="#c8a050" rx="2"/>
+    <rect x="285" y="362" width="130" height="5" fill="#b89040" rx="2"/>
+    <!-- Fassadenrand -->
+    <rect x="220" y="10" width="260" height="345" rx="5" fill="none" stroke="#a08010" stroke-width="1.5" opacity="0.28"/>
+
+    <!-- Boden / Gehweg -->
+    <rect y="372" width="680" height="28" fill="url(#bue-floor)"/>
+    <line x1="196" y1="372" x2="196" y2="400" stroke="#907040" stroke-width="1" opacity="0.35"/>
+    <line x1="524" y1="372" x2="524" y2="400" stroke="#907040" stroke-width="1" opacity="0.35"/>
+
+    <!-- ── THOMAS ── (cx=112, Füße bei y=392) -->
+    <ellipse cx="112" cy="392" rx="16" ry="5" fill="#00000020"/>
+    <path d="M106 354 Q102 368 104 389" stroke="#203870" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M120 354 Q124 368 122 389" stroke="#203870" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="102" y="325" width="24" height="31" fill="#2848a0" rx="5"/>
+    <path d="M102 333 Q88 326 76 316" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M126 333 Q138 326 150 314" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="114" cy="312" r="17" fill="#ffcc88"/>
+    <path d="M98 308 Q100 293 114 291 Q128 293 130 308" fill="#803010" stroke="#601808" stroke-width="1.5"/>
+    <circle cx="108" cy="309" r="3.5" fill="#4a2800"/>
+    <circle cx="120" cy="309" r="3.5" fill="#4a2800"/>
+    <path d="M108 319 Q114 324 120 319" stroke="#a06030" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <rect x="68" y="283" width="52" height="20" fill="white" rx="5" stroke="#c8a010" stroke-width="1.5"/>
+    <text x="94" y="297" font-family="Nunito" font-weight="900" font-size="10" fill="#5a4000" text-anchor="middle">Thomas</text>
   </svg>`;
 }
 

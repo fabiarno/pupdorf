@@ -207,39 +207,11 @@
       <!--  BÜRO – großes Gebäude Mitte-Links                -->
       <!-- ══════════════════════════════════════════════════ -->
       <g class="karte-hotspot" onclick="oeffneOrt('buero')">
-        <!-- Gebäude-Schatten -->
-        <ellipse cx="540" cy="370" rx="140" ry="18" fill="#00000025"/>
-        <!-- Gebäudeseite (leicht isometrisch) -->
-        <polygon points="650,115 700,130 700,365 650,355" fill="#b09850"/>
-        <!-- Gebäudefront -->
-        <rect x="380" y="100" width="270" height="255" rx="4" fill="#f5c842"/>
-        <!-- Tiefgarage OBEN (das Besondere!) -->
-        <rect x="380" y="100" width="270" height="72" rx="4" fill="#c8a030"/>
-        <text x="515" y="132" font-family="Nunito" font-weight="900" font-size="11" fill="#5a3800" text-anchor="middle" opacity="0.9">TIEFGARAGE – oben!</text>
-        <!-- Garageneinfahrten von oben -->
-        <rect x="400" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
-        <rect x="465" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
-        <rect x="530" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
-        <rect x="595" y="110" width="40" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
-        <!-- Lichtlöcher (Ellipsen) -->
-        <ellipse cx="426" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
-        <ellipse cx="491" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
-        <ellipse cx="556" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
-        <!-- Bürofenster (Reihen) -->
-        <rect x="390" y="185" width="250" height="8"  fill="#c8901088" rx="2"/>
-        <rect x="390" y="230" width="250" height="8"  fill="#c8901088" rx="2"/>
-        <rect x="390" y="275" width="250" height="8"  fill="#c8901088" rx="2"/>
-        <!-- Eingang -->
-        <rect x="480" y="310" width="70" height="45"  fill="#d4a820" rx="3"/>
-        <path d="M480 318 Q515 302 550 318" fill="#e8b820"/>
-        <!-- Gebäude-Silbertöne (rechter Teil) -->
-        <rect x="590" y="172" width="60" height="183" rx="3" fill="#c0d0dc" opacity="0.85"/>
-        <rect x="380" y="100" width="270" height="255" rx="4" fill="none" stroke="#a08010" stroke-width="2" opacity="0.5"/>
-        <!-- Klickfläche -->
-        <rect x="380" y="100" width="320" height="275" fill="transparent"/>
+        <image href="img/buero.png" x="250" y="55" width="408" height="240" preserveAspectRatio="xMidYMid meet"/>
+        <rect x="250" y="55" width="408" height="240" fill="transparent"/>
         <g class="hover-label">
-          <rect x="405" y="215" width="160" height="26" rx="13" fill="#2c3e50e0"/>
-          <text x="485" y="233" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🏢 Das Büro</text>
+          <rect x="368" y="200" width="160" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="448" y="218" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🏢 Das Büro</text>
         </g>
       </g>
 
@@ -552,7 +524,19 @@
     </a>
 
     <a class="ort-card" onclick="oeffneOrt('buero')">
-      <svg class="ort-illu" id="buero-kachel-illu" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg"></svg>
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bue-sky-k" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5aa8d8"/><stop offset="100%" stop-color="#b8ddf5"/>
+          </linearGradient>
+        </defs>
+        <rect width="300" height="225" fill="url(#bue-sky-k)"/>
+        <g opacity="0.85"><ellipse cx="55" cy="28" rx="32" ry="13" fill="white"/><ellipse cx="76" cy="22" rx="22" ry="10" fill="white"/></g>
+        <g opacity="0.8"><ellipse cx="230" cy="35" rx="28" ry="11" fill="white"/><ellipse cx="252" cy="29" rx="18" ry="8" fill="white"/></g>
+        <rect y="184" width="300" height="41" fill="#c8a97e"/>
+        <rect y="184" width="300" height="5" fill="#b89060"/>
+        <image href="img/buero.png" x="-10" y="60" width="320" height="188"/>
+      </svg>
       <div class="ort-body">
         <h2>Das Büro</h2>
         <p>Glänzt gold und silber. Die Tiefgarage ist oben, die Schreibtische unten. Ein Kollege heißt Thomas.</p>
@@ -871,7 +855,19 @@
 
       <!-- SEITE: Büro -->
       <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
-        <svg id="buero-buch-illu" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"></svg>
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <defs>
+            <linearGradient id="bue-sky-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5aa8d8"/><stop offset="100%" stop-color="#b8ddf5"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="350" fill="url(#bue-sky-b)"/>
+          <g opacity="0.85"><ellipse cx="100" cy="50" rx="60" ry="24" fill="white"/><ellipse cx="140" cy="38" rx="42" ry="18" fill="white"/></g>
+          <g opacity="0.8"><ellipse cx="460" cy="60" rx="52" ry="20" fill="white"/><ellipse cx="496" cy="48" rx="34" ry="15" fill="white"/></g>
+          <rect y="272" width="600" height="78" fill="#c8a97e"/>
+          <rect y="272" width="600" height="7" fill="#b89060"/>
+          <image href="img/buero.png" x="-10" y="50" width="620" height="365"/>
+        </svg>
         <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #f5c842">
           <h2 style="font-weight:900;margin-bottom:0.4rem">🏢 Das Büro</h2>
           <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Das Büro glänzt in <strong>Gold und Silber</strong>. Das Besondere: Die Tiefgarage ist ganz <strong>oben</strong>, und die Schreibtische sind <strong>unten</strong>. Durch Löcher im Garagenboden fällt Licht auf die Tische. Ein Kollege heißt <strong>Thomas</strong>.</p>
