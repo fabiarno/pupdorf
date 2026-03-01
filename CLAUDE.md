@@ -52,6 +52,16 @@ Der Nutzer teilt neue Pupdorf-Geschichten im Chat. Claude übernimmt alle Änder
 
 ### Neuen Ort hinzufügen
 
+> **Wichtig: Jeder Ort hat drei Views – alle drei müssen bei neuen Illustrationen aktualisiert werden:**
+>
+> | View | Kontext | Format | Vorlage |
+> |------|---------|--------|---------|
+> | **Karte** | SVG-Stadtkarte (`#stadtplan`) | Transparentes PNG, kein Himmel/Boden | `img/bauernhof.png` |
+> | **Kachel** | Ort-Grid auf der Startseite | SVG 300×225 mit Himmel/Boden + PNG | Bauernhof-Kachel unten |
+> | **Buchseite** | Section `#buch` | SVG 600×350 mit Himmel/Boden + PNG | Bauernhof-Buchseite unten |
+>
+> Für die Karte: transparentes PNG aus dem Modal-SVG rendern (kein Himmel, kein Boden, keine Schilder). Für Kachel und Buchseite: dasselbe PNG auf einen passenden Himmel/Boden-Hintergrund in der jeweiligen SVG-Größe legen.
+
 **1. Eintrag in `ORTE` (js/main.js, ab Zeile ~45):**
 ```js
 meinort: {
@@ -81,15 +91,60 @@ function meinortSVG() {
 </g>
 ```
 
-**4. Ort-Karte im Grid (index.html, `div.orte-grid`):**
+**4. Kachel im Ort-Grid (index.html, `div.orte-grid`) – Vorlage Bauernhof:**
 ```html
 <a class="ort-card" onclick="oeffneOrt('meinort')">
-  <svg class="ort-illu" viewBox="0 0 300 225" ...><!-- Miniatur-Illustration --></svg>
+  <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="XXX-sky-k" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7ec8f0"/><stop offset="100%" stop-color="#c8e8f8"/>
+      </linearGradient>
+    </defs>
+    <!-- Himmel -->
+    <rect width="300" height="225" fill="url(#XXX-sky-k)"/>
+    <!-- Wolken (optional) -->
+    <ellipse cx="60" cy="30" rx="35" ry="14" fill="white" opacity="0.85"/>
+    <ellipse cx="80" cy="26" rx="28" ry="12" fill="white" opacity="0.9"/>
+    <ellipse cx="220" cy="40" rx="30" ry="12" fill="white" opacity="0.8"/>
+    <!-- Boden -->
+    <rect y="184" width="300" height="41" fill="#c8a97e"/>
+    <rect y="184" width="300" height="5" fill="#b89060"/>
+    <!-- Illustration PNG – y so wählen dass Gebäude/Figur gut sichtbar -->
+    <image href="img/XXX.png" x="0" y="93" width="300" height="132"/>
+  </svg>
   <div class="ort-body">
-    <h2>Name</h2>
+    <h2>🎯 Name</h2>
     <p>Kurzbeschreibung</p>
   </div>
 </a>
+```
+
+**5. Buchseite (index.html, Section `#buch`, vor der Rückseite) – Vorlage Bauernhof:**
+```html
+<div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+  <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+    <defs>
+      <linearGradient id="XXX-sky-b" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7ec8f0"/><stop offset="100%" stop-color="#c8e8f8"/>
+      </linearGradient>
+    </defs>
+    <!-- Himmel -->
+    <rect width="600" height="350" fill="url(#XXX-sky-b)"/>
+    <!-- Wolken (optional) -->
+    <ellipse cx="120" cy="55" rx="65" ry="25" fill="white" opacity="0.85"/>
+    <ellipse cx="155" cy="45" rx="50" ry="20" fill="white" opacity="0.9"/>
+    <ellipse cx="440" cy="70" rx="55" ry="22" fill="white" opacity="0.8"/>
+    <!-- Boden -->
+    <rect y="272" width="600" height="78" fill="#c8a97e"/>
+    <rect y="272" width="600" height="7" fill="#b89060"/>
+    <!-- Illustration PNG – y so wählen dass Gebäude/Figur gut zentriert -->
+    <image href="img/XXX.png" x="0" y="85" width="600" height="265"/>
+  </svg>
+  <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #f5c842">
+    <h2 style="font-weight:900;margin-bottom:0.4rem">🎯 Titel</h2>
+    <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Text der Buchseite.</p>
+  </div>
+</div>
 ```
 
 ### Neues Lulisch-Wort
@@ -114,18 +169,6 @@ In `index.html`, Section `#regeln`, in `div.orte-grid`:
 </div>
 ```
 
-### Neue Buchseite
-
-In `index.html`, Section `#buch`, im `div#buchseiten`, vor der Rückseite:
-```html
-<div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
-  <svg viewBox="0 0 600 350" ...><!-- Illustration --></svg>
-  <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #f5c842">
-    <h2 style="font-weight:900;margin-bottom:0.4rem">🎯 Titel</h2>
-    <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Text der Buchseite.</p>
-  </div>
-</div>
-```
 
 ## GitHub
 
