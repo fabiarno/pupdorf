@@ -309,7 +309,7 @@ function bueroSVG() {
      Isometrische Seite: x=480–516
      3 Garage-Öffnungen (50px) mit 27–28px Abstand: cx=272, 350, 428
      3 Fenster-Etagen darunter                                              */
-  return `<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
+  return `<svg viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
     <defs>
       <linearGradient id="bue-sky" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#4a9fd4"/><stop offset="100%" stop-color="#aad4f0"/>
@@ -340,11 +340,13 @@ function bueroSVG() {
       </linearGradient>
     </defs>
 
-    <!-- Himmel -->
-    <rect width="680" height="400" fill="url(#bue-sky)"/>
+    <!-- Himmel (460px hoch für mehr Luft über Gebäude) -->
+    <rect width="680" height="460" fill="url(#bue-sky)"/>
     <g opacity="0.88"><ellipse cx="76" cy="44" rx="54" ry="22" fill="white"/><ellipse cx="110" cy="33" rx="36" ry="16" fill="white"/></g>
     <g opacity="0.80"><ellipse cx="580" cy="38" rx="48" ry="19" fill="white"/><ellipse cx="618" cy="27" rx="30" ry="13" fill="white"/></g>
 
+    <!-- Gebäude 40px nach unten verschoben → mehr Himmel oben -->
+    <g transform="translate(0,40)">
     <!-- Isometrische Seitenwand -->
     <polygon points="480,10 516,28 516,358 480,354" fill="url(#bue-side)"/>
     <!-- Gebäude-Schatten -->
@@ -485,10 +487,10 @@ function bueroSVG() {
     <!-- Fassadenrand -->
     <rect x="220" y="10" width="260" height="345" rx="5" fill="none" stroke="#a08010" stroke-width="1.5" opacity="0.28"/>
 
-    <!-- Boden / Gehweg -->
-    <rect y="372" width="680" height="28" fill="url(#bue-floor)"/>
-    <line x1="196" y1="372" x2="196" y2="400" stroke="#907040" stroke-width="1" opacity="0.35"/>
-    <line x1="524" y1="372" x2="524" y2="400" stroke="#907040" stroke-width="1" opacity="0.35"/>
+    <!-- Boden / Gehweg (startet bei y=355 → direkt am Gebäudesockel, kein Schwebeeffekt) -->
+    <rect y="355" width="680" height="105" fill="url(#bue-floor)"/>
+    <line x1="196" y1="358" x2="196" y2="420" stroke="#907040" stroke-width="1" opacity="0.35"/>
+    <line x1="524" y1="358" x2="524" y2="420" stroke="#907040" stroke-width="1" opacity="0.35"/>
 
     <!-- ── THOMAS ── (cx=112, Füße bei y=392) -->
     <ellipse cx="112" cy="392" rx="16" ry="5" fill="#00000020"/>
@@ -504,6 +506,7 @@ function bueroSVG() {
     <path d="M108 319 Q114 324 120 319" stroke="#a06030" stroke-width="2" fill="none" stroke-linecap="round"/>
     <rect x="68" y="283" width="52" height="20" fill="white" rx="5" stroke="#c8a010" stroke-width="1.5"/>
     <text x="94" y="297" font-family="Nunito" font-weight="900" font-size="10" fill="#5a4000" text-anchor="middle">Thomas</text>
+    </g><!-- Ende translate(0,40) -->
   </svg>`;
 }
 
