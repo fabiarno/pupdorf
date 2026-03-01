@@ -509,14 +509,12 @@
       <!--  BAUERNHOF – transparentes PNG im Vordergrund     -->
       <!-- ══════════════════════════════════════════════════ -->
       <g class="karte-hotspot" onclick="oeffneOrt('bauernhof')">
-        <!-- PNG: 680×300, Elemente sitzen bei ~76% Höhe -->
-        <!-- w=400, h=176 → Elementbasis bei y_start + 134 -->
-        <!-- Abzweigstraße endet bei (110,640), PNG-Basis bei (0+200, 485+134)=634 → passt! -->
-        <image href="img/bauernhof.png" x="-20" y="485" width="400" height="176" preserveAspectRatio="xMidYMid meet"/>
-        <rect x="-20" y="485" width="400" height="176" fill="transparent"/>
+        <!-- PNG 680×300, Scale 0.82 → 558×246 -->
+        <image href="img/bauernhof.png" x="0" y="430" width="558" height="246" preserveAspectRatio="xMidYMid meet"/>
+        <rect x="0" y="430" width="558" height="246" fill="transparent"/>
         <g class="hover-label">
-          <rect x="35" y="560" width="170" height="26" rx="13" fill="#2c3e50e0"/>
-          <text x="120" y="578" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🐾 Bauernhof</text>
+          <rect x="65" y="630" width="170" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="150" y="648" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🐾 Bauernhof</text>
         </g>
       </g>
 
