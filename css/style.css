@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600&display=swap');
+
+/* ─── Variablen ─────────────────────────────────────────────── */
+:root {
+  --sky:      #b8e4f9;
+  --grass:    #7ec88a;
+  --bark:     #c8a97e;
+  --gold:     #f5c842;
+  --silver:   #c0d0dc;
+  --orange:   #f28a2e;
+  --choco-green: #5ab55a;
+  --night:    #2c3e50;
+  --paper:    #fdf6e3;
+  --ink:      #3a2e1e;
+  --radius:   16px;
+  --shadow:   0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ─── Reset & Basis ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--sky);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav {
+  background: var(--paper);
+  border-bottom: 3px solid var(--gold);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+nav .logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--night);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+nav .logo span { color: var(--orange); }
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+nav ul a {
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+nav ul a:hover, nav ul a.active {
+  background: var(--gold);
+  color: var(--night);
+}
+.btn-buch {
+  background: var(--orange) !important;
+  color: white !important;
+}
+.btn-buch:hover { background: #d9742a !important; }
+
+/* ─── Hero / Karte ───────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--night);
+  text-shadow: 3px 3px 0 var(--gold);
+  margin-bottom: 0.3rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Karte (SVG Container) ──────────────────────────────────── */
+.karte-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+}
+.karte-wrapper svg {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  cursor: default;
+}
+.karte-hotspot {
+  cursor: pointer;
+}
+.karte-hotspot image {
+  transition: filter 0.2s;
+}
+.karte-hotspot:hover image {
+  filter: brightness(1.08) drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+.karte-hotspot .hover-label {
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.karte-hotspot:hover .hover-label {
+  opacity: 1;
+}
+
+/* ─── Ort-Karten Grid ─────────────────────────────────────────── */
+.orte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ─── Einzelne Ort-Karte ─────────────────────────────────────── */
+.ort-card {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 3px solid transparent;
+}
+.ort-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  border-color: var(--gold);
+}
+.ort-card .ort-illu {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: block;
+  background: var(--sky);
+}
+.ort-card .ort-body {
+  padding: 1rem 1.2rem 1.2rem;
+}
+.ort-card h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+}
+.ort-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* ─── Detail-Seite / Modal ───────────────────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.overlay.open { display: flex; }
+.modal {
+  background: var(--paper);
+  border-radius: 24px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gold);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 900;
+  line-height: 38px;
+  text-align: center;
+  z-index: 10;
+}
+.modal-illu {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 24px 24px 0 0;
+}
+.modal-body {
+  padding: 1.5rem 1.8rem 2rem;
+}
+.modal-body h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+.modal-body .fakt {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-bottom: 0.7rem;
+  background: rgba(0,0,0,0.04);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+}
+.modal-body .fakt .emoji { font-size: 1.4rem; flex-shrink: 0; }
+.modal-body .fakt p { font-size: 0.95rem; line-height: 1.5; }
+
+/* ─── Wörterbuch ─────────────────────────────────────────────── */
+.woerter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.woerter-karte {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--orange);
+}
+.woerter-karte .lulisch {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 0.2rem;
+}
+.woerter-karte .deutsch {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ─── Sections ────────────────────────────────────────────────── */
+section {
+  display: none;
+}
+section.active { display: block; }
+
+/* ─── Buch-View ──────────────────────────────────────────────── */
+.buch-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.buch-intro h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; }
+.buch-intro p { color: #555; line-height: 1.6; }
+.btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.8rem;
+  background: var(--orange);
+  color: white;
+  font-weight: 800;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+.btn:hover { background: #d9742a; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-size: 0.8rem;
+  margin-top: 3rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DRUCK / BUCH (A5 Querformat)
+   ══════════════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    size: 148mm 210mm; /* A5 Hochformat */
+    margin: 0;
+  }
+
+  nav, footer, .overlay, .modal-close { display: none !important; }
+  body { background: white; font-size: 14px; }
+
+  .buch-seite {
+    width: 148mm;
+    height: 210mm;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .buch-seite .seiten-illu {
+    flex: 1;
+    display: block;
+    width: 100%;
+  }
+
+  .buch-seite .seiten-text {
+    padding: 8mm 10mm;
+    background: var(--paper);
+  }
+
+  .buch-seite h2 {
+    font-size: 18pt;
+    font-weight: 900;
+    margin-bottom: 4mm;
+  }
+
+  .buch-seite p {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .buch-deckblatt {
+    background: var(--night) !important;
+    color: white !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  section { display: block !important; }
+  .orte-grid, .woerter-grid { display: none; }
+}

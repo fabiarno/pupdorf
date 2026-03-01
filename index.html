@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pupdorf – Fietes Welt</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/print.css"/>
+</head>
+<body>
+
+
+<!-- ─── Navigation ───────────────────────────────────────────── -->
+<nav>
+  <a class="logo" href="#" onclick="zeigSection('karte')">Pup<span>dorf</span></a>
+  <ul>
+    <li><a href="#" data-section="karte"   onclick="zeigSection('karte')">🗺️ Karte</a></li>
+    <li><a href="#" data-section="regeln"  onclick="zeigSection('regeln')">📋 Regeln</a></li>
+    <li><a href="#" data-section="woerter" onclick="zeigSection('woerter')">🗣️ Lulisch</a></li>
+    <li><a href="#" data-section="buch"    onclick="zeigSection('buch')" class="btn-buch">📖 Buch</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION: KARTE (Startseite)
+     ══════════════════════════════════════════════════════════════ -->
+<section id="karte" class="active">
+  <div class="hero">
+    <h1>Willkommen in Pupdorf!</h1>
+    <p>Ein ganz besonderer Ort – erzählt von Fiete</p>
+  </div>
+
+  <!-- Illustrierte Stadtkarte -->
+  <div class="karte-wrapper">
+    <svg viewBox="0 0 1600 700" xmlns="http://www.w3.org/2000/svg" id="stadtplan">
+      <defs>
+        <linearGradient id="sky-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#4a98cc"/>
+          <stop offset="65%"  stop-color="#8ec8e8"/>
+          <stop offset="100%" stop-color="#c5e0f2"/>
+        </linearGradient>
+        <linearGradient id="ground-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#7ab840"/>
+          <stop offset="38%"  stop-color="#b09060"/>
+          <stop offset="100%" stop-color="#8c6835"/>
+        </linearGradient>
+        <radialGradient id="vignette" cx="50%" cy="40%" r="70%">
+          <stop offset="60%"  stop-color="transparent"/>
+          <stop offset="100%" stop-color="#00000022"/>
+        </radialGradient>
+      </defs>
+
+      <!-- ── Himmel ─────────────────────────────────────────── -->
+      <rect width="1600" height="700" fill="url(#sky-grad)"/>
+
+      <!-- ── Bergketten (3 Ebenen) ──────────────────────────── -->
+      <!-- Fernste Kette (blau-grau, verblasst) -->
+      <polygon points="0,162 30,108 55,140 88,82 118,128 155,70 188,130 222,85 258,145 290,75 325,132 360,72 395,138 430,85 465,148 500,78 535,128 568,68 605,135 640,78 675,130 710,72 745,138 780,80 815,142 850,75 888,132 925,78 960,140 998,72 1032,130 1068,78 1105,142 1142,70 1178,132 1215,80 1252,138 1288,75 1325,130 1362,80 1398,140 1435,72 1472,132 1510,80 1548,140 1580,95 1600,118 1600,168 0,168" fill="#90aec5" opacity="0.48"/>
+      <!-- Schneekappen -->
+      <polygon points="88,82  105,106 71,106"  fill="white" opacity="0.88"/>
+      <polygon points="155,70 172,98  138,98"  fill="white" opacity="0.90"/>
+      <polygon points="360,72 377,100 343,100" fill="white" opacity="0.85"/>
+      <polygon points="568,68 585,98  551,98"  fill="white" opacity="0.90"/>
+      <polygon points="710,72 727,100 693,100" fill="white" opacity="0.88"/>
+      <polygon points="998,72 1015,100 981,100" fill="white" opacity="0.90"/>
+      <polygon points="1178,70 1195,98 1161,98" fill="white" opacity="0.88"/>
+      <polygon points="1435,72 1452,100 1418,100" fill="white" opacity="0.90"/>
+      <!-- Mittlere Kette (grün-grau, näher) -->
+      <polygon points="0,168 45,122 82,155 118,102 155,148 192,115 230,158 268,108 305,152 342,118 380,158 418,112 455,152 492,122 530,158 568,112 605,152 642,118 680,158 718,112 755,152 792,118 830,158 868,112 905,152 942,118 980,158 1018,110 1055,152 1092,120 1130,158 1168,112 1205,152 1242,118 1280,158 1318,110 1355,152 1392,118 1430,155 1468,112 1505,152 1542,122 1580,155 1600,140 1600,172 0,172" fill="#627d55" opacity="0.72"/>
+      <!-- Waldlinie (dunkle Tannenkronen) -->
+      <polygon points="0,172 7,155 14,167 21,152 28,164 36,148 43,161 51,147 58,162 66,149 73,163 81,148 89,163 97,148 105,162 113,147 121,163 129,149 138,163 147,147 155,162 164,148 173,163 182,148 191,162 200,148 210,163 220,148 229,162 239,147 248,163 258,148 267,162 277,147 286,163 296,149 305,162 315,147 325,163 335,148 344,162 354,148 363,163 373,149 382,162 392,147 402,163 412,148 422,162 432,147 442,163 453,148 463,162 474,147 484,163 495,148 505,162 516,147 526,163 537,149 548,162 558,147 569,163 580,148 590,162 601,147 612,163 623,148 633,162 644,147 655,163 666,149 677,162 688,147 699,163 710,148 720,162 731,147 742,163 753,149 764,162 775,147 786,163 797,148 807,162 818,147 829,163 840,149 851,162 862,147 873,163 884,148 894,162 905,147 916,163 927,148 937,162 948,147 959,163 970,148 980,162 991,147 1002,163 1013,148 1023,162 1034,147 1045,163 1056,148 1066,162 1077,147 1088,163 1099,148 1109,162 1120,147 1131,163 1142,149 1153,162 1164,147 1175,163 1186,148 1196,162 1207,147 1218,163 1229,148 1240,162 1251,147 1261,163 1272,148 1283,162 1294,147 1304,163 1315,149 1326,162 1337,147 1347,163 1358,148 1369,162 1380,147 1390,163 1401,148 1412,162 1422,147 1433,163 1444,148 1454,162 1465,147 1476,163 1487,148 1497,162 1508,147 1519,163 1529,148 1540,162 1551,147 1561,163 1572,148 1582,162 1592,148 1600,155 1600,178 0,178" fill="#284e22" opacity="0.93"/>
+
+      <!-- ── Boden ───────────────────────────────────────────── -->
+      <rect y="175" width="1600" height="525" fill="url(#ground-grad)"/>
+      <!-- Wiesen-Streifen direkt hinter dem Waldrand -->
+      <path d="M 0,175 Q 300,168 600,178 Q 900,188 1200,172 Q 1400,162 1600,172 L 1600,240 Q 1300,248 1000,238 Q 700,228 400,242 Q 200,250 0,244 Z" fill="#6daa38" opacity="0.50"/>
+
+      <!-- ── Wolken ──────────────────────────────────────────── -->
+      <g opacity="0.90"><ellipse cx="160" cy="48" rx="88" ry="26" fill="white"/><ellipse cx="228" cy="35" rx="56" ry="20" fill="white"/><ellipse cx="105" cy="55" rx="42" ry="16" fill="white"/></g>
+      <g opacity="0.78"><ellipse cx="820" cy="38" rx="72" ry="22" fill="white"/><ellipse cx="880" cy="26" rx="46" ry="16" fill="white"/><ellipse cx="770" cy="44" rx="35" ry="13" fill="white"/></g>
+      <g opacity="0.70"><ellipse cx="1450" cy="45" rx="65" ry="20" fill="white"/><ellipse cx="1510" cy="33" rx="40" ry="14" fill="white"/><ellipse cx="1395" cy="50" rx="30" ry="12" fill="white"/></g>
+      <g opacity="0.55"><ellipse cx="490" cy="58" rx="48" ry="16" fill="white"/><ellipse cx="535" cy="46" rx="32" ry="12" fill="white"/></g>
+      <g opacity="0.52"><ellipse cx="1120" cy="52" rx="52" ry="17" fill="white"/><ellipse cx="1168" cy="40" rx="34" ry="12" fill="white"/></g>
+
+      <!-- ── Wiesen & Grünflächen ────────────────────────────── -->
+      <ellipse cx="185" cy="340" rx="155" ry="95" fill="#5aaa2a" opacity="0.38"/>
+      <ellipse cx="275" cy="420" rx="120" ry="65" fill="#62b030" opacity="0.32"/>
+      <ellipse cx="1530" cy="315" rx="105" ry="72" fill="#5aaa2a" opacity="0.38"/>
+      <ellipse cx="1010" cy="278" rx="90" ry="52" fill="#64b028" opacity="0.35"/>
+
+      <!-- ── Weizenfeld (goldgelb, zwischen Eisbahn & Wasser) ── -->
+      <ellipse cx="1005" cy="272" rx="82" ry="46" fill="#d4b040" opacity="0.32"/>
+      <line x1="938" y1="260" x2="1078" y2="270" stroke="#c8a030" stroke-width="2" opacity="0.38"/>
+      <line x1="936" y1="270" x2="1076" y2="280" stroke="#c8a030" stroke-width="2" opacity="0.38"/>
+      <line x1="934" y1="280" x2="1074" y2="290" stroke="#c8a030" stroke-width="2" opacity="0.33"/>
+      <line x1="932" y1="290" x2="1072" y2="300" stroke="#c8a030" stroke-width="2" opacity="0.30"/>
+
+      <!-- ── Blumenwiese links ────────────────────────────────── -->
+      <circle cx="148" cy="352" r="4" fill="#f04040" opacity="0.78"/>
+      <circle cx="168" cy="360" r="3" fill="#f06000" opacity="0.82"/>
+      <circle cx="135" cy="366" r="4" fill="#f5c842" opacity="0.82"/>
+      <circle cx="160" cy="374" r="3" fill="#f04060" opacity="0.78"/>
+      <circle cx="182" cy="358" r="4" fill="#e040b0" opacity="0.72"/>
+      <circle cx="142" cy="346" r="3" fill="#f5c842" opacity="0.82"/>
+      <circle cx="198" cy="368" r="3" fill="#f04040" opacity="0.78"/>
+      <circle cx="215" cy="356" r="4" fill="#60c040" opacity="0.72"/>
+      <circle cx="118" cy="350" r="3" fill="#f06000" opacity="0.82"/>
+      <circle cx="228" cy="376" r="3" fill="#f04060" opacity="0.78"/>
+      <circle cx="172" cy="388" r="4" fill="#f5c842" opacity="0.82"/>
+      <circle cx="140" cy="393" r="3" fill="#e040b0" opacity="0.72"/>
+      <circle cx="205" cy="393" r="3" fill="#f04040" opacity="0.78"/>
+      <circle cx="112" cy="376" r="4" fill="#40a0f0" opacity="0.72"/>
+      <circle cx="242" cy="363" r="3" fill="#f5c842" opacity="0.82"/>
+      <circle cx="256" cy="380" r="4" fill="#f04040" opacity="0.70"/>
+      <circle cx="100" cy="365" r="3" fill="#e040b0" opacity="0.72"/>
+
+      <!-- ── Bäume – linke Seite ─────────────────────────────── -->
+      <g opacity="0.88" transform="translate(55,245)"><rect x="-2" y="16" width="4" height="12" fill="#5a3010"/><polygon points="0,-22 15,16 -15,16" fill="#2a5e22"/><polygon points="0,-33 12,8 -12,8" fill="#346828"/><polygon points="0,-41 9,0 -9,0" fill="#3a7030"/></g>
+      <g opacity="0.85" transform="translate(82,238)"><rect x="-2" y="14" width="4" height="12" fill="#5a3010"/><polygon points="0,-20 14,14 -14,14" fill="#284c20"/><polygon points="0,-30 11,6 -11,6" fill="#326025"/><polygon points="0,-38 8,0 -8,0" fill="#386828"/></g>
+      <g opacity="0.90" transform="translate(38,258)"><rect x="-2" y="18" width="4" height="14" fill="#5a3010"/><polygon points="0,-26 17,18 -17,18" fill="#2e6225"/><polygon points="0,-38 14,8 -14,8" fill="#386c2a"/><polygon points="0,-48 10,0 -10,0" fill="#3e7230"/></g>
+      <g opacity="0.75" transform="translate(335,210)"><rect x="-2" y="13" width="3" height="10" fill="#5a3010"/><polygon points="0,-18 12,13 -12,13" fill="#264820"/><polygon points="0,-27 9,5 -9,5" fill="#2e5a25"/><polygon points="0,-34 6,0 -6,0" fill="#346028"/></g>
+      <g opacity="0.90" transform="translate(265,285)"><rect x="-4" y="18" width="8" height="20" fill="#6a4020" rx="1"/><circle cx="0" cy="0" r="28" fill="#2a6a20"/><ellipse cx="-8" cy="-8" rx="15" ry="12" fill="#389028" opacity="0.65"/><ellipse cx="10" cy="-4" rx="12" ry="10" fill="#44a030" opacity="0.55"/></g>
+      <g opacity="0.85" transform="translate(308,295)"><rect x="-3" y="14" width="6" height="18" fill="#6a4020" rx="1"/><circle cx="0" cy="0" r="22" fill="#2e7222"/><ellipse cx="-6" cy="-6" rx="12" ry="10" fill="#3a8828" opacity="0.60"/></g>
+      <g opacity="0.92" transform="translate(232,300)"><rect x="-3" y="16" width="6" height="16" fill="#6a4020" rx="1"/><circle cx="0" cy="0" r="24" fill="#286420"/><ellipse cx="7" cy="-5" rx="13" ry="10" fill="#348028" opacity="0.60"/></g>
+
+      <!-- ── Bäume – rechte Seite ────────────────────────────── -->
+      <g opacity="0.88" transform="translate(1472,224)"><rect x="-2" y="16" width="4" height="12" fill="#5a3010"/><polygon points="0,-22 15,16 -15,16" fill="#2a5e22"/><polygon points="0,-34 12,8 -12,8" fill="#346828"/><polygon points="0,-42 9,0 -9,0" fill="#3a7030"/></g>
+      <g opacity="0.85" transform="translate(1502,217)"><rect x="-2" y="14" width="4" height="12" fill="#5a3010"/><polygon points="0,-20 14,14 -14,14" fill="#284c20"/><polygon points="0,-30 11,6 -11,6" fill="#326025"/><polygon points="0,-38 8,0 -8,0" fill="#386828"/></g>
+      <g opacity="0.90" transform="translate(1478,240)"><rect x="-2" y="18" width="4" height="14" fill="#5a3010"/><polygon points="0,-26 17,18 -17,18" fill="#2e6225"/><polygon points="0,-38 14,8 -14,8" fill="#386c2a"/><polygon points="0,-48 10,0 -10,0" fill="#3e7230"/></g>
+      <g opacity="0.78" transform="translate(1533,212)"><rect x="-2" y="13" width="3" height="10" fill="#5a3010"/><polygon points="0,-18 12,13 -12,13" fill="#264820"/><polygon points="0,-27 9,5 -9,5" fill="#2e5a25"/><polygon points="0,-34 6,0 -6,0" fill="#346028"/></g>
+      <g opacity="0.88" transform="translate(1552,320)"><rect x="-4" y="18" width="8" height="18" fill="#6a4020" rx="1"/><circle cx="0" cy="0" r="26" fill="#2a6a20"/><ellipse cx="-8" cy="-7" rx="14" ry="11" fill="#389028" opacity="0.60"/></g>
+      <g opacity="0.82" transform="translate(1582,330)"><rect x="-3" y="14" width="6" height="16" fill="#6a4020" rx="1"/><circle cx="0" cy="0" r="21" fill="#2e7222"/><ellipse cx="6" cy="-5" rx="11" ry="9" fill="#3a8828" opacity="0.55"/></g>
+
+      <!-- ── Windmühle in der Ferne (Mitte, zwischen Eisbahn & Wasser) ── -->
+      <polygon points="997,282 1002,197 1007,282" fill="#b8c0a8"/>
+      <rect x="996" y="277" width="12" height="7" fill="#a0a898" rx="2"/>
+      <line x1="1002" y1="202" x2="980" y2="232" stroke="#909880" stroke-width="3" stroke-linecap="round"/>
+      <line x1="1002" y1="202" x2="1025" y2="230" stroke="#909880" stroke-width="3" stroke-linecap="round"/>
+      <line x1="1002" y1="202" x2="1000" y2="172" stroke="#909880" stroke-width="3" stroke-linecap="round"/>
+      <line x1="1002" y1="202" x2="975" y2="202" stroke="#909880" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="1002" cy="202" r="5" fill="#7a8068"/>
+
+      <!-- ── Steinmauer (vor dem Bauernhof) ─────────────────── -->
+      <rect x="32" y="464" width="215" height="10" rx="3" fill="#9a9080" opacity="0.80"/>
+      <line x1="55"  y1="464" x2="55"  y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="80"  y1="464" x2="80"  y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="108" y1="464" x2="108" y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="135" y1="464" x2="135" y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="162" y1="464" x2="162" y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="190" y1="464" x2="190" y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <line x1="218" y1="464" x2="218" y2="474" stroke="#7a7068" stroke-width="1.5" opacity="0.60"/>
+      <rect x="32" y="473" width="215" height="7" rx="2" fill="#8a8070" opacity="0.55"/>
+
+      <!-- ── Kleiner Teich (links, vor dem Bauernhof) ──────── -->
+      <ellipse cx="205" cy="438" rx="54" ry="27" fill="#5aa8d0" opacity="0.52"/>
+      <ellipse cx="205" cy="438" rx="54" ry="27" fill="none" stroke="#4090b8" stroke-width="2" opacity="0.45"/>
+      <ellipse cx="196" cy="432" rx="19" ry="7" fill="white" opacity="0.18"/>
+      <!-- Schilfgras am Teich -->
+      <line x1="155" y1="436" x2="152" y2="418" stroke="#5a8020" stroke-width="2.5" opacity="0.75"/>
+      <ellipse cx="152" cy="416" rx="4" ry="7" fill="#6a9828" opacity="0.7"/>
+      <line x1="163" y1="432" x2="160" y2="414" stroke="#5a8020" stroke-width="2" opacity="0.70"/>
+      <ellipse cx="160" cy="412" rx="3" ry="6" fill="#5a8820" opacity="0.65"/>
+      <line x1="260" y1="434" x2="263" y2="416" stroke="#5a8020" stroke-width="2.5" opacity="0.72"/>
+      <ellipse cx="263" cy="414" rx="4" ry="7" fill="#6a9828" opacity="0.68"/>
+
+      <!-- ── Sträucher ────────────────────────────────────────── -->
+      <ellipse cx="148" cy="436" rx="22" ry="14" fill="#3a8030" opacity="0.78"/>
+      <ellipse cx="133" cy="429" rx="16" ry="11" fill="#4a9838" opacity="0.72"/>
+      <ellipse cx="263" cy="432" rx="20" ry="13" fill="#3a8030" opacity="0.76"/>
+      <ellipse cx="1380" cy="456" rx="24" ry="15" fill="#3a8030" opacity="0.72"/>
+      <ellipse cx="1358" cy="448" rx="18" ry="12" fill="#4a9838" opacity="0.68"/>
+      <ellipse cx="1400" cy="446" rx="16" ry="10" fill="#54a040" opacity="0.65"/>
+      <ellipse cx="682" cy="618" rx="28" ry="16" fill="#3a8030" opacity="0.55"/>
+      <ellipse cx="712" cy="610" rx="20" ry="12" fill="#4a9838" opacity="0.50"/>
+
+      <!-- ── Mulch-Textur (Boden, nah) ─────────────────────── -->
+      <ellipse cx="80"   cy="600" rx="55" ry="12" fill="#7a5a30" opacity="0.30"/>
+      <ellipse cx="310"  cy="650" rx="48" ry="11" fill="#7a5a30" opacity="0.28"/>
+      <ellipse cx="1350" cy="600" rx="52" ry="12" fill="#7a5a30" opacity="0.30"/>
+      <ellipse cx="1520" cy="640" rx="44" ry="10" fill="#7a5a30" opacity="0.28"/>
+      <ellipse cx="700"  cy="650" rx="50" ry="11" fill="#7a5a30" opacity="0.25"/>
+      <ellipse cx="1050" cy="628" rx="42" ry="10" fill="#7a5a30" opacity="0.26"/>
+
+      <!-- Vignette Rand -->
+      <rect width="1600" height="700" fill="url(#vignette)"/>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  SPRACHE – schwebt im Himmel (oben links)         -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('sprache')">
+        <!-- Sprechblase -->
+        <ellipse cx="175" cy="82" rx="145" ry="62" fill="#f28a2e" opacity="0.18"/>
+        <ellipse cx="175" cy="82" rx="145" ry="62" fill="none" stroke="#f28a2e" stroke-width="2.5" opacity="0.55"/>
+        <!-- Sprechblase-Zacke nach unten -->
+        <polygon points="120,138 100,168 155,142" fill="#f28a2e" opacity="0.4"/>
+        <text x="175" y="70"  font-family="Nunito" font-weight="900" font-size="22" fill="#f28a2e" text-anchor="middle" opacity="0.9">singzua!</text>
+        <text x="175" y="98"  font-family="Nunito" font-size="13"   fill="#c86010" text-anchor="middle" opacity="0.8">= Hallo auf Lulisch</text>
+        <!-- Klickfläche -->
+        <ellipse cx="175" cy="82" rx="145" ry="62" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="90" y="68" width="170" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="175" y="86" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🗣️ Lulisch</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  BÜRO – großes Gebäude Mitte-Links                -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('buero')">
+        <!-- Gebäude-Schatten -->
+        <ellipse cx="540" cy="370" rx="140" ry="18" fill="#00000025"/>
+        <!-- Gebäudeseite (leicht isometrisch) -->
+        <polygon points="650,115 700,130 700,365 650,355" fill="#b09850"/>
+        <!-- Gebäudefront -->
+        <rect x="380" y="100" width="270" height="255" rx="4" fill="#f5c842"/>
+        <!-- Tiefgarage OBEN (das Besondere!) -->
+        <rect x="380" y="100" width="270" height="72" rx="4" fill="#c8a030"/>
+        <text x="515" y="132" font-family="Nunito" font-weight="900" font-size="11" fill="#5a3800" text-anchor="middle" opacity="0.9">TIEFGARAGE – oben!</text>
+        <!-- Garageneinfahrten von oben -->
+        <rect x="400" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
+        <rect x="465" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
+        <rect x="530" y="110" width="52" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
+        <rect x="595" y="110" width="40" height="55" rx="3" fill="#7a6018" opacity="0.7"/>
+        <!-- Lichtlöcher (Ellipsen) -->
+        <ellipse cx="426" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
+        <ellipse cx="491" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
+        <ellipse cx="556" cy="163" rx="18" ry="7" fill="#a0c8e8" stroke="#c8a010" stroke-width="1.5"/>
+        <!-- Bürofenster (Reihen) -->
+        <rect x="390" y="185" width="250" height="8"  fill="#c8901088" rx="2"/>
+        <rect x="390" y="230" width="250" height="8"  fill="#c8901088" rx="2"/>
+        <rect x="390" y="275" width="250" height="8"  fill="#c8901088" rx="2"/>
+        <!-- Eingang -->
+        <rect x="480" y="310" width="70" height="45"  fill="#d4a820" rx="3"/>
+        <path d="M480 318 Q515 302 550 318" fill="#e8b820"/>
+        <!-- Gebäude-Silbertöne (rechter Teil) -->
+        <rect x="590" y="172" width="60" height="183" rx="3" fill="#c0d0dc" opacity="0.85"/>
+        <rect x="380" y="100" width="270" height="255" rx="4" fill="none" stroke="#a08010" stroke-width="2" opacity="0.5"/>
+        <!-- Klickfläche -->
+        <rect x="380" y="100" width="320" height="275" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="405" y="215" width="160" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="485" y="233" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🏢 Das Büro</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  EISBAHN – Oval von oben, Mitte                   -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('eisbahn')">
+        <!-- Schatten -->
+        <ellipse cx="790" cy="220" rx="145" ry="90" fill="#00000022"/>
+        <!-- Eisfläche -->
+        <ellipse cx="790" cy="208" rx="150" ry="95" fill="#c8e8f8"/>
+        <ellipse cx="790" cy="208" rx="150" ry="95" fill="none" stroke="#90c0e0" stroke-width="4"/>
+        <!-- Eisbahn-Markierungen von oben -->
+        <ellipse cx="790" cy="208" rx="100" ry="62" fill="none" stroke="#90c0e0" stroke-width="2" opacity="0.5"/>
+        <line x1="790" y1="115" x2="790" y2="303" stroke="#90c0e0" stroke-width="2" opacity="0.4"/>
+        <!-- Löcher im Eis -->
+        <ellipse cx="710" cy="200" rx="16" ry="10" fill="#5090b8" opacity="0.8"/>
+        <ellipse cx="845" cy="235" rx="13" ry="8"  fill="#5090b8" opacity="0.8"/>
+        <ellipse cx="755" cy="255" rx="11" ry="7"  fill="#5090b8" opacity="0.75"/>
+        <!-- Figuren auf dem Eis (von oben) -->
+        <circle cx="760" cy="180" r="8" fill="#ffcc88"/>
+        <ellipse cx="760" cy="196" rx="6" ry="9" fill="#e84444"/>
+        <circle cx="820" cy="225" r="7" fill="#ffcc88"/>
+        <ellipse cx="820" cy="240" rx="5" ry="8" fill="#4488cc"/>
+        <!-- Knieschoner-Hinweis -->
+        <text x="790" y="310" font-family="Nunito" font-weight="700" font-size="12" fill="#2c3e5070" text-anchor="middle">⛸️ Springen · Purzelbäume!</text>
+        <rect x="640" y="115" width="300" height="200" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="710" y="195" width="160" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="790" y="213" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">⛸️ Eisbahn</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  WASSER – Fontäne die nach oben spritzt           -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('wasser')">
+        <!-- Fontänenbasis -->
+        <ellipse cx="1115" cy="368" rx="42" ry="14" fill="#4ab0e8" opacity="0.6"/>
+        <ellipse cx="1115" cy="368" rx="28" ry="9"  fill="#4ab0e8" opacity="0.8"/>
+        <!-- Wasserstrahlen nach OBEN -->
+        <path d="M1115,360 C1110,300 1105,220 1115,120" stroke="#4ab0e8" stroke-width="8"  fill="none" stroke-linecap="round" opacity="0.85"/>
+        <path d="M1115,360 C1125,295 1135,210 1125,105" stroke="#4ab0e8" stroke-width="5"  fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path d="M1115,360 C1100,305 1088,230 1095,130" stroke="#6ac8f0" stroke-width="4"  fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M1115,360 C1130,310 1148,230 1140,140" stroke="#6ac8f0" stroke-width="4"  fill="none" stroke-linecap="round" opacity="0.6"/>
+        <!-- Wassertropfen oben (nach oben fließend!) -->
+        <ellipse cx="1115" cy="108" rx="14" ry="20" fill="#4ab0e8" opacity="0.9"/>
+        <ellipse cx="1125" cy="95"  rx="10" ry="16" fill="#6ac8f0" opacity="0.75"/>
+        <ellipse cx="1096" cy="118" rx="9"  ry="14" fill="#6ac8f0" opacity="0.7"/>
+        <ellipse cx="1140" cy="128" rx="8"  ry="12" fill="#6ac8f0" opacity="0.65"/>
+        <!-- Pfeil nach oben -->
+        <text x="1145" y="200" font-family="Nunito" font-weight="900" font-size="18" fill="#4ab0e8" opacity="0.9">↑</text>
+        <text x="1145" y="260" font-family="Nunito" font-weight="900" font-size="18" fill="#4ab0e8" opacity="0.7">↑</text>
+        <text x="1155" y="145" font-family="Nunito" font-size="11"   fill="#2c88c0" opacity="0.8">hoch!</text>
+        <!-- Klickfläche -->
+        <rect x="1065" y="80" width="130" height="300" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="1040" y="225" width="150" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="1115" y="243" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">💧 Wasser</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  OLYMPIA – Podium von oben, rechts oben           -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('olympia')">
+        <!-- Podium von oben (3 Blöcke) -->
+        <rect x="1300" y="155" width="80" height="95" rx="4" fill="#f5c842"/>  <!-- 1. Platz (groß) -->
+        <rect x="1228" y="185" width="72" height="65" rx="4" fill="#c0d0dc"/>  <!-- 2. Platz -->
+        <rect x="1380" y="200" width="68" height="50" rx="4" fill="#c8a050"/>  <!-- 3. Platz -->
+        <!-- Nummern -->
+        <text x="1340" y="210" font-family="Nunito" font-weight="900" font-size="28" fill="#2c3e50" text-anchor="middle">1</text>
+        <text x="1264" y="228" font-family="Nunito" font-weight="900" font-size="22" fill="#2c3e50" text-anchor="middle">2</text>
+        <text x="1414" y="238" font-family="Nunito" font-weight="900" font-size="18" fill="#2c3e50" text-anchor="middle">3</text>
+        <!-- Kanadische Flagge in Orange -->
+        <line x1="1340" y1="100" x2="1340" y2="155" stroke="#5a3010" stroke-width="4"/>
+        <rect x="1340" y="100" width="90" height="55" fill="#f28a2e" rx="2"/>
+        <!-- Ahorn-Silhouette grob -->
+        <text x="1385" y="138" font-size="24" text-anchor="middle">🍁</text>
+        <rect x="1220" y="100" width="240" height="200" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="1265" y="198" width="150" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="1340" y="216" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🏅 Olympia</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  SCHOKOLADE – grüne Schokotafel rechts unten      -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('schokolade')">
+        <!-- Schokotafel (grün!) von oben -->
+        <rect x="1390" y="480" width="180" height="130" rx="8" fill="#5ab55a" opacity="0.9"/>
+        <rect x="1390" y="480" width="180" height="130" rx="8" fill="none" stroke="#3a8a3a" stroke-width="3"/>
+        <!-- Tafelraster -->
+        <line x1="1450" y1="480" x2="1450" y2="610" stroke="#3a8a3a" stroke-width="2.5"/>
+        <line x1="1510" y1="480" x2="1510" y2="610" stroke="#3a8a3a" stroke-width="2.5"/>
+        <line x1="1390" y1="523" x2="1570" y2="523" stroke="#3a8a3a" stroke-width="2.5"/>
+        <line x1="1390" y1="566" x2="1570" y2="566" stroke="#3a8a3a" stroke-width="2.5"/>
+        <!-- Kuchenwerfen-Symbol -->
+        <text x="1430" y="472" font-size="18">🎂</text>
+        <text x="1530" y="478" font-size="14">→</text>
+        <!-- Smiley-Gummibärchen -->
+        <text x="1390" y="638" font-family="Nunito" font-size="11" fill="#2c3e5070">😊 Smiley-Gummibärchen</text>
+        <rect x="1385" y="475" width="195" height="170" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="1390" y="535" width="185" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="1483" y="553" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🍫 Schokolade</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  HAUPTSTRASSE (die Straßen-Ort)                   -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- Schatten (Tiefe, Straße leicht eingedrückt in Landschaft) -->
+      <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="#00000030" stroke-width="112" fill="none" stroke-linecap="square"/>
+      <!-- Erd-/Schotter-Schulter (natürlicher Straßenrand) -->
+      <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="#a89060" stroke-width="104" fill="none" stroke-linecap="square"/>
+      <!-- Weiße Randmarkierung (zeigt am Asphalt-Rand) -->
+      <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="white"    stroke-width="97"  fill="none" stroke-linecap="square" opacity="0.28"/>
+      <!-- Asphalt -->
+      <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="#4a4840" stroke-width="92"  fill="none" stroke-linecap="square"/>
+      <!-- Mittelstreifen (gestrichelt, weiß) -->
+      <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="white"   stroke-width="3"   fill="none" stroke-dasharray="40,24" opacity="0.60"/>
+      <!-- ── Fahrradfahrer mit Gummistiefeln ────────────── -->
+
+      <!-- Fahrer 1 – nah (rote Jacke, gelbe Gummistiefel, blauer Helm) -->
+      <g opacity="0.88" transform="translate(215,510)">
+        <!-- Hinterrad -->
+        <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="-15" cy="0" r="4" fill="#555"/>
+        <line x1="-15" y1="-14" x2="-15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-29" y1="0" x2="-1" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <!-- Vorderrad -->
+        <circle cx="15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="15" cy="0" r="4" fill="#555"/>
+        <line x1="15" y1="-14" x2="15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="1" y1="0" x2="29" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <!-- Rahmen -->
+        <line x1="-15" y1="0" x2="2" y2="-21" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="2" y1="-21" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2"/>
+        <!-- Sattel -->
+        <line x1="2" y1="-21" x2="1" y2="-27" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-5" y1="-27" x2="8" y2="-27" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <!-- Gabel + Lenker -->
+        <line x1="15" y1="0" x2="16" y2="-19" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="11" y1="-19" x2="22" y2="-19" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Jacke rot -->
+        <ellipse cx="6" cy="-35" rx="9" ry="12" fill="#d42828"/>
+        <line x1="12" y1="-28" x2="20" y2="-21" stroke="#d42828" stroke-width="4" stroke-linecap="round"/>
+        <!-- Kopf + Helm -->
+        <circle cx="16" cy="-49" r="9" fill="#ffd0a0"/>
+        <ellipse cx="16" cy="-56" rx="10.5" ry="6.5" fill="#3366cc"/>
+        <!-- Bein vorne (runter) + gelber Gummistiefel -->
+        <line x1="2" y1="-24" x2="11" y2="-4" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="5" y="-7" width="16" height="10" rx="4.5" fill="#f5c842"/>
+        <rect x="6" y="-3" width="14" height="4" rx="2" fill="#d4a820"/>
+        <!-- Bein hinten (hoch) + gelber Gummistiefel -->
+        <line x1="2" y1="-24" x2="-9" y2="-12" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="-18" y="-15" width="16" height="10" rx="4.5" fill="#f5c842"/>
+        <rect x="-17" y="-11" width="14" height="4" rx="2" fill="#d4a820"/>
+      </g>
+
+      <!-- Fahrer 2 – mittel-nah (blaue Jacke, grüne Gummistiefel, orange Helm) -->
+      <g opacity="0.78" transform="translate(560,440) scale(0.87)">
+        <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="-15" cy="0" r="4" fill="#555"/>
+        <line x1="-15" y1="-14" x2="-15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-29" y1="0" x2="-1" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <circle cx="15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="15" cy="0" r="4" fill="#555"/>
+        <line x1="15" y1="-14" x2="15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="1" y1="0" x2="29" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-15" y1="0" x2="2" y2="-21" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="2" y1="-21" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2"/>
+        <line x1="2" y1="-21" x2="1" y2="-27" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-5" y1="-27" x2="8" y2="-27" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <line x1="15" y1="0" x2="16" y2="-19" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="11" y1="-19" x2="22" y2="-19" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Jacke blau -->
+        <ellipse cx="6" cy="-35" rx="9" ry="12" fill="#2255cc"/>
+        <line x1="12" y1="-28" x2="20" y2="-21" stroke="#2255cc" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="16" cy="-49" r="9" fill="#ffd0a0"/>
+        <ellipse cx="16" cy="-56" rx="10.5" ry="6.5" fill="#f28a2e"/>
+        <!-- Grüne Gummistiefel -->
+        <line x1="2" y1="-24" x2="11" y2="-4" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="5" y="-7" width="16" height="10" rx="4.5" fill="#3ab030"/>
+        <rect x="6" y="-3" width="14" height="4" rx="2" fill="#288820"/>
+        <line x1="2" y1="-24" x2="-9" y2="-12" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="-18" y="-15" width="16" height="10" rx="4.5" fill="#3ab030"/>
+        <rect x="-17" y="-11" width="14" height="4" rx="2" fill="#288820"/>
+      </g>
+
+      <!-- Fahrer 3 – mittel-weit (ENTGEGENGESETZT, grüne Jacke, rote Gummistiefel, lila Helm) -->
+      <g opacity="0.68" transform="translate(870,398) scale(-0.76,0.76)">
+        <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="-15" cy="0" r="4" fill="#555"/>
+        <line x1="-15" y1="-14" x2="-15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-29" y1="0" x2="-1" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <circle cx="15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="15" cy="0" r="4" fill="#555"/>
+        <line x1="15" y1="-14" x2="15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="1" y1="0" x2="29" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-15" y1="0" x2="2" y2="-21" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="2" y1="-21" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2"/>
+        <line x1="2" y1="-21" x2="1" y2="-27" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-5" y1="-27" x2="8" y2="-27" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <line x1="15" y1="0" x2="16" y2="-19" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="11" y1="-19" x2="22" y2="-19" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Jacke grün -->
+        <ellipse cx="6" cy="-35" rx="9" ry="12" fill="#228830"/>
+        <line x1="12" y1="-28" x2="20" y2="-21" stroke="#228830" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="16" cy="-49" r="9" fill="#ffd0a0"/>
+        <ellipse cx="16" cy="-56" rx="10.5" ry="6.5" fill="#8844cc"/>
+        <!-- Rote Gummistiefel -->
+        <line x1="2" y1="-24" x2="11" y2="-4" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="5" y="-7" width="16" height="10" rx="4.5" fill="#cc2828"/>
+        <rect x="6" y="-3" width="14" height="4" rx="2" fill="#aa1818"/>
+        <line x1="2" y1="-24" x2="-9" y2="-12" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="-18" y="-15" width="16" height="10" rx="4.5" fill="#cc2828"/>
+        <rect x="-17" y="-11" width="14" height="4" rx="2" fill="#aa1818"/>
+      </g>
+
+      <!-- Fahrer 4 – weit (orange Jacke, blaue Gummistiefel, roter Helm) -->
+      <g opacity="0.58" transform="translate(1200,385) scale(0.68)">
+        <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="-15" cy="0" r="4" fill="#555"/>
+        <line x1="-15" y1="-14" x2="-15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-29" y1="0" x2="-1" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <circle cx="15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
+        <circle cx="15" cy="0" r="4" fill="#555"/>
+        <line x1="15" y1="-14" x2="15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="1" y1="0" x2="29" y2="0" stroke="#999" stroke-width="1" opacity="0.5"/>
+        <line x1="-15" y1="0" x2="2" y2="-21" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="2" y1="-21" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#3a3a3a" stroke-width="2"/>
+        <line x1="2" y1="-21" x2="1" y2="-27" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="-5" y1="-27" x2="8" y2="-27" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <line x1="15" y1="0" x2="16" y2="-19" stroke="#3a3a3a" stroke-width="2.5"/>
+        <line x1="11" y1="-19" x2="22" y2="-19" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Jacke orange -->
+        <ellipse cx="6" cy="-35" rx="9" ry="12" fill="#e07820"/>
+        <line x1="12" y1="-28" x2="20" y2="-21" stroke="#e07820" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="16" cy="-49" r="9" fill="#ffd0a0"/>
+        <ellipse cx="16" cy="-56" rx="10.5" ry="6.5" fill="#cc2828"/>
+        <!-- Blaue Gummistiefel -->
+        <line x1="2" y1="-24" x2="11" y2="-4" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="5" y="-7" width="16" height="10" rx="4.5" fill="#3366cc"/>
+        <rect x="6" y="-3" width="14" height="4" rx="2" fill="#2244aa"/>
+        <line x1="2" y1="-24" x2="-9" y2="-12" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <rect x="-18" y="-15" width="16" height="10" rx="4.5" fill="#3366cc"/>
+        <rect x="-17" y="-11" width="14" height="4" rx="2" fill="#2244aa"/>
+      </g>
+
+      <!-- Straßen als klickbarer Ort -->
+      <g class="karte-hotspot" onclick="oeffneOrt('strassen')">
+        <path d="M -10,525 C 300,505 600,385 900,373 C 1140,363 1380,400 1610,390" stroke="transparent" stroke-width="95" fill="none"/>
+        <g class="hover-label">
+          <rect x="290" y="488" width="155" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="368" y="506" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🚲 Straßen</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  BAUERNHOF – transparentes PNG im Vordergrund     -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('bauernhof')">
+        <!-- PNG: 680×300, Elemente sitzen bei ~76% Höhe -->
+        <!-- w=400, h=176 → Elementbasis bei y_start + 134 -->
+        <!-- Abzweigstraße endet bei (110,640), PNG-Basis bei (0+200, 485+134)=634 → passt! -->
+        <image href="img/bauernhof.png" x="-20" y="485" width="400" height="176" preserveAspectRatio="xMidYMid meet"/>
+        <rect x="-20" y="485" width="400" height="176" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="35" y="560" width="170" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="120" y="578" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🐾 Bauernhof</text>
+        </g>
+      </g>
+
+      <!-- ── Rahmen + Signatur ──────────────────────────── -->
+      <rect x="3" y="3" width="1594" height="694" fill="none" stroke="#a08858" stroke-width="4" rx="10"/>
+      <text x="1532" y="691" font-family="Nunito" font-weight="700" font-size="12" fill="#2c3e5055" text-anchor="end">erzählt von Fiete ♥</text>
+
+    </svg>
+  </div>
+
+  <!-- Ort-Karten Grid -->
+  <div class="orte-grid">
+    <a class="ort-card" onclick="oeffneOrt('bauernhof')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#b8e4f9"/>
+        <rect y="160" width="300" height="65" fill="#c8a97e"/>
+        <rect x="80" y="60" width="140" height="110" fill="#e8734a"/>
+        <polygon points="80,60 150,20 220,60" fill="#c45530"/>
+        <rect x="110" y="110" width="60" height="60" fill="#6b3a1f" rx="3"/>
+        <ellipse cx="60" cy="170" rx="35" ry="22" fill="#e8c8f0"/>
+        <circle cx="72" cy="150" r="18" fill="#e8c8f0"/>
+        <rect x="64" y="163" width="5" height="5" fill="white" rx="1"/>
+        <rect x="71" y="163" width="5" height="5" fill="white" rx="1"/>
+        <text x="150" y="210" font-family="Nunito" font-weight="900" font-size="13" fill="#3a2e1e" text-anchor="middle">🐾 Guaio-Tiere</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Der Bauernhof</h2>
+        <p>Hier leben die Guaios – flauschig und lieb, aber beißen gerne in Finger. (Übrigens gilt in ganz Pupdorf: nur Kinder, keine Babys.)</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('buero')">
+      <svg class="ort-illu" id="buero-kachel-illu" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="ort-body">
+        <h2>Das Büro</h2>
+        <p>Glänzt gold und silber. Die Tiefgarage ist oben, die Schreibtische unten. Ein Kollege heißt Thomas.</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('eisbahn')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#e8f4ff"/>
+        <ellipse cx="150" cy="155" rx="130" ry="60" fill="#c8e8f8" stroke="#90c0e0" stroke-width="3"/>
+        <ellipse cx="100" cy="162" rx="18" ry="9" fill="#6090b0"/>
+        <ellipse cx="175" cy="145" rx="14" ry="8" fill="#6090b0"/>
+        <ellipse cx="210" cy="170" rx="12" ry="7" fill="#6090b0"/>
+        <circle cx="130" cy="108" r="14" fill="#ffcc88"/>
+        <rect x="122" y="122" width="16" height="22" fill="#e84444" rx="2"/>
+        <line x1="122" y1="130" x2="108" y2="122" stroke="#ffcc88" stroke-width="4" stroke-linecap="round"/>
+        <line x1="138" y1="130" x2="152" y2="120" stroke="#ffcc88" stroke-width="4" stroke-linecap="round"/>
+        <path d="M128 102 L123 85 L118 102" fill="#f5c842" opacity="0.7"/>
+        <path d="M136 100 L141 83 L146 100" fill="#f5c842" opacity="0.7"/>
+        <text x="150" y="215" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🤸 Springen! Purzelbäume!</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Die Eisbahn</h2>
+        <p>Lulisches Eishockey: Springen, Purzelbäume und Löcher im Eis. Knieschoner sind Pflicht!</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('strassen')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#e8e0d0"/>
+        <rect y="80" width="300" height="70" fill="#777"/>
+        <line x1="0" y1="115" x2="300" y2="115" stroke="white" stroke-width="4" stroke-dasharray="25,15"/>
+        <rect y="77" width="300" height="6" fill="#999"/>
+        <rect y="144" width="300" height="6" fill="#999"/>
+        <rect x="120" y="0" width="60" height="225" fill="#888"/>
+        <line x1="150" y1="0" x2="150" y2="225" stroke="white" stroke-width="3" stroke-dasharray="20,12"/>
+        <!-- Fahrradfahrer MITTE -->
+        <circle cx="210" cy="100" r="10" fill="#ffcc88"/>
+        <circle cx="200" cy="118" r="9" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
+        <circle cx="220" cy="118" r="9" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
+        <line x1="200" y1="118" x2="210" y2="108" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="220" y1="118" x2="210" y2="108" stroke="#2c3e50" stroke-width="2"/>
+        <rect x="196" y="123" width="7" height="9" fill="#e84444" rx="2"/>
+        <rect x="213" y="123" width="7" height="9" fill="#e84444" rx="2"/>
+        <text x="150" y="215" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🚲 Breite Straßen, Mitte frei!</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Die Straßen</h2>
+        <p>Breit, keine Einbahn, Fahrrad in der Mitte. Gummistiefel fürs Fahrrad.</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('wasser')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#b8e4f9"/>
+        <rect y="170" width="300" height="55" fill="#c8a97e"/>
+        <rect x="130" y="130" width="18" height="40" fill="#a0a0a0" rx="3"/>
+        <path d="M139 130 Q130 80 139 20 Q148 80 139 130" fill="#4ab0e8" opacity="0.85"/>
+        <ellipse cx="139" cy="14" rx="12" ry="18" fill="#4ab0e8"/>
+        <ellipse cx="125" cy="25" rx="8" ry="12" fill="#6ac8f0" opacity="0.7"/>
+        <ellipse cx="153" cy="22" rx="8" ry="12" fill="#6ac8f0" opacity="0.7"/>
+        <rect x="200" y="140" width="14" height="30" fill="#a0a0a0" rx="3"/>
+        <path d="M207 140 Q200 100 207 55 Q214 100 207 140" fill="#4ab0e8" opacity="0.8"/>
+        <ellipse cx="207" cy="49" rx="9" ry="14" fill="#4ab0e8"/>
+        <path d="M50 220 L50 90 L42 108 M50 90 L58 108" stroke="#4ab0e8" stroke-width="3" fill="none"/>
+        <text x="30" y="80" font-family="Nunito" font-weight="800" font-size="12" fill="#2c3e50">hoch!</text>
+        <text x="150" y="215" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">💧 Wasser fließt nach oben</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Das Wasser</h2>
+        <p>In Pupdorf fließt Wasser von unten nach oben – aus dem Boden schießt es hoch! Darum: Gummistiefel.</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('schokolade')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#fdf6e3"/>
+        <rect x="60" y="30" width="180" height="140" fill="#5ab55a" rx="10" stroke="#3a8a3a" stroke-width="4"/>
+        <line x1="120" y1="30" x2="120" y2="170" stroke="#3a8a3a" stroke-width="3"/>
+        <line x1="180" y1="30" x2="180" y2="170" stroke="#3a8a3a" stroke-width="3"/>
+        <line x1="60" y1="90" x2="240" y2="90" stroke="#3a8a3a" stroke-width="3"/>
+        <line x1="60" y1="130" x2="240" y2="130" stroke="#3a8a3a" stroke-width="3"/>
+        <rect x="40" y="12" width="220" height="28" fill="#c8a900" rx="5"/>
+        <text x="150" y="32" font-family="Nunito" font-weight="900" font-size="13" fill="white" text-anchor="middle">PUPDORF SCHOKO</text>
+        <!-- Gummibärchen -->
+        <ellipse cx="80" cy="200" rx="14" ry="18" fill="#f5c842"/>
+        <circle cx="74" cy="194" r="3" fill="#333"/>
+        <circle cx="86" cy="194" r="3" fill="#333"/>
+        <path d="M74 204 Q80 210 86 204" stroke="#333" stroke-width="1.5" fill="none"/>
+        <ellipse cx="120" cy="200" rx="12" ry="16" fill="#e84444"/>
+        <circle cx="115" cy="194" r="3" fill="#333"/>
+        <circle cx="125" cy="194" r="3" fill="#333"/>
+        <path d="M115 204 Q120 210 126 204" stroke="#333" stroke-width="1.5" fill="none"/>
+        <text x="150" y="218" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🍫 Grüne Schokolade!</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Schokolade &amp; Karneval</h2>
+        <p>Schokolade ist hier immer grün. Beim Karneval fliegen Kuchen und Smiley-Gummibärchen durch die Luft.</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('olympia')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#b8e4f9"/>
+        <line x1="80" y1="20" x2="80" y2="200" stroke="#6b3a1f" stroke-width="6"/>
+        <rect x="80" y="20" width="150" height="100" fill="white" stroke="#ddd" stroke-width="1"/>
+        <rect x="80" y="20" width="150" height="33" fill="#f28a2e"/>
+        <rect x="80" y="87" width="150" height="33" fill="#f28a2e"/>
+        <rect x="80" y="53" width="150" height="34" fill="white"/>
+        <path d="M155 33 L143 63 L118 58 L130 72 L124 83 L155 75 L186 83 L180 72 L192 58 L167 63 Z" fill="#f28a2e" stroke="#d97020" stroke-width="1"/>
+        <rect x="30" y="175" width="60" height="50" fill="#f5c842"/>
+        <rect x="110" y="188" width="60" height="37" fill="#c0d0dc"/>
+        <rect x="200" y="195" width="60" height="30" fill="#c8a97e"/>
+        <text x="60" y="207" font-family="Nunito" font-weight="900" font-size="22" fill="#2c3e50" text-anchor="middle">1</text>
+        <text x="140" y="215" font-family="Nunito" font-weight="900" font-size="18" fill="#2c3e50" text-anchor="middle">2</text>
+        <text x="230" y="218" font-family="Nunito" font-weight="900" font-size="16" fill="#2c3e50" text-anchor="middle">3</text>
+        <text x="150" y="220" font-family="Nunito" font-weight="900" font-size="10" fill="#3a2e1e" text-anchor="middle"></text>
+      </svg>
+      <div class="ort-body">
+        <h2>Olympia</h2>
+        <p>Pupdorf nimmt teil! Mit der kanadischen Flagge – aber in Orange, wie Holland. Lulisches Eishockey ist die Königsdisziplin.</p>
+      </div>
+    </a>
+
+    <a class="ort-card" onclick="oeffneOrt('sprache')">
+      <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="225" fill="#fdf6e3"/>
+        <ellipse cx="130" cy="95" rx="100" ry="55" fill="white" stroke="#f28a2e" stroke-width="3"/>
+        <path d="M100 145 L85 175 L125 150" fill="white" stroke="#f28a2e" stroke-width="3"/>
+        <text x="130" y="85" font-family="Nunito" font-weight="900" font-size="26" fill="#f28a2e" text-anchor="middle">singzua!</text>
+        <text x="130" y="110" font-family="Nunito" font-size="14" fill="#888" text-anchor="middle">(= Hallo)</text>
+        <text x="145" y="55" font-size="20" text-anchor="middle">♪</text>
+        <text x="185" y="40" font-size="16" text-anchor="middle">♫</text>
+        <circle cx="100" cy="195" r="18" fill="#ffcc88"/>
+        <rect x="90" y="213" width="20" height="12" fill="#4ab0e8" rx="2"/>
+        <text x="150" y="218" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🗣️ Lulisch lernen!</text>
+      </svg>
+      <div class="ort-body">
+        <h2>Lulisch – die Sprache</h2>
+        <p>In Pupdorf spricht man Lulisch. Hallo heißt "singzua". Hallo heißt "singzua".</p>
+      </div>
+    </a>
+  </div>
+  <footer>Pupdorf – erzählt von Fiete ♥ | <a href="#" onclick="zeigSection('buch')">📖 Als Buch anzeigen</a></footer>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION: REGELN
+     ══════════════════════════════════════════════════════════════ -->
+<section id="regeln">
+  <div class="hero">
+    <h1>Die Regeln von Pupdorf</h1>
+    <p>In Pupdorf gilt vieles anders als bei uns – und es gibt ganz viele Ausnahmen!</p>
+  </div>
+  <div class="orte-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #f5c842">
+      <div style="font-size:2rem;margin-bottom:0.5rem">📢</div>
+      <h3 style="margin-bottom:0.4rem">Sonntag = Laut!</h3>
+      <p style="font-size:0.9rem;color:#666">Am Sonntag darf man in Pupdorf so laut sein wie man will. Keiner beschwert sich – das ist hier Tradition.</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #4ab0e8">
+      <div style="font-size:2rem;margin-bottom:0.5rem">↔️</div>
+      <h3 style="margin-bottom:0.4rem">Breite Straßen, kein Einbahn</h3>
+      <p style="font-size:0.9rem;color:#666">Die Straßen sind so breit, weil so viel Platz da ist. Einbahnstraßen gibt es nicht. Jeder fährt wohin er will.</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #5ab55a">
+      <div style="font-size:2rem;margin-bottom:0.5rem">🌿</div>
+      <h3 style="margin-bottom:0.4rem">Keine Pflanzen, nur Rindenmulch</h3>
+      <p style="font-size:0.9rem;color:#666">Weil es keine Erde gibt, wachsen auch keine Pflanzen. Überall liegt stattdessen weicher Rindenmulch.</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #e84444">
+      <div style="font-size:2rem;margin-bottom:0.5rem">🔧</div>
+      <h3 style="margin-bottom:0.4rem">Viele Maschinen</h3>
+      <p style="font-size:0.9rem;color:#666">Überall in Pupdorf laufen große und kleine Maschinen. Wozu genau? Das erklärt Fiete noch!</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #f28a2e">
+      <div style="font-size:2rem;margin-bottom:0.5rem">📋</div>
+      <h3 style="margin-bottom:0.4rem">Ganz viele Ausnahmen</h3>
+      <p style="font-size:0.9rem;color:#666">Fast jede Regel in Pupdorf hat auch Ausnahmen. Wenn etwas nicht geht – vielleicht geht's doch, wegen einer Ausnahme.</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #c0d0dc">
+      <div style="font-size:2rem;margin-bottom:0.5rem">📏</div>
+      <h3 style="margin-bottom:0.4rem">Große Kollegen, hohe Häuser</h3>
+      <p style="font-size:0.9rem;color:#666">Alle Kollegen in Pupdorf sind sehr sehr groß. Deshalb wurden die Häuser extra hoch gebaut – damit alle reinpassen.</p>
+    </div>
+
+    <div style="background:var(--paper);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:5px solid #ffaa66">
+      <div style="font-size:2rem;margin-bottom:0.5rem">🧒</div>
+      <h3 style="margin-bottom:0.4rem">Nur Kinder – keine Babys</h3>
+      <p style="font-size:0.9rem;color:#666">Das gilt für ganz Pupdorf: Nur Kinder dürfen rein. Babys nicht.</p>
+    </div>
+
+  </div>
+  <footer>Pupdorf – erzählt von Fiete ♥</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION: LULISCH (Wörterbuch)
+     ══════════════════════════════════════════════════════════════ -->
+<section id="woerter">
+  <div class="hero">
+    <h1>🗣️ Lulisch-Wörterbuch</h1>
+    <p>Die Sprache von Pupdorf.</p>
+  </div>
+  <div class="woerter-grid">
+    <div class="woerter-karte">
+      <div class="lulisch">singzua</div>
+      <div class="deutsch">= Hallo</div>
+    </div>
+    <div class="woerter-karte" style="border-top-color:#5ab55a">
+      <div class="lulisch" style="color:#5ab55a">Thomas</div>
+      <div class="deutsch">= ein Kollege</div>
+    </div>
+    <div class="woerter-karte" style="border-top-color:#4ab0e8">
+      <div class="lulisch" style="color:#4ab0e8">Guaio</div>
+      <div class="deutsch">= freundliches Tier, das in Finger beißt</div>
+    </div>
+    <div class="woerter-karte" style="border-top-color:#f5c842">
+      <div class="lulisch" style="color:#c8a900">lulisch</div>
+      <div class="deutsch">= die Sprache von Pupdorf</div>
+    </div>
+  </div>
+  <div style="text-align:center;color:#888;margin:2rem;font-size:0.9rem">
+    Das Wörterbuch wächst mit jeder Geschichte weiter... ✨
+  </div>
+  <footer>Pupdorf – erzählt von Fiete ♥</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION: BUCH (Druck-Hinweis)
+     ══════════════════════════════════════════════════════════════ -->
+<section id="buch">
+  <div class="hero">
+    <h1>📖 Pupdorf als Buch</h1>
+  </div>
+  <div style="max-width:600px;margin:0 auto 2rem;padding:0 1rem;">
+    <div class="buch-intro">
+      <h2>Pupdorf drucken</h2>
+      <p>Klicke auf "Drucken" und wähle <strong>"Als PDF speichern"</strong>, um das Buch zu exportieren. Dann kannst du es bei einem Druckservice wie <strong>Pixum</strong>, <strong>Blurb</strong> oder <strong>CEWE</strong> als richtiges Buch bestellen!</p>
+      <p style="margin-top:0.8rem;font-size:0.9rem;color:#888">Format: A5 Hochformat (148 × 210 mm) · Mit Illustrationen auf jeder Seite</p>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / PDF speichern</button>
+    </div>
+
+    <!-- Buchseiten-Vorschau (werden beim Drucken als echte Seiten gerendert) -->
+    <!-- Buchseiten – werden auch beim Drucken verwendet -->
+    <div id="buchseiten">
+
+      <!-- DECKBLATT -->
+      <div class="buch-seite buch-deckblatt" style="background:#2c3e50;display:flex;flex-direction:column;height:400px;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow)">
+        <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" class="deck-illu" style="flex:1;display:block;width:100%">
+          <rect width="600" height="380" fill="#2c3e50"/>
+          <!-- Sterne -->
+          <circle cx="80" cy="60" r="3" fill="#f5c842" opacity="0.6"/>
+          <circle cx="200" cy="30" r="2" fill="#f5c842" opacity="0.5"/>
+          <circle cx="520" cy="50" r="3" fill="#f5c842" opacity="0.7"/>
+          <circle cx="450" cy="80" r="2" fill="#f5c842" opacity="0.4"/>
+          <!-- Pupdorf Skyline -->
+          <!-- Büro (gold/silber) -->
+          <rect x="60" y="200" width="80" height="160" fill="#c0d0dc"/>
+          <rect x="60" y="200" width="80" height="30" fill="#f5c842"/>
+          <!-- Normale Häuser -->
+          <rect x="160" y="250" width="60" height="110" fill="#e8734a"/>
+          <polygon points="160,250 190,220 220,250" fill="#c45530"/>
+          <rect x="240" y="230" width="90" height="130" fill="#b8d0c0"/>
+          <polygon points="240,230 285,195 330,230" fill="#90b0a0"/>
+          <!-- Eisbahn (oval) -->
+          <ellipse cx="430" cy="330" rx="100" ry="45" fill="#c8e8f8" opacity="0.8"/>
+          <!-- Wasser-Fontäne -->
+          <rect x="370" y="260" width="12" height="70" fill="#a0a0a0"/>
+          <path d="M376 260 Q368 210 376 160 Q384 210 376 260" fill="#4ab0e8" opacity="0.8"/>
+          <ellipse cx="376" cy="155" rx="10" ry="15" fill="#4ab0e8"/>
+          <!-- Guaio Silhouette -->
+          <ellipse cx="520" cy="340" rx="35" ry="22" fill="#e8c8f0" opacity="0.7"/>
+          <circle cx="532" cy="320" r="17" fill="#e8c8f0" opacity="0.7"/>
+          <!-- Titel -->
+          <text x="300" y="100" font-family="Nunito" font-weight="900" font-size="60" fill="#f5c842" text-anchor="middle">Pupdorf</text>
+          <text x="300" y="140" font-family="Nunito" font-size="18" fill="rgba(255,255,255,0.7)" text-anchor="middle">Eine Stadt voller Wunder</text>
+          <text x="300" y="168" font-family="Nunito" font-size="14" fill="rgba(255,255,255,0.5)" text-anchor="middle">erzählt von Fiete ♥</text>
+        </svg>
+        <div class="b-text" style="background:#2c3e50;border-top:4px solid #f5c842;padding:1.2rem 1.5rem;text-align:center">
+          <h2 style="color:#f5c842;font-size:1.4rem;margin-bottom:0.3rem">Willkommen in Pupdorf!</h2>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.85rem">Ein besonderer Ort, in dem alles ein bisschen anders ist</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Bauernhof -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <rect width="600" height="350" fill="#b8e4f9"/>
+          <rect y="260" width="600" height="90" fill="#c8a97e"/>
+          <rect y="255" width="600" height="10" fill="#b89060"/>
+          <!-- Scheune groß -->
+          <rect x="180" y="100" width="240" height="175" fill="#e8734a"/>
+          <polygon points="180,100 300,30 420,100" fill="#c45530"/>
+          <rect x="240" y="195" width="80" height="80" fill="#6b3a1f" rx="4"/>
+          <line x1="280" y1="195" x2="280" y2="275" stroke="#4a2a10" stroke-width="4"/>
+          <rect x="195" y="120" width="55" height="50" fill="#f0d090" rx="4"/>
+          <rect x="350" y="120" width="55" height="50" fill="#f0d090" rx="4"/>
+          <!-- Guaio 1 -->
+          <ellipse cx="100" cy="280" rx="55" ry="35" fill="#e8c8f0"/>
+          <circle cx="118" cy="248" r="28" fill="#e8c8f0"/>
+          <ellipse cx="108" cy="232" rx="8" ry="13" fill="#daaae0"/>
+          <ellipse cx="128" cy="232" rx="8" ry="13" fill="#daaae0"/>
+          <circle cx="110" cy="252" r="4" fill="#333"/>
+          <circle cx="126" cy="252" r="4" fill="#333"/>
+          <path d="M111 264 Q118 272 126 264" stroke="#c060c0" stroke-width="2.5" fill="none"/>
+          <rect x="113" y="264" width="6" height="6" fill="white" rx="1"/>
+          <rect x="121" y="264" width="6" height="6" fill="white" rx="1"/>
+          <!-- Guaio 2 -->
+          <ellipse cx="490" cy="285" rx="48" ry="30" fill="#f0e8c0"/>
+          <circle cx="506" cy="256" r="24" fill="#f0e8c0"/>
+          <ellipse cx="498" cy="242" rx="7" ry="11" fill="#e0d8a0"/>
+          <ellipse cx="514" cy="242" rx="7" ry="11" fill="#e0d8a0"/>
+          <circle cx="500" cy="260" r="4" fill="#333"/>
+          <circle cx="512" cy="260" r="4" fill="#333"/>
+          <path d="M500 270 Q506 278 513 270" stroke="#c09030" stroke-width="2.5" fill="none"/>
+          <rect x="502" y="270" width="5" height="5" fill="white" rx="1"/>
+          <rect x="509" y="270" width="5" height="5" fill="white" rx="1"/>
+          <!-- Schild -->
+          <rect x="10" y="150" width="165" height="65" fill="white" rx="10" stroke="#c8a97e" stroke-width="3"/>
+          <text x="93" y="177" font-family="Nunito" font-weight="900" font-size="15" fill="#3a2e1e" text-anchor="middle">Pupdorfer Bauernhof</text>
+          <text x="93" y="200" font-family="Nunito" font-size="12" fill="#888" text-anchor="middle">Nur für Kinder! 🧒</text>
+        </svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #c8a97e">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🐾 Der Bauernhof</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Auf dem Pupdorfer Bauernhof leben die <strong>Guaios</strong> – flauschige, liebe Tiere. Aber Vorsicht: Sie beißen gerne in Finger! Übrigens gilt in ganz Pupdorf: <strong>nur Kinder, keine Babys</strong>.</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Büro -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg id="buero-buch-illu" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"></svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #f5c842">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🏢 Das Büro</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Das Büro glänzt in <strong>Gold und Silber</strong>. Das Besondere: Die Tiefgarage ist ganz <strong>oben</strong>, und die Schreibtische sind <strong>unten</strong>. Durch Löcher im Garagenboden fällt Licht auf die Tische. Ein Kollege heißt <strong>Thomas</strong>.</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Eisbahn -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <rect width="600" height="350" fill="#dff0ff"/>
+          <!-- Bande -->
+          <ellipse cx="300" cy="220" rx="270" ry="115" fill="#c8e8f8" stroke="#4080b0" stroke-width="6"/>
+          <ellipse cx="300" cy="220" rx="255" ry="105" fill="#d8eef8" stroke="none"/>
+          <!-- Eis-Linien -->
+          <ellipse cx="300" cy="220" rx="200" ry="80" fill="none" stroke="white" stroke-width="2" stroke-dasharray="15,10" opacity="0.6"/>
+          <!-- Löcher im Eis -->
+          <ellipse cx="185" cy="228" rx="28" ry="14" fill="#5090b0"/>
+          <ellipse cx="350" cy="200" rx="22" ry="11" fill="#5090b0"/>
+          <ellipse cx="420" cy="240" rx="18" ry="10" fill="#5090b0"/>
+          <!-- Kind 1 springt -->
+          <circle cx="240" cy="140" r="20" fill="#ffcc88"/>
+          <rect x="228" y="160" width="24" height="35" fill="#e84444" rx="3"/>
+          <!-- Knieschoner -->
+          <rect x="223" y="182" width="14" height="12" fill="#ffdd44" rx="2"/>
+          <rect x="239" y="182" width="14" height="12" fill="#ffdd44" rx="2"/>
+          <line x1="228" y1="170" x2="205" y2="155" stroke="#ffcc88" stroke-width="6" stroke-linecap="round"/>
+          <line x1="252" y1="170" x2="275" y2="153" stroke="#ffcc88" stroke-width="6" stroke-linecap="round"/>
+          <!-- Sprung-Pfeile -->
+          <path d="M232 138 L226 112 L220 138" fill="#f5c842" opacity="0.8"/>
+          <path d="M248 135 L254 109 L260 135" fill="#f5c842" opacity="0.8"/>
+          <!-- Kind 2 Purzelbaum -->
+          <circle cx="380" cy="155" r="18" fill="#ffaa66"/>
+          <path d="M362 168 Q380 195 398 168" stroke="#5566ee" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <!-- Kind 3 mit Schläger -->
+          <circle cx="310" cy="175" r="18" fill="#ffcc88"/>
+          <rect x="300" y="193" width="20" height="30" fill="#44aa44" rx="3"/>
+          <rect x="295" y="210" width="14" height="12" fill="#ffdd44" rx="2"/>
+          <rect x="311" y="210" width="14" height="12" fill="#ffdd44" rx="2"/>
+          <line x1="320" y1="200" x2="348" y2="186" stroke="#6b3a1f" stroke-width="5" stroke-linecap="round"/>
+          <ellipse cx="353" cy="184" rx="10" ry="6" fill="#222"/>
+          <!-- Titel-Box -->
+          <rect x="10" y="20" width="260" height="68" fill="white" rx="10" stroke="#90c0e0" stroke-width="2"/>
+          <text x="140" y="50" font-family="Nunito" font-weight="900" font-size="17" fill="#2c3e50" text-anchor="middle">Lulisches Eishockey</text>
+          <text x="140" y="72" font-family="Nunito" font-size="13" fill="#666" text-anchor="middle">Springen! Purzelbäume! Löcher!</text>
+        </svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #4ab0e8">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">⛸️ Die Eisbahn</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Beim <strong>Lulischen Eishockey</strong> muss man ständig <strong>springen und Purzelbäume machen</strong>. Im Eis gibt es <strong>Löcher</strong> – die gehören dazu. Alle tragen <strong>Knieschoner</strong>, damit man keine Spritze ins Knie braucht!</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Wasser + Straßen -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <rect width="600" height="350" fill="#e8e0d0"/>
+          <!-- Breite Straße -->
+          <rect y="130" width="600" height="100" fill="#777"/>
+          <line x1="0" y1="180" x2="600" y2="180" stroke="white" stroke-width="5" stroke-dasharray="40,25" opacity="0.7"/>
+          <rect y="126" width="600" height="8" fill="#999"/>
+          <rect y="222" width="600" height="8" fill="#999"/>
+          <!-- Gehweg (Rindenmulch!) -->
+          <rect y="0" width="600" height="130" fill="#c8a97e"/>
+          <rect y="230" width="600" height="120" fill="#c8a97e"/>
+          <!-- Straßenschild -->
+          <rect x="20" y="20" width="155" height="55" fill="white" rx="8" stroke="#f5c842" stroke-width="3"/>
+          <text x="98" y="43" font-family="Nunito" font-weight="900" font-size="12" fill="#e84444" text-anchor="middle">SONNTAG:</text>
+          <text x="98" y="62" font-family="Nunito" font-weight="800" font-size="12" fill="#e84444" text-anchor="middle">LAUT SEIN! 📢</text>
+          <!-- Kein Einbahn -->
+          <circle cx="440" cy="65" r="30" fill="#e84444" stroke="white" stroke-width="3"/>
+          <rect x="422" y="60" width="36" height="10" fill="white"/>
+          <text x="440" y="110" font-family="Nunito" font-size="11" fill="#555" text-anchor="middle">Kein Einbahn!</text>
+          <!-- Fahrradfahrer in der MITTE der Straße -->
+          <circle cx="340" cy="155" r="16" fill="#ffcc88"/>
+          <circle cx="320" cy="185" r="14" fill="none" stroke="#2c3e50" stroke-width="3"/>
+          <circle cx="355" cy="185" r="14" fill="none" stroke="#2c3e50" stroke-width="3"/>
+          <line x1="320" y1="185" x2="337" y2="168" stroke="#2c3e50" stroke-width="2.5"/>
+          <line x1="355" y1="185" x2="337" y2="168" stroke="#2c3e50" stroke-width="2.5"/>
+          <line x1="337" y1="168" x2="334" y2="155" stroke="#2c3e50" stroke-width="2.5"/>
+          <!-- Gummistiefel -->
+          <rect x="312" y="194" width="11" height="14" fill="#e84444" rx="3"/>
+          <rect x="347" y="194" width="11" height="14" fill="#e84444" rx="3"/>
+          <!-- Wasser-Fontäne -->
+          <rect x="510" y="200" width="16" height="30" fill="#a0a0a0" rx="3"/>
+          <path d="M518 200 Q508 145 518 75 Q528 145 518 200" fill="#4ab0e8" opacity="0.85"/>
+          <ellipse cx="518" cy="68" rx="12" ry="18" fill="#4ab0e8"/>
+          <ellipse cx="504" cy="82" rx="8" ry="12" fill="#6ac8f0" opacity="0.7"/>
+          <ellipse cx="532" cy="78" rx="8" ry="12" fill="#6ac8f0" opacity="0.7"/>
+          <!-- Pfeil hoch -->
+          <path d="M560 195 L560 60 L550 80 M560 60 L570 80" stroke="#2c3e50" stroke-width="3" fill="none"/>
+          <text x="578" y="130" font-family="Nunito" font-weight="900" font-size="13" fill="#2c3e50">hoch!</text>
+        </svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #777">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🚲 Straßen &amp; Wasser</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Die Straßen sind <strong>riesenbreit</strong> – kein Einbahnstraße. Fahrradfahrer dürfen <strong>in der Mitte</strong> fahren! Und Wasser? Fließt in Pupdorf <strong>von unten nach oben</strong>. Darum: immer Gummistiefel!</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Schokolade & Karneval -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <rect width="600" height="350" fill="#fdf6e3"/>
+          <!-- Schokoladentafel GRÜN -->
+          <rect x="120" y="40" width="260" height="190" fill="#5ab55a" rx="14" stroke="#3a8a3a" stroke-width="5"/>
+          <line x1="200" y1="40" x2="200" y2="230" stroke="#3a8a3a" stroke-width="4"/>
+          <line x1="280" y1="40" x2="280" y2="230" stroke="#3a8a3a" stroke-width="4"/>
+          <line x1="360" y1="40" x2="360" y2="230" stroke="#3a8a3a" stroke-width="4"/>
+          <line x1="120" y1="120" x2="380" y2="120" stroke="#3a8a3a" stroke-width="4"/>
+          <line x1="120" y1="175" x2="380" y2="175" stroke="#3a8a3a" stroke-width="4"/>
+          <!-- Verpackung -->
+          <rect x="100" y="14" width="300" height="36" fill="#c8a900" rx="6"/>
+          <text x="250" y="38" font-family="Nunito" font-weight="900" font-size="17" fill="white" text-anchor="middle">PUPDORF SCHOKO</text>
+          <!-- Staunendes Kind -->
+          <circle cx="510" cy="140" r="30" fill="#ffcc88"/>
+          <circle cx="498" cy="130" r="5" fill="#333"/>
+          <circle cx="520" cy="130" r="5" fill="#333"/>
+          <ellipse cx="509" cy="155" rx="9" ry="10" fill="#333"/>
+          <!-- Karneval Objekte -->
+          <!-- Kuchen fliegt -->
+          <rect x="20" y="60" width="70" height="55" fill="#f0a0c0" rx="10" transform="rotate(-15 55 87)"/>
+          <rect x="32" y="48" width="7" height="18" fill="#f5c842" rx="2" transform="rotate(-15 36 57)"/>
+          <rect x="48" y="44" width="7" height="18" fill="#e84444" rx="2" transform="rotate(-15 52 53)"/>
+          <ellipse cx="38" cy="46" rx="5" ry="7" fill="#ff8800" transform="rotate(-15 38 46)"/>
+          <ellipse cx="54" cy="41" rx="5" ry="7" fill="#ff8800" transform="rotate(-15 54 41)"/>
+          <!-- Gummibärchen smiley 1 -->
+          <ellipse cx="470" cy="55" rx="22" ry="28" fill="#f5c842"/>
+          <circle cx="461" cy="47" r="4" fill="#333"/>
+          <circle cx="479" cy="47" r="4" fill="#333"/>
+          <path d="M461 65 Q470 74 479 65" stroke="#333" stroke-width="2.5" fill="none"/>
+          <ellipse cx="450" cy="72" rx="7" ry="11" fill="#f5c842" stroke="#e8b800" stroke-width="1.5"/>
+          <ellipse cx="490" cy="72" rx="7" ry="11" fill="#f5c842" stroke="#e8b800" stroke-width="1.5"/>
+          <!-- Gummibärchen smiley 2 -->
+          <ellipse cx="60" cy="280" rx="18" ry="23" fill="#e84444"/>
+          <circle cx="52" cy="274" r="3.5" fill="#333"/>
+          <circle cx="68" cy="274" r="3.5" fill="#333"/>
+          <path d="M52 286 Q60 294 68 286" stroke="#333" stroke-width="2" fill="none"/>
+          <!-- Konfetti -->
+          <rect x="430" y="140" width="12" height="6" fill="#f28a2e" rx="1" transform="rotate(30 436 143)"/>
+          <rect x="80" y="200" width="10" height="5" fill="#4ab0e8" rx="1" transform="rotate(-20 85 202)"/>
+          <rect x="500" y="230" width="10" height="5" fill="#5ab55a" rx="1" transform="rotate(45 505 232)"/>
+          <rect x="150" y="290" width="10" height="5" fill="#f5c842" rx="1" transform="rotate(15 155 292)"/>
+        </svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #5ab55a">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🍫 Schokolade &amp; Karneval</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">In Pupdorf ist Schokolade immer <strong>grün</strong>. Alle Sorten, alle Marken – immer grün! Beim <strong>Karneval</strong> wird Kuchen geworfen und <strong>Smiley-Gummibärchen</strong> fliegen durch die Straßen.</p>
+        </div>
+      </div>
+
+      <!-- SEITE: Sprache & Olympia -->
+      <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
+        <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+          <rect width="600" height="350" fill="#fdf6e3"/>
+          <!-- Sprechblase groß -->
+          <ellipse cx="220" cy="130" rx="170" ry="85" fill="white" stroke="#f28a2e" stroke-width="4"/>
+          <path d="M165 210 L140 265 L205 218" fill="white" stroke="#f28a2e" stroke-width="4"/>
+          <text x="220" y="113" font-family="Nunito" font-weight="900" font-size="34" fill="#f28a2e" text-anchor="middle">singzua!</text>
+          <text x="220" y="147" font-family="Nunito" font-size="17" fill="#888" text-anchor="middle">= Hallo auf Lulisch</text>
+          <!-- Noten -->
+          <text x="310" y="75" font-size="30">♪</text>
+          <text x="350" y="50" font-size="24">♫</text>
+          <text x="285" y="50" font-size="22">♩</text>
+          <!-- Kind -->
+          <circle cx="165" cy="300" r="28" fill="#ffcc88"/>
+          <rect x="150" y="328" width="30" height="22" fill="#4ab0e8" rx="3"/>
+          <!-- Olympia Flagge rechts -->
+          <line x1="430" y1="50" x2="430" y2="300" stroke="#6b3a1f" stroke-width="7"/>
+          <rect x="430" y="50" width="155" height="100" fill="white" stroke="#ddd" stroke-width="1"/>
+          <rect x="430" y="50" width="155" height="33" fill="#f28a2e"/>
+          <rect x="430" y="117" width="155" height="33" fill="#f28a2e"/>
+          <rect x="430" y="83" width="155" height="34" fill="white"/>
+          <!-- Ahornblatt orange -->
+          <path d="M507 60 L497 90 L470 85 L483 100 L476 115 L507 106 L538 115 L531 100 L544 85 L517 90 Z" fill="#f28a2e" stroke="#d97020" stroke-width="1"/>
+          <!-- Label Flagge -->
+          <rect x="415" y="220" width="180" height="45" fill="white" rx="8" stroke="#f28a2e" stroke-width="2"/>
+          <text x="505" y="240" font-family="Nunito" font-weight="900" font-size="12" fill="#3a2e1e" text-anchor="middle">Kanadisch + Orange</text>
+          <text x="505" y="258" font-family="Nunito" font-size="11" fill="#888" text-anchor="middle">= Pupdorf Olympia!</text>
+        </svg>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #f28a2e">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🗣️ Lulisch &amp; Olympia</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">In Pupdorf spricht man <strong>Lulisch</strong>. "Hallo" heißt <strong>singzua</strong>. Bei <strong>Olympia</strong> startet Pupdorf mit einer besonderen Flagge: kanadisches Ahornblatt, aber alles in <strong>Orange</strong>!</p>
+        </div>
+      </div>
+
+      <!-- RÜCKSEITE -->
+      <div class="buch-seite buch-rueckseite" style="background:#fdf6e3;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;min-height:350px">
+        <div style="text-align:center;padding:3rem 2rem">
+          <div style="font-size:4rem;margin-bottom:1rem">♥</div>
+          <h3 style="font-size:1.6rem;font-weight:900;color:#f28a2e;margin-bottom:0.8rem">erzählt von Fiete</h3>
+          <p style="color:#888;line-height:1.7;max-width:280px;margin:0 auto">Pupdorf ist ein ganz besonderer Ort.<br>Hier ist vieles möglich, was woanders unmöglich ist.<br><br>Das Buch wird größer, wenn Fiete neue Geschichten erzählt.</p>
+          <div style="margin-top:1.5rem;font-size:1.2rem">🐾 🍫 💧 ⛸️ 📢</div>
+        </div>
+      </div>
+
+    </div><!-- /buchseiten -->
+  </div>
+  <footer>Pupdorf – erzählt von Fiete ♥</footer>
+</section>
+
+<!-- ─── Modal/Overlay ──────────────────────────────────────────── -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="schliesseOverlay()">✕</button>
+    <div id="modal-illu"></div>
+    <div class="modal-body">
+      <h2 id="modal-titel"></h2>
+      <div id="modal-fakten"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

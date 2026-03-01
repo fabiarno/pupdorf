@@ -1,0 +1,146 @@
+/* ══════════════════════════════════════════════════════════════
+   PUPDORF – Buchformat A5 (148 × 210 mm)
+   Dieses CSS wird zusätzlich zum Haupt-CSS geladen und
+   definiert das Layout beim Drucken/PDF-Export.
+   ══════════════════════════════════════════════════════════════ */
+
+@media print {
+  /* Seitengröße A5 Hochformat */
+  @page {
+    size: 148mm 210mm;
+    margin: 0;
+  }
+
+  /* Alles ausblenden was nicht ins Buch gehört */
+  nav,
+  footer,
+  .overlay,
+  .hero,
+  .orte-grid,
+  .woerter-grid,
+  .buch-intro > button,
+  #karte,
+  #regeln,
+  #woerter,
+  .karte-wrapper,
+  section#buch > .hero,
+  section#buch > footer {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  section#buch {
+    display: block !important;
+  }
+
+  /* ─── Buchseiten ──────────────────────────────────── */
+  .buch-seite {
+    width: 148mm;
+    height: 210mm;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .buch-seite:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Illustration füllt obere 2/3 der Seite */
+  .buch-seite .b-illu {
+    flex: 1;
+    display: block;
+    width: 100%;
+  }
+
+  /* Textbereich unten */
+  .buch-seite .b-text {
+    padding: 7mm 10mm 8mm;
+    background: #fdf6e3;
+    border-top: 3mm solid #f5c842;
+  }
+
+  .buch-seite .b-text h2 {
+    font-size: 16pt;
+    font-weight: 900;
+    margin-bottom: 3mm;
+    color: #2c3e50;
+  }
+
+  .buch-seite .b-text p {
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #3a2e1e;
+  }
+
+  /* ─── Deckblatt ──────────────────────────────────── */
+  .buch-deckblatt {
+    background: #2c3e50 !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .buch-deckblatt .deck-illu {
+    width: 100%;
+    flex: 1;
+    display: block;
+  }
+
+  .buch-deckblatt .b-text {
+    background: #2c3e50 !important;
+    border-top: 3mm solid #f5c842 !important;
+  }
+
+  .buch-deckblatt .b-text h2 {
+    color: #f5c842 !important;
+    font-size: 22pt !important;
+  }
+
+  .buch-deckblatt .b-text p {
+    color: rgba(255,255,255,0.7) !important;
+  }
+
+  /* ─── Rückseite ──────────────────────────────────── */
+  .buch-rueckseite {
+    background: #fdf6e3;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .buch-rueckseite .r-content {
+    padding: 20mm;
+  }
+
+  .buch-rueckseite h3 {
+    font-size: 18pt;
+    font-weight: 900;
+    color: #f28a2e;
+    margin-bottom: 8mm;
+  }
+
+  .buch-rueckseite p {
+    font-size: 10pt;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ─── Seitenzahl ──────────────────────────────────── */
+  .buch-seite .seitenzahl {
+    position: absolute;
+    bottom: 4mm;
+    right: 8mm;
+    font-size: 8pt;
+    color: #aaa;
+    font-family: 'Nunito', sans-serif;
+  }
+}
