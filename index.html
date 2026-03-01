@@ -529,16 +529,21 @@
   <div class="orte-grid">
     <a class="ort-card" onclick="oeffneOrt('bauernhof')">
       <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
-        <rect width="300" height="225" fill="#b8e4f9"/>
-        <rect y="160" width="300" height="65" fill="#c8a97e"/>
-        <rect x="80" y="60" width="140" height="110" fill="#e8734a"/>
-        <polygon points="80,60 150,20 220,60" fill="#c45530"/>
-        <rect x="110" y="110" width="60" height="60" fill="#6b3a1f" rx="3"/>
-        <ellipse cx="60" cy="170" rx="35" ry="22" fill="#e8c8f0"/>
-        <circle cx="72" cy="150" r="18" fill="#e8c8f0"/>
-        <rect x="64" y="163" width="5" height="5" fill="white" rx="1"/>
-        <rect x="71" y="163" width="5" height="5" fill="white" rx="1"/>
-        <text x="150" y="210" font-family="Nunito" font-weight="900" font-size="13" fill="#3a2e1e" text-anchor="middle">🐾 Guaio-Tiere</text>
+        <defs>
+          <linearGradient id="bh-sky-k" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7ec8f0"/><stop offset="100%" stop-color="#c8e8f8"/>
+          </linearGradient>
+        </defs>
+        <!-- Himmel -->
+        <rect width="300" height="225" fill="url(#bh-sky-k)"/>
+        <!-- Wolken -->
+        <g opacity="0.88"><ellipse cx="52" cy="28" rx="36" ry="13" fill="white"/><ellipse cx="76" cy="19" rx="24" ry="9" fill="white"/><ellipse cx="34" cy="32" rx="18" ry="8" fill="white"/></g>
+        <g opacity="0.75"><ellipse cx="234" cy="23" rx="30" ry="10" fill="white"/><ellipse cx="256" cy="15" rx="18" ry="8" fill="white"/></g>
+        <!-- Boden (Rindenmulch, beginnt bei PNG-Bodenlinie y≈185) -->
+        <rect y="184" width="300" height="41" fill="#c8a97e"/>
+        <rect y="184" width="300" height="5" fill="#b89060"/>
+        <!-- Bauernhof PNG: 680×300 → 300×132, y=93 -->
+        <image href="img/bauernhof.png" x="0" y="93" width="300" height="132"/>
       </svg>
       <div class="ort-body">
         <h2>Der Bauernhof</h2>
@@ -842,40 +847,21 @@
       <!-- SEITE: Bauernhof -->
       <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
         <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <rect width="600" height="350" fill="#b8e4f9"/>
-          <rect y="260" width="600" height="90" fill="#c8a97e"/>
-          <rect y="255" width="600" height="10" fill="#b89060"/>
-          <!-- Scheune groß -->
-          <rect x="180" y="100" width="240" height="175" fill="#e8734a"/>
-          <polygon points="180,100 300,30 420,100" fill="#c45530"/>
-          <rect x="240" y="195" width="80" height="80" fill="#6b3a1f" rx="4"/>
-          <line x1="280" y1="195" x2="280" y2="275" stroke="#4a2a10" stroke-width="4"/>
-          <rect x="195" y="120" width="55" height="50" fill="#f0d090" rx="4"/>
-          <rect x="350" y="120" width="55" height="50" fill="#f0d090" rx="4"/>
-          <!-- Guaio 1 -->
-          <ellipse cx="100" cy="280" rx="55" ry="35" fill="#e8c8f0"/>
-          <circle cx="118" cy="248" r="28" fill="#e8c8f0"/>
-          <ellipse cx="108" cy="232" rx="8" ry="13" fill="#daaae0"/>
-          <ellipse cx="128" cy="232" rx="8" ry="13" fill="#daaae0"/>
-          <circle cx="110" cy="252" r="4" fill="#333"/>
-          <circle cx="126" cy="252" r="4" fill="#333"/>
-          <path d="M111 264 Q118 272 126 264" stroke="#c060c0" stroke-width="2.5" fill="none"/>
-          <rect x="113" y="264" width="6" height="6" fill="white" rx="1"/>
-          <rect x="121" y="264" width="6" height="6" fill="white" rx="1"/>
-          <!-- Guaio 2 -->
-          <ellipse cx="490" cy="285" rx="48" ry="30" fill="#f0e8c0"/>
-          <circle cx="506" cy="256" r="24" fill="#f0e8c0"/>
-          <ellipse cx="498" cy="242" rx="7" ry="11" fill="#e0d8a0"/>
-          <ellipse cx="514" cy="242" rx="7" ry="11" fill="#e0d8a0"/>
-          <circle cx="500" cy="260" r="4" fill="#333"/>
-          <circle cx="512" cy="260" r="4" fill="#333"/>
-          <path d="M500 270 Q506 278 513 270" stroke="#c09030" stroke-width="2.5" fill="none"/>
-          <rect x="502" y="270" width="5" height="5" fill="white" rx="1"/>
-          <rect x="509" y="270" width="5" height="5" fill="white" rx="1"/>
-          <!-- Schild -->
-          <rect x="10" y="150" width="165" height="65" fill="white" rx="10" stroke="#c8a97e" stroke-width="3"/>
-          <text x="93" y="177" font-family="Nunito" font-weight="900" font-size="15" fill="#3a2e1e" text-anchor="middle">Pupdorfer Bauernhof</text>
-          <text x="93" y="200" font-family="Nunito" font-size="12" fill="#888" text-anchor="middle">Nur für Kinder! 🧒</text>
+          <defs>
+            <linearGradient id="bh-sky-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7ec8f0"/><stop offset="100%" stop-color="#c8e8f8"/>
+            </linearGradient>
+          </defs>
+          <!-- Himmel -->
+          <rect width="600" height="350" fill="url(#bh-sky-b)"/>
+          <!-- Wolken -->
+          <g opacity="0.90"><ellipse cx="100" cy="44" rx="68" ry="22" fill="white"/><ellipse cx="148" cy="30" rx="46" ry="17" fill="white"/><ellipse cx="64" cy="52" rx="34" ry="14" fill="white"/></g>
+          <g opacity="0.80"><ellipse cx="488" cy="36" rx="56" ry="18" fill="white"/><ellipse cx="532" cy="24" rx="36" ry="14" fill="white"/></g>
+          <!-- Boden (Rindenmulch, PNG Bodenlinie bei y≈274) -->
+          <rect y="272" width="600" height="78" fill="#c8a97e"/>
+          <rect y="272" width="600" height="7" fill="#b89060"/>
+          <!-- Bauernhof PNG: 680×300 → 600×265, y=85 -->
+          <image href="img/bauernhof.png" x="0" y="85" width="600" height="265"/>
         </svg>
         <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #c8a97e">
           <h2 style="font-weight:900;margin-bottom:0.4rem">🐾 Der Bauernhof</h2>
