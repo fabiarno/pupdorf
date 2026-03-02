@@ -527,7 +527,17 @@
 
     <a class="ort-card" onclick="oeffneOrt('eisbahn')">
       <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
-        <image href="img/eisbahn.png" x="0" y="0" width="300" height="225" preserveAspectRatio="xMidYMid slice"/>
+        <defs>
+          <linearGradient id="eis-bg-k" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d0eaff"/><stop offset="100%" stop-color="#eef6ff"/>
+          </linearGradient>
+        </defs>
+        <rect width="300" height="225" fill="url(#eis-bg-k)"/>
+        <rect x="0" y="0" width="300" height="10" fill="#b0c8e0" opacity="0.4"/>
+        <ellipse cx="75" cy="8" rx="10" ry="4" fill="#fff8d0" opacity="0.9"/>
+        <ellipse cx="150" cy="8" rx="10" ry="4" fill="#fff8d0" opacity="0.9"/>
+        <ellipse cx="225" cy="8" rx="10" ry="4" fill="#fff8d0" opacity="0.9"/>
+        <image href="img/eisbahn.png" x="-20" y="75" width="340" height="150"/>
       </svg>
       <div class="ort-body">
         <h2>Die Eisbahn</h2>
@@ -848,7 +858,17 @@
       <!-- SEITE: Eisbahn -->
       <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
         <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <image href="img/eisbahn.png" x="0" y="25" width="600" height="265" preserveAspectRatio="xMidYMid meet"/>
+          <defs>
+            <linearGradient id="eis-bg-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d0eaff"/><stop offset="100%" stop-color="#eef6ff"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="350" fill="url(#eis-bg-b)"/>
+          <rect x="0" y="0" width="600" height="18" fill="#b0c8e0" opacity="0.4"/>
+          <ellipse cx="150" cy="14" rx="19" ry="7" fill="#fff8d0" opacity="0.9"/>
+          <ellipse cx="300" cy="14" rx="19" ry="7" fill="#fff8d0" opacity="0.9"/>
+          <ellipse cx="450" cy="14" rx="19" ry="7" fill="#fff8d0" opacity="0.9"/>
+          <image href="img/eisbahn.png" x="-10" y="77" width="620" height="273"/>
         </svg>
         <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #4ab0e8">
           <h2 style="font-weight:900;margin-bottom:0.4rem">⛸️ Die Eisbahn</h2>
