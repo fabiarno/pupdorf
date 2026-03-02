@@ -613,29 +613,40 @@ function eisbahn_SVG() {
     <rect x="290" y="208" width="12" height="7" fill="#e8e8e8" rx="2"/>
     <line x1="286" y1="215" x2="306" y2="215" stroke="#c0c0c0" stroke-width="2"/>
 
-    <!-- ── Kind 2: Purzelbaum (Mitte) ── -->
-    <!-- Kopf unten (kopfüber) -->
-    <circle cx="345" cy="195" r="17" fill="#ffaa66"/>
-    <!-- Haare (jetzt oben, weil kopfüber) -->
-    <path d="M330 192 Q345 204 360 192" fill="#803010" stroke="#601800" stroke-width="1"/>
-    <!-- Gesicht (kopfüber) -->
-    <circle cx="338" cy="189" r="3" fill="#5a3010"/>
-    <circle cx="352" cy="189" r="3" fill="#5a3010"/>
-    <path d="M338 182 Q345 177 352 182" stroke="#a06030" stroke-width="2" fill="none"/>
-    <!-- Körper (blau, gebogen) -->
-    <path d="M340 180 Q320 165 318 148" stroke="#3050c8" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M350 180 Q370 165 372 148" stroke="#3050c8" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <!-- Beine oben (Purzelbaum) -->
-    <path d="M318 148 Q310 132 322 118" stroke="#2040a0" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M372 148 Q380 132 368 118" stroke="#2040a0" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- ── Kind 2: dreht Pirouette (Mitte) ── -->
+    <!-- Rotations-Schwung-Linien -->
+    <path d="M322 212 Q340 222 345 212 Q350 202 368 212" stroke="#6090c8" stroke-width="1.5" fill="none" opacity="0.45" stroke-dasharray="3,2"/>
+    <!-- Kopf -->
+    <circle cx="345" cy="148" r="16" fill="#ffaa66"/>
+    <!-- Haare (Zopf fliegt beim Drehen) -->
+    <path d="M331 142 Q345 131 359 142" fill="#803010" stroke="#601800" stroke-width="1"/>
+    <path d="M356 134 Q368 120 363 111" stroke="#803010" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <!-- Gesicht -->
+    <circle cx="339" cy="146" r="3" fill="#5a3010"/>
+    <circle cx="351" cy="146" r="3" fill="#5a3010"/>
+    <path d="M339 155 Q345 160 351 155" stroke="#a06030" stroke-width="2" fill="none"/>
+    <!-- Körper (lila Kleid) -->
+    <rect x="338" y="164" width="14" height="30" fill="#8030c0" rx="5"/>
+    <!-- Arme weit ausgestreckt (Pirouetten-Pose) -->
+    <path d="M339 172 Q318 162 302 155" stroke="#ffaa66" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <circle cx="302" cy="154" r="5" fill="#ffaa66"/>
+    <path d="M352 172 Q373 162 390 155" stroke="#ffaa66" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <circle cx="390" cy="154" r="5" fill="#ffaa66"/>
+    <!-- Bein (auf dem Eis, Standbein) -->
+    <path d="M341 194 Q339 210 338 228" stroke="#5010a0" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- Bein leicht angehoben (Arabesque) -->
+    <path d="M349 194 Q356 207 360 220" stroke="#5010a0" stroke-width="7" stroke-linecap="round" fill="none"/>
     <!-- Knieschoner -->
-    <rect x="314" y="137" width="13" height="10" fill="#f0d030" rx="3"/>
-    <rect x="370" y="137" width="13" height="10" fill="#f0d030" rx="3"/>
-    <!-- Schlittschuhe oben -->
-    <rect x="316" y="112" width="12" height="7" fill="#e8e8e8" rx="2"/>
-    <line x1="312" y1="112" x2="332" y2="112" stroke="#c0c0c0" stroke-width="2"/>
-    <rect x="364" y="112" width="12" height="7" fill="#e8e8e8" rx="2"/>
-    <line x1="360" y1="112" x2="380" y2="112" stroke="#c0c0c0" stroke-width="2"/>
+    <rect x="330" y="218" width="13" height="10" fill="#f0d030" rx="3"/>
+    <!-- Schlittschuhe -->
+    <rect x="331" y="226" width="13" height="7" fill="#e8e8e8" rx="2"/>
+    <line x1="326" y1="233" x2="348" y2="233" stroke="#c0c0c0" stroke-width="2"/>
+    <rect x="355" y="218" width="11" height="7" fill="#e8e8e8" rx="2"/>
+    <line x1="350" y1="225" x2="370" y2="225" stroke="#c0c0c0" stroke-width="2"/>
+    <!-- Glitzer-Effekt (Pirouette) -->
+    <circle cx="389" cy="143" r="3" fill="#f5e030" opacity="0.85"/>
+    <circle cx="305" cy="147" r="2.5" fill="#f5e030" opacity="0.75"/>
+    <circle cx="368" cy="128" r="2" fill="#f5e030" opacity="0.65"/>
 
     <!-- ── Kind 3: mit Schläger (rechts) ── -->
     <!-- Kopf -->
@@ -676,7 +687,7 @@ function eisbahn_SVG() {
     <!-- Label -->
     <rect x="14" y="14" width="218" height="58" fill="white" rx="10" stroke="#6090c0" stroke-width="2" opacity="0.95"/>
     <text x="123" y="39" font-family="Nunito" font-weight="900" font-size="14" fill="#1a3060" text-anchor="middle">Lulisches Eishockey</text>
-    <text x="123" y="58" font-family="Nunito" font-size="11" fill="#5070a0" text-anchor="middle">Springen! Purzelbäume! Löcher!</text>
+    <text x="123" y="58" font-family="Nunito" font-size="11" fill="#5070a0" text-anchor="middle">Springen! Pirouetten! Löcher!</text>
   </svg>`;
 }
 
