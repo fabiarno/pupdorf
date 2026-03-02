@@ -687,7 +687,7 @@ function eisbahn_SVG() {
     <!-- Label -->
     <rect x="14" y="14" width="218" height="58" fill="white" rx="10" stroke="#6090c0" stroke-width="2" opacity="0.95"/>
     <text x="123" y="39" font-family="Nunito" font-weight="900" font-size="14" fill="#1a3060" text-anchor="middle">Lulisches Eishockey</text>
-    <text x="123" y="58" font-family="Nunito" font-size="11" fill="#5070a0" text-anchor="middle">Springen! Pirouetten! Löcher!</text>
+    <text x="123" y="58" font-family="Nunito" font-size="11" fill="#5070a0" text-anchor="middle">Springen! Purzelbäume! Löcher!</text>
   </svg>`;
 }
 
