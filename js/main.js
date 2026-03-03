@@ -723,13 +723,14 @@ function strassenSVG() {
     <line x1="0" y1="218" x2="680" y2="218" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
     <line x1="0" y1="232" x2="680" y2="232" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
 
-    <!-- Kein-Einbahn-Schild links -->
+    <!-- Einbahnstraße-Schild (durchgestrichen) links -->
     <line x1="82" y1="148" x2="82" y2="95" stroke="#7a7a7a" stroke-width="5"/>
     <rect x="70" y="144" width="24" height="6" fill="#8a8888" rx="2"/>
-    <circle cx="82" cy="68" r="30" fill="#e03030" stroke="white" stroke-width="3.5"/>
-    <rect x="64" y="62" width="36" height="12" fill="white" rx="2.5"/>
-    <text x="82" y="110" font-family="Nunito" font-weight="800" font-size="11" fill="#555" text-anchor="middle">Kein</text>
-    <text x="82" y="122" font-family="Nunito" font-weight="800" font-size="11" fill="#555" text-anchor="middle">Einbahn!</text>
+    <rect x="50" y="50" width="64" height="36" fill="#1a4488" rx="5" stroke="#0a2d6e" stroke-width="2"/>
+    <rect x="50" y="50" width="64" height="14" fill="#2255aa" rx="5" opacity="0.5"/>
+    <polygon points="60,72 60,62 78,62 78,56 94,68 78,80 78,74" fill="white"/>
+    <line x1="54" y1="54" x2="110" y2="82" stroke="#e02020" stroke-width="6" stroke-linecap="round"/>
+    <line x1="110" y1="54" x2="54" y2="82" stroke="#e02020" stroke-width="6" stroke-linecap="round"/>
 
     <!-- Mitte-erlaubt-Schild rechts -->
     <line x1="592" y1="148" x2="592" y2="88" stroke="#7a7a7a" stroke-width="5"/>
@@ -738,11 +739,12 @@ function strassenSVG() {
     <rect x="548" y="50" width="88" height="20" fill="#f8d460" rx="8" opacity="0.6"/>
     <text x="592" y="70" font-family="Nunito" font-weight="900" font-size="13" fill="#5a3a00" text-anchor="middle">Mitte</text>
     <text x="592" y="86" font-family="Nunito" font-weight="900" font-size="13" fill="#e03000" text-anchor="middle">erlaubt!</text>
-    <text x="548" y="138" font-family="Nunito" font-weight="900" font-size="18" fill="#2a5080">←</text>
-    <text x="572" y="138" font-family="Nunito" font-weight="900" font-size="18" fill="#2a5080">→</text>
+    <!-- Pfeile frei in der Luft -->
+    <g transform="translate(525, 28) rotate(-12)"><text font-family="Nunito" font-weight="900" font-size="22" fill="#2a5080">←</text></g>
+    <g transform="translate(648, 32) rotate(10)"><text font-family="Nunito" font-weight="900" font-size="22" fill="#2a5080">→</text></g>
 
-    <!-- Radfahrer 1 – blau, gelbe Stiefel, fährt rechts -->
-    <g transform="translate(210, 270)">
+    <!-- Radfahrer 1 – blau, gelbe Stiefel, fährt in Mitte -->
+    <g transform="translate(210, 225)">
       <ellipse cx="5" cy="4" rx="36" ry="8" fill="#00000025"/>
       <circle cx="-30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
       <circle cx="-30" cy="0" r="6" fill="#2c3e50"/>
@@ -785,8 +787,8 @@ function strassenSVG() {
       <ellipse cx="15" cy="-88" rx="5.5" ry="3" fill="#f09060" opacity="0.5"/>
     </g>
 
-    <!-- Radfahrer 2 – grün, rote Stiefel, fährt entgegen -->
-    <g transform="translate(490, 263) scale(-0.80, 0.80)">
+    <!-- Radfahrer 2 – grün, rote Stiefel, fährt entgegen in Mitte -->
+    <g transform="translate(490, 225) scale(-0.80, 0.80)">
       <circle cx="-30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
       <circle cx="-30" cy="0" r="5" fill="#2c3e50"/>
       <line x1="-30" y1="-26" x2="-30" y2="26" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
@@ -822,10 +824,6 @@ function strassenSVG() {
       <path d="M-3,-84 Q5,-79 12,-84" stroke="#a06030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     </g>
 
-    <!-- MITTE-Hinweis über Fahrer 1 -->
-    <rect x="150" y="126" width="78" height="24" fill="#f5c842" rx="5" stroke="#c8a010" stroke-width="1.5"/>
-    <text x="189" y="143" font-family="Nunito" font-weight="900" font-size="12" fill="#5a3a00" text-anchor="middle">★ MITTE! ★</text>
-    <line x1="190" y1="150" x2="205" y2="163" stroke="#c8a010" stroke-width="2" stroke-linecap="round"/>
   </svg>`;
 }
 
