@@ -519,26 +519,22 @@
 
     <a class="ort-card" onclick="oeffneOrt('strassen')">
       <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
-        <rect width="300" height="225" fill="#e8e0d0"/>
-        <rect y="80" width="300" height="70" fill="#777"/>
-        <line x1="0" y1="115" x2="300" y2="115" stroke="white" stroke-width="4" stroke-dasharray="25,15"/>
-        <rect y="77" width="300" height="6" fill="#999"/>
-        <rect y="144" width="300" height="6" fill="#999"/>
-        <rect x="120" y="0" width="60" height="225" fill="#888"/>
-        <line x1="150" y1="0" x2="150" y2="225" stroke="white" stroke-width="3" stroke-dasharray="20,12"/>
-        <!-- Fahrradfahrer MITTE -->
-        <circle cx="210" cy="100" r="10" fill="#ffcc88"/>
-        <circle cx="200" cy="118" r="9" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
-        <circle cx="220" cy="118" r="9" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
-        <line x1="200" y1="118" x2="210" y2="108" stroke="#2c3e50" stroke-width="2"/>
-        <line x1="220" y1="118" x2="210" y2="108" stroke="#2c3e50" stroke-width="2"/>
-        <rect x="196" y="123" width="7" height="9" fill="#e84444" rx="2"/>
-        <rect x="213" y="123" width="7" height="9" fill="#e84444" rx="2"/>
-        <text x="150" y="215" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🚲 Breite Straßen, Mitte frei!</text>
+        <defs>
+          <linearGradient id="str-sky-k" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#80c8f0"/><stop offset="100%" stop-color="#c8e8fa"/>
+          </linearGradient>
+        </defs>
+        <!-- Himmel -->
+        <rect width="300" height="225" fill="url(#str-sky-k)"/>
+        <!-- Wolken -->
+        <g opacity="0.9"><ellipse cx="55" cy="28" rx="38" ry="14" fill="white"/><ellipse cx="80" cy="20" rx="25" ry="10" fill="white"/></g>
+        <g opacity="0.75"><ellipse cx="228" cy="24" rx="30" ry="11" fill="white"/><ellipse cx="250" cy="17" rx="18" ry="8" fill="white"/></g>
+        <!-- Straßen-PNG -->
+        <image href="img/strassen.png" x="-20" y="75" width="340" height="150"/>
       </svg>
       <div class="ort-body">
         <h2>Die Straßen</h2>
-        <p>Breit, keine Einbahn, Fahrrad in der Mitte. Gummistiefel fürs Fahrrad.</p>
+        <p>Riesenbreit, kein Einbahn – Fahrrad in der Mitte! Gummistiefel nicht vergessen.</p>
       </div>
     </a>
 
@@ -867,29 +863,20 @@
       <!-- SEITE: Straßen -->
       <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
         <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <rect width="600" height="350" fill="#e8e0d0"/>
-          <rect y="140" width="600" height="100" fill="#777"/>
-          <line x1="0" y1="190" x2="600" y2="190" stroke="white" stroke-width="5" stroke-dasharray="40,25" opacity="0.7"/>
-          <rect y="136" width="600" height="8" fill="#999"/>
-          <rect y="232" width="600" height="8" fill="#999"/>
-          <rect y="0" width="600" height="140" fill="#c8a97e"/>
-          <rect y="240" width="600" height="110" fill="#c8a97e"/>
-          <rect x="20" y="25" width="155" height="55" fill="white" rx="8" stroke="#f5c842" stroke-width="3"/>
-          <text x="98" y="48" font-family="Nunito" font-weight="900" font-size="12" fill="#e84444" text-anchor="middle">SONNTAG:</text>
-          <text x="98" y="67" font-family="Nunito" font-weight="800" font-size="12" fill="#e84444" text-anchor="middle">LAUT SEIN! 📢</text>
-          <circle cx="460" cy="70" r="30" fill="#e84444" stroke="white" stroke-width="3"/>
-          <rect x="442" y="65" width="36" height="10" fill="white"/>
-          <text x="460" y="115" font-family="Nunito" font-size="11" fill="#555" text-anchor="middle">Kein Einbahn!</text>
-          <circle cx="300" cy="162" r="16" fill="#ffcc88"/>
-          <circle cx="280" cy="192" r="14" fill="none" stroke="#2c3e50" stroke-width="3"/>
-          <circle cx="315" cy="192" r="14" fill="none" stroke="#2c3e50" stroke-width="3"/>
-          <line x1="280" y1="192" x2="297" y2="175" stroke="#2c3e50" stroke-width="2.5"/>
-          <line x1="315" y1="192" x2="297" y2="175" stroke="#2c3e50" stroke-width="2.5"/>
-          <line x1="297" y1="175" x2="294" y2="162" stroke="#2c3e50" stroke-width="2.5"/>
-          <rect x="272" y="201" width="11" height="14" fill="#e0c020" rx="3"/>
-          <rect x="307" y="201" width="11" height="14" fill="#e0c020" rx="3"/>
+          <defs>
+            <linearGradient id="str-sky-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#80c8f0"/><stop offset="100%" stop-color="#c8e8fa"/>
+            </linearGradient>
+          </defs>
+          <!-- Himmel -->
+          <rect width="600" height="350" fill="url(#str-sky-b)"/>
+          <!-- Wolken -->
+          <g opacity="0.9"><ellipse cx="78" cy="38" rx="54" ry="19" fill="white"/><ellipse cx="116" cy="26" rx="36" ry="14" fill="white"/><ellipse cx="52" cy="44" rx="28" ry="12" fill="white"/></g>
+          <g opacity="0.8"><ellipse cx="472" cy="32" rx="46" ry="16" fill="white"/><ellipse cx="510" cy="22" rx="30" ry="12" fill="white"/></g>
+          <!-- Straßen-PNG -->
+          <image href="img/strassen.png" x="-15" y="72" width="630" height="278"/>
         </svg>
-        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #777">
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #4a4840">
           <h2 style="font-weight:900;margin-bottom:0.4rem">🚲 Die Straßen</h2>
           <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">Die Straßen sind <strong>riesenbreit</strong> – keine Einbahnstraße. Fahrradfahrer dürfen <strong>in der Mitte</strong> fahren! Und weil Wasser von unten kommt: immer <strong>Gummistiefel</strong> beim Radfahren.</p>
         </div>

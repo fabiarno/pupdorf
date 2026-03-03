@@ -694,131 +694,138 @@ function eisbahn_SVG() {
 function strassenSVG() {
   return `<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
     <defs>
-      <!-- Mulch-Bürgersteig -->
-      <linearGradient id="str-mulch" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#d4aa78"/>
-        <stop offset="100%" stop-color="#b08850"/>
-      </linearGradient>
-      <!-- Asphalt -->
-      <linearGradient id="str-road" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#888890"/>
-        <stop offset="100%" stop-color="#606068"/>
-      </linearGradient>
-      <!-- Himmel -->
       <linearGradient id="str-sky" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#80c8f0"/>
         <stop offset="100%" stop-color="#c8e8fa"/>
       </linearGradient>
     </defs>
 
-    <!-- Mulch-Hintergrund (Bürgersteige) -->
-    <rect width="680" height="300" fill="url(#str-mulch)"/>
-    <!-- Mulch-Textur -->
-    <line x1="20" y1="40" x2="80" y2="36" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="140" y1="55" x2="220" y2="50" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="430" y1="42" x2="520" y2="38" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="580" y1="60" x2="660" y2="55" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="30" y1="240" x2="100" y2="237" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="450" y1="250" x2="540" y2="246" stroke="#a07840" stroke-width="2" opacity="0.4"/>
-    <line x1="590" y1="235" x2="660" y2="232" stroke="#a07840" stroke-width="2" opacity="0.4"/>
+    <!-- Himmel -->
+    <rect width="680" height="300" fill="url(#str-sky)"/>
+    <!-- Wolken -->
+    <g opacity="0.92"><ellipse cx="80" cy="38" rx="52" ry="19" fill="white"/><ellipse cx="116" cy="28" rx="34" ry="14" fill="white"/><ellipse cx="52" cy="44" rx="28" ry="12" fill="white"/></g>
+    <g opacity="0.82"><ellipse cx="570" cy="32" rx="44" ry="16" fill="white"/><ellipse cx="606" cy="22" rx="28" ry="11" fill="white"/></g>
+    <g opacity="0.7"><ellipse cx="320" cy="22" rx="34" ry="12" fill="white"/><ellipse cx="344" cy="14" rx="20" ry="8" fill="white"/></g>
 
-    <!-- ── Horizontale Straße (sehr breit) ── -->
-    <rect y="98" width="680" height="110" fill="url(#str-road)"/>
+    <!-- Bürgersteig oben -->
+    <rect x="0" y="145" width="680" height="22" fill="#c8a97e"/>
+    <rect x="0" y="164" width="680" height="4" fill="#a88050"/>
+    <!-- Asphalt -->
+    <rect x="0" y="168" width="680" height="112" fill="#4a4840"/>
+    <!-- Bürgersteig unten -->
+    <rect x="0" y="280" width="680" height="20" fill="#c8a97e"/>
     <!-- Bordstein oben -->
-    <rect y="93" width="680" height="9" fill="#a0a0a8"/>
-    <rect y="94" width="680" height="3" fill="#c0c0c8" opacity="0.6"/>
+    <rect x="0" y="163" width="680" height="7" fill="#9a9898"/>
+    <rect x="0" y="163" width="680" height="2" fill="#c8c8cc" opacity="0.7"/>
     <!-- Bordstein unten -->
-    <rect y="207" width="680" height="9" fill="#a0a0a8"/>
-    <rect y="207" width="680" height="3" fill="#c0c0c8" opacity="0.6"/>
-    <!-- Mittellinien horizontal (gestrichelt, weiß) -->
-    <line x1="0" y1="140" x2="680" y2="140" stroke="white" stroke-width="3.5" stroke-dasharray="28,18" opacity="0.8"/>
-    <line x1="0" y1="165" x2="680" y2="165" stroke="white" stroke-width="3.5" stroke-dasharray="28,18" opacity="0.8"/>
+    <rect x="0" y="278" width="680" height="6" fill="#9a9898"/>
+    <!-- Doppelte Mittellinien -->
+    <line x1="0" y1="218" x2="680" y2="218" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
+    <line x1="0" y1="232" x2="680" y2="232" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
 
-    <!-- ── Vertikale Straße (sehr breit) ── -->
-    <rect x="268" y="0" width="144" height="300" fill="url(#str-road)"/>
-    <!-- Bordstein links -->
-    <rect x="261" y="0" width="10" height="300" fill="#a0a0a8"/>
-    <rect x="261" y="0" width="3" height="300" fill="#c0c0c8" opacity="0.6"/>
-    <!-- Bordstein rechts -->
-    <rect x="409" y="0" width="10" height="300" fill="#a0a0a8"/>
-    <rect x="409" y="0" width="3" height="300" fill="#c0c0c8" opacity="0.6"/>
-    <!-- Mittellinien vertikal -->
-    <line x1="322" y1="0" x2="322" y2="300" stroke="white" stroke-width="3.5" stroke-dasharray="28,18" opacity="0.8"/>
-    <line x1="358" y1="0" x2="358" y2="300" stroke="white" stroke-width="3.5" stroke-dasharray="28,18" opacity="0.8"/>
+    <!-- Kein-Einbahn-Schild links -->
+    <line x1="82" y1="148" x2="82" y2="95" stroke="#7a7a7a" stroke-width="5"/>
+    <rect x="70" y="144" width="24" height="6" fill="#8a8888" rx="2"/>
+    <circle cx="82" cy="68" r="30" fill="#e03030" stroke="white" stroke-width="3.5"/>
+    <rect x="64" y="62" width="36" height="12" fill="white" rx="2.5"/>
+    <text x="82" y="110" font-family="Nunito" font-weight="800" font-size="11" fill="#555" text-anchor="middle">Kein</text>
+    <text x="82" y="122" font-family="Nunito" font-weight="800" font-size="11" fill="#555" text-anchor="middle">Einbahn!</text>
 
-    <!-- Kreuzung etwas heller -->
-    <rect x="268" y="98" width="144" height="110" fill="#909098"/>
+    <!-- Mitte-erlaubt-Schild rechts -->
+    <line x1="592" y1="148" x2="592" y2="88" stroke="#7a7a7a" stroke-width="5"/>
+    <rect x="580" y="144" width="24" height="6" fill="#8a8888" rx="2"/>
+    <rect x="548" y="50" width="88" height="44" fill="#f5c842" rx="8" stroke="#c8a010" stroke-width="2.5"/>
+    <rect x="548" y="50" width="88" height="20" fill="#f8d460" rx="8" opacity="0.6"/>
+    <text x="592" y="70" font-family="Nunito" font-weight="900" font-size="13" fill="#5a3a00" text-anchor="middle">Mitte</text>
+    <text x="592" y="86" font-family="Nunito" font-weight="900" font-size="13" fill="#e03000" text-anchor="middle">erlaubt!</text>
+    <text x="548" y="138" font-family="Nunito" font-weight="900" font-size="18" fill="#2a5080">←</text>
+    <text x="572" y="138" font-family="Nunito" font-weight="900" font-size="18" fill="#2a5080">→</text>
 
-    <!-- ── Fahrradfahrer IN DER MITTE der horizontalen Straße ── -->
-    <!-- Schatten -->
-    <ellipse cx="486" cy="200" rx="28" ry="6" fill="#00000030"/>
-    <!-- Fahrrad: Räder -->
-    <circle cx="462" cy="188" r="15" fill="none" stroke="#2c3e50" stroke-width="3.5"/>
-    <!-- Speichen Rad links -->
-    <line x1="462" y1="174" x2="462" y2="202" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="448" y1="188" x2="476" y2="188" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="452" y1="178" x2="472" y2="198" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="452" y1="198" x2="472" y2="178" stroke="#2c3e50" stroke-width="1.5"/>
-    <circle cx="462" cy="188" r="4" fill="#2c3e50"/>
+    <!-- Radfahrer 1 – blau, gelbe Stiefel, fährt rechts -->
+    <g transform="translate(210, 270)">
+      <ellipse cx="5" cy="4" rx="36" ry="8" fill="#00000025"/>
+      <circle cx="-30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
+      <circle cx="-30" cy="0" r="6" fill="#2c3e50"/>
+      <line x1="-30" y1="-26" x2="-30" y2="26" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="-56" y1="0" x2="-4" y2="0" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="-48" y1="-18" x2="-12" y2="18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <line x1="-48" y1="18" x2="-12" y2="-18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
+      <circle cx="30" cy="0" r="6" fill="#2c3e50"/>
+      <line x1="30" y1="-26" x2="30" y2="26" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="4" y1="0" x2="56" y2="0" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="12" y1="-18" x2="48" y2="18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <line x1="12" y1="18" x2="48" y2="-18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <line x1="-30" y1="0" x2="5" y2="-38" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="30" y1="0" x2="5" y2="-38" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#2c3e50" stroke-width="3.5"/>
+      <line x1="5" y1="-38" x2="3" y2="-48" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="-6" y1="-48" x2="14" y2="-48" stroke="#111" stroke-width="6.5" stroke-linecap="round"/>
+      <line x1="30" y1="0" x2="32" y2="-34" stroke="#2c3e50" stroke-width="4"/>
+      <line x1="26" y1="-34" x2="40" y2="-34" stroke="#111" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Gelbe Gummistiefel -->
+      <line x1="4" y1="-42" x2="-14" y2="-8" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+      <rect x="-26" y="-12" width="22" height="18" rx="6" fill="#f5c842"/>
+      <rect x="-25" y="-1" width="20" height="7" rx="3.5" fill="#d4a820"/>
+      <line x1="4" y1="-42" x2="22" y2="-14" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+      <rect x="10" y="-18" width="22" height="18" rx="6" fill="#f5c842"/>
+      <rect x="11" y="-7" width="20" height="7" rx="3.5" fill="#d4a820"/>
+      <!-- Körper blau -->
+      <rect x="-10" y="-75" width="24" height="34" fill="#2255cc" rx="7"/>
+      <path d="M14 -64 Q24 -54 32 -42" stroke="#ffcc88" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M-10 -64 Q0 -56 12 -46" stroke="#ffcc88" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <circle cx="5" cy="-90" r="20" fill="#ffcc88"/>
+      <path d="M-13,-94 Q-10,-112 5,-111 Q20,-112 23,-94" fill="#3366cc" stroke="#2244aa" stroke-width="2"/>
+      <circle cx="-2" cy="-93" r="3.5" fill="#333"/>
+      <circle cx="11" cy="-93" r="3.5" fill="#333"/>
+      <circle cx="-1" cy="-92" r="1.4" fill="white"/>
+      <circle cx="12" cy="-92" r="1.4" fill="white"/>
+      <path d="M-3,-84 Q5,-78 12,-84" stroke="#a06030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-6" cy="-88" rx="5.5" ry="3" fill="#f09060" opacity="0.5"/>
+      <ellipse cx="15" cy="-88" rx="5.5" ry="3" fill="#f09060" opacity="0.5"/>
+    </g>
 
-    <circle cx="510" cy="188" r="15" fill="none" stroke="#2c3e50" stroke-width="3.5"/>
-    <line x1="510" y1="174" x2="510" y2="202" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="496" y1="188" x2="524" y2="188" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="500" y1="178" x2="520" y2="198" stroke="#2c3e50" stroke-width="1.5"/>
-    <line x1="500" y1="198" x2="520" y2="178" stroke="#2c3e50" stroke-width="1.5"/>
-    <circle cx="510" cy="188" r="4" fill="#2c3e50"/>
+    <!-- Radfahrer 2 – grün, rote Stiefel, fährt entgegen -->
+    <g transform="translate(490, 263) scale(-0.80, 0.80)">
+      <circle cx="-30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
+      <circle cx="-30" cy="0" r="5" fill="#2c3e50"/>
+      <line x1="-30" y1="-26" x2="-30" y2="26" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="-56" y1="0" x2="-4" y2="0" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <circle cx="30" cy="0" r="26" fill="none" stroke="#2c3e50" stroke-width="4"/>
+      <circle cx="30" cy="0" r="5" fill="#2c3e50"/>
+      <line x1="30" y1="-26" x2="30" y2="26" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="4" y1="0" x2="56" y2="0" stroke="#6a7a8a" stroke-width="1.8" opacity="0.5"/>
+      <line x1="12" y1="-18" x2="48" y2="18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <line x1="12" y1="18" x2="48" y2="-18" stroke="#6a7a8a" stroke-width="1.5" opacity="0.4"/>
+      <line x1="-30" y1="0" x2="5" y2="-38" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="30" y1="0" x2="5" y2="-38" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#2c3e50" stroke-width="3.5"/>
+      <line x1="5" y1="-38" x2="3" y2="-48" stroke="#2c3e50" stroke-width="4.5"/>
+      <line x1="-6" y1="-48" x2="14" y2="-48" stroke="#111" stroke-width="6.5" stroke-linecap="round"/>
+      <line x1="30" y1="0" x2="32" y2="-34" stroke="#2c3e50" stroke-width="4"/>
+      <line x1="26" y1="-34" x2="40" y2="-34" stroke="#111" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Rote Gummistiefel -->
+      <line x1="4" y1="-42" x2="-14" y2="-8" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+      <rect x="-26" y="-12" width="22" height="18" rx="6" fill="#e03030"/>
+      <rect x="-25" y="-1" width="20" height="7" rx="3.5" fill="#c02020"/>
+      <line x1="4" y1="-42" x2="22" y2="-14" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+      <rect x="10" y="-18" width="22" height="18" rx="6" fill="#e03030"/>
+      <rect x="11" y="-7" width="20" height="7" rx="3.5" fill="#c02020"/>
+      <!-- Körper grün -->
+      <rect x="-10" y="-75" width="24" height="34" fill="#228830" rx="7"/>
+      <path d="M14 -64 Q24 -54 32 -42" stroke="#ffcc88" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M-10 -64 Q0 -56 12 -46" stroke="#ffcc88" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <circle cx="5" cy="-90" r="20" fill="#ffcc88"/>
+      <path d="M-13,-94 Q-10,-112 5,-111 Q20,-112 23,-94" fill="#f28a2e" stroke="#d07020" stroke-width="2"/>
+      <circle cx="-2" cy="-93" r="3.5" fill="#333"/>
+      <circle cx="11" cy="-93" r="3.5" fill="#333"/>
+      <path d="M-3,-84 Q5,-79 12,-84" stroke="#a06030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </g>
 
-    <!-- Rahmen -->
-    <line x1="462" y1="188" x2="486" y2="170" stroke="#2c3e50" stroke-width="3"/>
-    <line x1="510" y1="188" x2="486" y2="170" stroke="#2c3e50" stroke-width="3"/>
-    <line x1="486" y1="170" x2="486" y2="155" stroke="#2c3e50" stroke-width="3"/>
-    <!-- Lenker -->
-    <line x1="480" y1="155" x2="494" y2="155" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/>
-    <!-- Sattel -->
-    <rect x="478" y="163" width="16" height="5" fill="#5a3010" rx="2"/>
-
-    <!-- Fahrradfahrer-Körper -->
-    <!-- Gummistiefel (rot, am Pedal) -->
-    <rect x="456" y="178" width="13" height="17" fill="#e03030" rx="4"/>
-    <rect x="453" y="193" width="18" height="6" fill="#c02020" rx="3"/>
-    <rect x="503" y="184" width="13" height="17" fill="#e03030" rx="4"/>
-    <rect x="500" y="199" width="18" height="6" fill="#c02020" rx="3"/>
-    <!-- Beine -->
-    <path d="M480 168 Q470 178 462 183" stroke="#2a5080" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M480 168 Q490 178 503 188" stroke="#2a5080" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <!-- Körper -->
-    <rect x="472" y="140" width="22" height="28" fill="#e86030" rx="6"/>
-    <!-- Arm zum Lenker -->
-    <path d="M472 148 Q480 150 487 155" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <path d="M494 148 Q490 150 487 155" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <!-- Kopf -->
-    <circle cx="483" cy="128" r="18" fill="#ffcc88"/>
-    <!-- Haare (Helm-ähnlich, orange) -->
-    <path d="M466 126 Q467 110 483 108 Q499 110 500 126" fill="#d06020" stroke="#a04010" stroke-width="1.5"/>
-    <!-- Gesicht -->
-    <circle cx="477" cy="126" r="3.2" fill="#5a3010"/>
-    <circle cx="489" cy="126" r="3.2" fill="#5a3010"/>
-    <circle cx="478" cy="125" r="1.2" fill="white"/>
-    <circle cx="490" cy="125" r="1.2" fill="white"/>
-    <path d="M477 136 Q483 141 489 136" stroke="#a06030" stroke-width="2" fill="none"/>
-    <!-- Freudenröte -->
-    <ellipse cx="474" cy="131" rx="4" ry="2.5" fill="#e09070" opacity="0.55"/>
-    <ellipse cx="492" cy="131" rx="4" ry="2.5" fill="#e09070" opacity="0.55"/>
-
-    <!-- "MITTE"-Schild am Fahrrad -->
-    <rect x="525" y="168" width="110" height="34" fill="#f0d000" rx="8" stroke="#c0a000" stroke-width="2"/>
-    <text x="580" y="182" font-family="Nunito" font-weight="900" font-size="11" fill="#5a3a00" text-anchor="middle">Fahrrad in</text>
-    <text x="580" y="196" font-family="Nunito" font-weight="900" font-size="11" fill="#e03000" text-anchor="middle">DER MITTE!</text>
-
-    <!-- "Kein Einbahn" Schild (links oben) -->
-    <circle cx="140" cy="52" r="28" fill="#e03030" stroke="white" stroke-width="3.5"/>
-    <rect x="122" y="47" width="36" height="10" fill="white" rx="2"/>
-    <!-- Schildständer -->
-    <line x1="140" y1="80" x2="140" y2="95" stroke="#5a5a5a" stroke-width="4"/>
-    <rect x="125" y="93" width="30" height="5" fill="#5a5a5a" rx="2"/>
-    <!-- Beschriftung neben Schild -->
-    <rect x="10" y="18" width="118" height="28" fill="white" rx="6" stroke="#e03030" stroke-width="2" opacity="0.92"/>
-    <text x="69" y="36" font-family="Nunito" font-weight="900" font-size="11" fill="#e03030" text-anchor="middle">Kein Einbahn!</text>
+    <!-- MITTE-Hinweis über Fahrer 1 -->
+    <rect x="150" y="126" width="78" height="24" fill="#f5c842" rx="5" stroke="#c8a010" stroke-width="1.5"/>
+    <text x="189" y="143" font-family="Nunito" font-weight="900" font-size="12" fill="#5a3a00" text-anchor="middle">★ MITTE! ★</text>
+    <line x1="190" y1="150" x2="205" y2="163" stroke="#c8a010" stroke-width="2" stroke-linecap="round"/>
   </svg>`;
 }
 
