@@ -1356,9 +1356,9 @@ function olympiaSVG() {
     <!-- Fahne: Umriss -->
     <rect x="40" y="42" width="132" height="76" fill="none" stroke="#d06010" stroke-width="1.2" opacity="0.5"/>
     <!-- Ahornblatt (zentriert im weißen Bereich) -->
-    <g transform="translate(106,80) scale(0.85)">
-      <path d="M0,22 L-3,10 L-9,13 L-7,4 L-18,5 L-13,-1 L-25,-2 L-15,-5 L-17,-14 L-9,-10 L-10,-20 L-3,-16 L0,-26 L3,-16 L10,-20 L9,-10 L17,-14 L15,-5 L25,-2 L13,-1 L18,5 L7,4 L9,13 L3,10 Z" fill="#f5801e" stroke="#d06010" stroke-width="1.2"/>
-      <rect x="-2" y="22" width="4" height="8" fill="#f5801e"/>
+    <g transform="translate(106,78) scale(0.85)">
+      <path d="M0,26 L6,24 L13,21 L16,18 L24,10 L22,6 L26,0 L22,-4 L21,-14 L14,-16 L11,-23 L5,-22 L0,-26 L-5,-22 L-11,-23 L-14,-16 L-21,-14 L-22,-4 L-26,0 L-22,6 L-24,10 L-16,18 L-13,21 L-6,24 Z" fill="#f5801e" stroke="#d06010" stroke-width="1.5"/>
+      <rect x="-2.5" y="26" width="5" height="10" rx="1" fill="#f5801e"/>
     </g>
 
     <!-- ── Podest ── -->
