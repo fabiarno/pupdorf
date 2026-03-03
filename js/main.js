@@ -977,176 +977,292 @@ function wasserSVG() {
 function schokoladeSVG() {
   return `<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
     <defs>
-      <!-- Hintergrund warm -->
-      <linearGradient id="sch-bg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#fff8e8"/>
-        <stop offset="100%" stop-color="#faeac8"/>
+      <linearGradient id="sch-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6ab4e8"/>
+        <stop offset="100%" stop-color="#c8e8f8"/>
       </linearGradient>
-      <!-- Grüne Schokolade -->
-      <linearGradient id="sch-choc" x1="0" y1="0" x2="1" y2="1">
+      <radialGradient id="sch-wheel" cx="38%" cy="32%" r="62%">
+        <stop offset="0%" stop-color="#d4a060"/>
+        <stop offset="100%" stop-color="#7a4a18"/>
+      </radialGradient>
+      <linearGradient id="sch-wagon" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f8dc40"/>
+        <stop offset="100%" stop-color="#d8b820"/>
+      </linearGradient>
+      <radialGradient id="sch-by" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#fff090"/>
+        <stop offset="100%" stop-color="#e8a800"/>
+      </radialGradient>
+      <radialGradient id="sch-bg2" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#a8f068"/>
+        <stop offset="100%" stop-color="#2aa828"/>
+      </radialGradient>
+      <linearGradient id="sch-choc2" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#70cc60"/>
         <stop offset="100%" stop-color="#3a9030"/>
       </linearGradient>
-      <!-- Tafel-Glanz -->
-      <linearGradient id="sch-gloss" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffffff50"/>
-        <stop offset="100%" stop-color="#ffffff00"/>
-      </linearGradient>
-      <!-- Kuchen -->
-      <linearGradient id="sch-cake" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#f8b8d8"/>
-        <stop offset="100%" stop-color="#e07090"/>
-      </linearGradient>
-      <!-- Gummibärchen gelb -->
-      <radialGradient id="sch-bear" cx="38%" cy="32%" r="60%">
-        <stop offset="0%" stop-color="#fff080"/>
-        <stop offset="100%" stop-color="#e8a800"/>
-      </radialGradient>
     </defs>
 
-    <!-- Hintergrund -->
-    <rect width="680" height="300" fill="url(#sch-bg)"/>
+    <!-- Himmel -->
+    <rect width="680" height="300" fill="url(#sch-sky)"/>
+    <!-- Wolken -->
+    <g opacity="0.9"><ellipse cx="68" cy="32" rx="44" ry="16" fill="white"/><ellipse cx="98" cy="22" rx="30" ry="12" fill="white"/><ellipse cx="46" cy="38" rx="22" ry="10" fill="white"/></g>
+    <g opacity="0.8"><ellipse cx="560" cy="28" rx="38" ry="14" fill="white"/><ellipse cx="588" cy="18" rx="26" ry="10" fill="white"/></g>
+    <g opacity="0.7"><ellipse cx="310" cy="22" rx="32" ry="11" fill="white"/><ellipse cx="332" cy="14" rx="20" ry="8" fill="white"/></g>
 
-    <!-- Konfetti-Punkte (Karneval-Stimmung) -->
-    <circle cx="30" cy="20" r="5" fill="#e84444" opacity="0.7"/>
-    <circle cx="60" cy="35" r="4" fill="#4ab0e8" opacity="0.7"/>
-    <circle cx="90" cy="15" r="6" fill="#f5c842" opacity="0.7"/>
-    <circle cx="600" cy="25" r="5" fill="#5ab55a" opacity="0.7"/>
-    <circle cx="640" cy="12" r="4" fill="#e84444" opacity="0.7"/>
-    <circle cx="650" cy="40" r="6" fill="#f0a0c0" opacity="0.7"/>
-    <circle cx="20" cy="280" r="5" fill="#4ab0e8" opacity="0.6"/>
-    <circle cx="660" cy="270" r="5" fill="#f5c842" opacity="0.6"/>
-    <rect x="550" y="18" width="10" height="10" fill="#e84444" rx="2" opacity="0.65" transform="rotate(20,555,23)"/>
-    <rect x="110" y="22" width="8" height="8" fill="#4ab0e8" rx="1" opacity="0.65" transform="rotate(-15,114,26)"/>
+    <!-- Straße / Asphalt -->
+    <rect x="0" y="238" width="680" height="62" fill="#4a4840"/>
+    <!-- Randmarkierung -->
+    <rect x="0" y="238" width="680" height="5" fill="#a89060"/>
+    <!-- Mittelstreifen -->
+    <line x1="0" y1="268" x2="680" y2="268" stroke="white" stroke-width="3" stroke-dasharray="38,20" opacity="0.55"/>
 
-    <!-- ── Riesige GRÜNE Schokoladentafel (Mitte) ── -->
-    <!-- Schatten -->
-    <rect x="158" y="62" width="286" height="208" rx="14" fill="#00000020"/>
-    <!-- Tafel -->
-    <rect x="150" y="55" width="286" height="208" rx="14" fill="url(#sch-choc)" stroke="#2a7020" stroke-width="3.5"/>
-    <!-- Glanz -->
-    <rect x="150" y="55" width="286" height="208" rx="14" fill="url(#sch-gloss)"/>
-    <!-- Tafel-Rillen vertikal -->
-    <line x1="222" y1="55" x2="222" y2="263" stroke="#2a7020" stroke-width="2.5" opacity="0.6"/>
-    <line x1="294" y1="55" x2="294" y2="263" stroke="#2a7020" stroke-width="2.5" opacity="0.6"/>
-    <line x1="366" y1="55" x2="366" y2="263" stroke="#2a7020" stroke-width="2.5" opacity="0.6"/>
-    <!-- Tafel-Rillen horizontal -->
-    <line x1="150" y1="124" x2="436" y2="124" stroke="#2a7020" stroke-width="2.5" opacity="0.6"/>
-    <line x1="150" y1="193" x2="436" y2="193" stroke="#2a7020" stroke-width="2.5" opacity="0.6"/>
-    <!-- Tafel-Glanz pro Stück (Mini-Highlights) -->
-    <ellipse cx="186" cy="78" rx="18" ry="8" fill="white" opacity="0.18"/>
-    <ellipse cx="258" cy="78" rx="18" ry="8" fill="white" opacity="0.18"/>
-    <ellipse cx="330" cy="78" rx="18" ry="8" fill="white" opacity="0.18"/>
-    <ellipse cx="402" cy="78" rx="18" ry="8" fill="white" opacity="0.18"/>
+    <!-- Wagon-Schatten -->
+    <ellipse cx="340" cy="248" rx="152" ry="9" fill="#00000020"/>
 
-    <!-- Verpackungs-Etikett -->
-    <rect x="138" y="32" width="310" height="38" fill="#c89010" rx="7" stroke="#a07008" stroke-width="2"/>
-    <rect x="138" y="32" width="310" height="18" fill="#e8b020" rx="7" opacity="0.6"/>
-    <text x="293" y="57" font-family="Nunito" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">PUPDORF SCHOKO</text>
+    <!-- Achse -->
+    <rect x="252" y="200" width="176" height="10" rx="5" fill="#7a4a18"/>
 
-    <!-- Abgebrochenes Stück (fliegend, schräg) -->
-    <g transform="rotate(-12,500,135)">
-      <rect x="462" y="105" width="75" height="58" fill="url(#sch-choc)" rx="8" stroke="#2a7020" stroke-width="2.5"/>
-      <line x1="498" y1="105" x2="498" y2="163" stroke="#2a7020" stroke-width="2" opacity="0.6"/>
-      <line x1="462" y1="134" x2="537" y2="134" stroke="#2a7020" stroke-width="2" opacity="0.6"/>
-    </g>
-    <!-- Bruchlinie an der Tafel -->
-    <path d="M436 115 L462 108" stroke="#2a7020" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.7"/>
+    <!-- Wagenkörper -->
+    <clipPath id="sch-wc"><rect x="194" y="122" width="292" height="76" rx="7"/></clipPath>
+    <rect x="194" y="122" width="292" height="76" rx="7" fill="url(#sch-wagon)" stroke="#c0a010" stroke-width="2.5"/>
+    <rect x="194" y="122" width="58" height="76" fill="#e84444" opacity="0.8" clip-path="url(#sch-wc)"/>
+    <rect x="252" y="122" width="59" height="76" fill="#f5c842" opacity="0.75" clip-path="url(#sch-wc)"/>
+    <rect x="311" y="122" width="58" height="76" fill="#4ab0e8" opacity="0.75" clip-path="url(#sch-wc)"/>
+    <rect x="369" y="122" width="59" height="76" fill="#5ab55a" opacity="0.8" clip-path="url(#sch-wc)"/>
+    <rect x="428" y="122" width="58" height="76" fill="#e84444" opacity="0.8" clip-path="url(#sch-wc)"/>
+    <rect x="194" y="122" width="292" height="76" rx="7" fill="none" stroke="#c0a010" stroke-width="2.5"/>
+    <!-- Sterne -->
+    <text x="220" y="178" font-size="18" text-anchor="middle" fill="#a07008" opacity="0.7">★</text>
+    <text x="340" y="183" font-size="22" text-anchor="middle" fill="#a07008" opacity="0.7">★</text>
+    <text x="460" y="176" font-size="18" text-anchor="middle" fill="#a07008" opacity="0.7">★</text>
 
-    <!-- ── Staunendes Kind (rechts) ── -->
-    <!-- Schatten -->
-    <ellipse cx="590" cy="283" rx="24" ry="6" fill="#00000025"/>
-    <!-- Beine -->
-    <path d="M582 250 Q578 268 572 282" stroke="#2040a0" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <path d="M598 250 Q602 268 608 282" stroke="#2040a0" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <!-- Körper (lila Pullover) -->
-    <rect x="572" y="218" width="36" height="34" fill="#9040c0" rx="7"/>
-    <!-- Arme seitlich (staunen) -->
-    <path d="M572 226 Q558 220 548 212" stroke="#ffcc88" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M608 226 Q622 220 632 212" stroke="#ffcc88" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <!-- Kopf -->
-    <circle cx="590" cy="202" r="21" fill="#ffcc88"/>
-    <!-- Haar -->
-    <path d="M571 199 Q573 180 590 178 Q607 180 609 199" fill="#803010" stroke="#601800" stroke-width="1.5"/>
-    <!-- Gesicht: staunen (große Augen, O-Mund) -->
-    <circle cx="583" cy="199" r="5" fill="white" stroke="#333" stroke-width="1"/>
-    <circle cx="597" cy="199" r="5" fill="white" stroke="#333" stroke-width="1"/>
-    <circle cx="584" cy="200" r="3" fill="#333"/>
-    <circle cx="598" cy="200" r="3" fill="#333"/>
-    <circle cx="585" cy="199" r="1.2" fill="white"/>
-    <circle cx="599" cy="199" r="1.2" fill="white"/>
-    <!-- O-Mund -->
-    <ellipse cx="590" cy="213" rx="5.5" ry="6.5" fill="#333"/>
-    <ellipse cx="590" cy="211" rx="3" ry="2.5" fill="#60101050"/>
+    <!-- Bühnenbrett -->
+    <rect x="186" y="116" width="308" height="12" rx="5" fill="#8a5820" stroke="#6a3a10" stroke-width="2"/>
 
-    <!-- ── Fliegender Kuchen (Karneval, links) ── -->
-    <g transform="rotate(-8,70,100)">
-      <!-- Schatten/Bewegungslinie -->
-      <path d="M120 105 Q150 80 140 55" stroke="#e07090" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.6"/>
-      <!-- Kuchen-Boden -->
-      <rect x="28" y="102" width="78" height="48" fill="url(#sch-cake)" rx="10"/>
-      <!-- Kuchen-Creme oben -->
-      <path d="M28 102 Q38 88 50 102 Q62 88 78 102 Q90 88 106 102" fill="#fff8f0" stroke="#e090b0" stroke-width="1.5"/>
-      <!-- Kuchen-Glasur -->
-      <rect x="28" y="118" width="78" height="6" fill="#e07090" opacity="0.4"/>
-      <!-- Kerzen -->
-      <rect x="44" y="85" width="7" height="19" fill="#f5c842" rx="2.5"/>
-      <rect x="59" y="83" width="7" height="21" fill="#e84444" rx="2.5"/>
-      <rect x="74" y="85" width="7" height="19" fill="#4ab0e8" rx="2.5"/>
-      <rect x="89" y="87" width="7" height="17" fill="#5ab55a" rx="2.5"/>
-      <!-- Flammen -->
-      <ellipse cx="47" cy="82" rx="4.5" ry="6" fill="#ff9920"/>
-      <ellipse cx="47" cy="80" rx="2.5" ry="3" fill="#ffe060" opacity="0.8"/>
-      <ellipse cx="62" cy="80" rx="4.5" ry="6" fill="#ff9920"/>
-      <ellipse cx="62" cy="78" rx="2.5" ry="3" fill="#ffe060" opacity="0.8"/>
-      <ellipse cx="77" cy="82" rx="4.5" ry="6" fill="#ff9920"/>
-      <ellipse cx="77" cy="80" rx="2.5" ry="3" fill="#ffe060" opacity="0.8"/>
-      <ellipse cx="92" cy="84" rx="4" ry="5.5" fill="#ff9920"/>
-      <ellipse cx="92" cy="82" rx="2.5" ry="3" fill="#ffe060" opacity="0.8"/>
+    <!-- Girlanden -->
+    <path d="M194 135 Q210 148 226 135 Q242 148 258 135 Q274 148 290 135 Q306 148 322 135 Q338 148 354 135 Q370 148 386 135 Q402 148 418 135 Q434 148 450 135 Q466 148 482 135" fill="none" stroke="#b00000" stroke-width="3.5" opacity="0.85"/>
+    <circle cx="194" cy="135" r="5" fill="#e84444"/><circle cx="210" cy="148" r="5" fill="#f5c842"/>
+    <circle cx="226" cy="135" r="5" fill="#4ab0e8"/><circle cx="242" cy="148" r="5" fill="#e84444"/>
+    <circle cx="258" cy="135" r="5" fill="#5ab55a"/><circle cx="274" cy="148" r="5" fill="#f5c842"/>
+    <circle cx="290" cy="135" r="5" fill="#9040c0"/><circle cx="306" cy="148" r="5" fill="#e84444"/>
+    <circle cx="322" cy="135" r="5" fill="#4ab0e8"/><circle cx="338" cy="148" r="5" fill="#f5c842"/>
+    <circle cx="354" cy="135" r="5" fill="#e84444"/><circle cx="370" cy="148" r="5" fill="#5ab55a"/>
+    <circle cx="386" cy="135" r="5" fill="#f5c842"/><circle cx="402" cy="148" r="5" fill="#9040c0"/>
+    <circle cx="418" cy="135" r="5" fill="#e84444"/><circle cx="434" cy="148" r="5" fill="#4ab0e8"/>
+    <circle cx="450" cy="135" r="5" fill="#f5c842"/><circle cx="466" cy="148" r="5" fill="#e84444"/>
+    <circle cx="482" cy="135" r="5" fill="#5ab55a"/>
+
+    <!-- Räder -->
+    <circle cx="262" cy="206" r="40" fill="url(#sch-wheel)" stroke="#6a3a10" stroke-width="3"/>
+    <circle cx="262" cy="206" r="33" fill="none" stroke="#6a3a10" stroke-width="1.2" opacity="0.4"/>
+    <line x1="262" y1="166" x2="262" y2="246" stroke="#6a3a10" stroke-width="2.5"/>
+    <line x1="222" y1="206" x2="302" y2="206" stroke="#6a3a10" stroke-width="2.5"/>
+    <line x1="234" y1="178" x2="290" y2="234" stroke="#6a3a10" stroke-width="2"/>
+    <line x1="234" y1="234" x2="290" y2="178" stroke="#6a3a10" stroke-width="2"/>
+    <circle cx="262" cy="206" r="9" fill="#8a5820" stroke="#6a3a10" stroke-width="2"/>
+    <circle cx="418" cy="206" r="40" fill="url(#sch-wheel)" stroke="#6a3a10" stroke-width="3"/>
+    <circle cx="418" cy="206" r="33" fill="none" stroke="#6a3a10" stroke-width="1.2" opacity="0.4"/>
+    <line x1="418" y1="166" x2="418" y2="246" stroke="#6a3a10" stroke-width="2.5"/>
+    <line x1="378" y1="206" x2="458" y2="206" stroke="#6a3a10" stroke-width="2.5"/>
+    <line x1="390" y1="178" x2="446" y2="234" stroke="#6a3a10" stroke-width="2"/>
+    <line x1="390" y1="234" x2="446" y2="178" stroke="#6a3a10" stroke-width="2"/>
+    <circle cx="418" cy="206" r="9" fill="#8a5820" stroke="#6a3a10" stroke-width="2"/>
+
+    <!-- Person 1 – rot, wirft links -->
+    <g transform="translate(254,116)">
+      <rect x="-8" y="-32" width="16" height="24" rx="4" fill="#e84444"/>
+      <line x1="-8" y1="-24" x2="-26" y2="-42" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="8" y1="-24" x2="18" y2="-16" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#2040a0" stroke-width="5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#2040a0" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="0" cy="-40" r="13" fill="#ffcc88"/>
+      <path d="M-11,-46 Q0,-56 11,-46" fill="#803010"/>
+      <circle cx="-4" cy="-42" r="2.2" fill="#333"/>
+      <circle cx="4" cy="-42" r="2.2" fill="#333"/>
+      <path d="M-4,-35 Q0,-31 4,-35" stroke="#333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <polygon points="-9,-50 0,-72 9,-50" fill="#e84444"/>
+      <circle cx="-9" cy="-50" r="4.5" fill="#f5c842"/>
+      <circle cx="9" cy="-50" r="4.5" fill="#f5c842"/>
+      <circle cx="0" cy="-72" r="5.5" fill="#f5c842"/>
     </g>
 
-    <!-- ── Smiley-Gummibärchen (fliegend, oben rechts) ── -->
-    <!-- Gummibärchen 1 (groß, gelb) -->
-    <g transform="translate(608,52)">
-      <!-- Körper -->
-      <ellipse cx="0" cy="8" rx="20" ry="26" fill="url(#sch-bear)"/>
-      <!-- Arme -->
-      <ellipse cx="-18" cy="6" rx="8" ry="12" fill="url(#sch-bear)" transform="rotate(-20,-18,6)"/>
-      <ellipse cx="18" cy="6" rx="8" ry="12" fill="url(#sch-bear)" transform="rotate(20,18,6)"/>
-      <!-- Beine -->
-      <ellipse cx="-8" cy="30" rx="7" ry="10" fill="url(#sch-bear)"/>
-      <ellipse cx="8" cy="30" rx="7" ry="10" fill="url(#sch-bear)"/>
-      <!-- Kopf -->
-      <circle cx="0" cy="-16" r="18" fill="url(#sch-bear)"/>
-      <!-- Ohren -->
-      <circle cx="-12" cy="-30" r="7" fill="#e8b000"/>
-      <circle cx="12" cy="-30" r="7" fill="#e8b000"/>
-      <!-- Gesicht: Smiley! -->
-      <circle cx="-6" cy="-20" r="3.5" fill="#5a3a00"/>
-      <circle cx="6" cy="-20" r="3.5" fill="#5a3a00"/>
-      <circle cx="-5" cy="-21" r="1.3" fill="white"/>
-      <circle cx="7" cy="-21" r="1.3" fill="white"/>
-      <!-- Breites Lächeln -->
-      <path d="M-7 -10 Q0 -4 7 -10" stroke="#5a3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <!-- Nase -->
-      <ellipse cx="0" cy="-13" rx="3" ry="2" fill="#c08010"/>
-      <!-- Wangen -->
-      <ellipse cx="-10" cy="-12" rx="5" ry="3" fill="#ff9030" opacity="0.4"/>
-      <ellipse cx="10" cy="-12" rx="5" ry="3" fill="#ff9030" opacity="0.4"/>
+    <!-- Person 2 – blau, wirft rechts -->
+    <g transform="translate(340,116)">
+      <rect x="-8" y="-32" width="16" height="24" rx="4" fill="#2255cc"/>
+      <line x1="8" y1="-24" x2="28" y2="-46" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="-8" y1="-24" x2="-20" y2="-18" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="0" cy="-40" r="13" fill="#ffcc88"/>
+      <path d="M-11,-46 Q0,-56 11,-46" fill="#f5c842"/>
+      <circle cx="-4" cy="-42" r="2.2" fill="#333"/>
+      <circle cx="4" cy="-42" r="2.2" fill="#333"/>
+      <ellipse cx="0" cy="-34" rx="3" ry="3.5" fill="#333"/>
+      <polygon points="-9,-50 0,-75 9,-50" fill="#4ab0e8"/>
+      <circle cx="-9" cy="-50" r="4.5" fill="#f28a2e"/>
+      <circle cx="9" cy="-50" r="4.5" fill="#f28a2e"/>
+      <circle cx="0" cy="-75" r="5.5" fill="#f28a2e"/>
     </g>
 
-    <!-- Gummibärchen 2 (klein, grün, fliegend) -->
-    <g transform="translate(555,20) rotate(15)">
-      <ellipse cx="0" cy="5" rx="13" ry="17" fill="#50c050"/>
-      <ellipse cx="-11" cy="4" rx="5" ry="8" fill="#50c050" transform="rotate(-20,-11,4)"/>
-      <ellipse cx="11" cy="4" rx="5" ry="8" fill="#50c050" transform="rotate(20,11,4)"/>
-      <circle cx="0" cy="-11" r="12" fill="#60d060"/>
-      <circle cx="-8" cy="-20" r="5" fill="#40a040"/>
-      <circle cx="8" cy="-20" r="5" fill="#40a040"/>
-      <circle cx="-4" cy="-14" r="2.5" fill="#1a4a1a"/>
-      <circle cx="4" cy="-14" r="2.5" fill="#1a4a1a"/>
-      <path d="M-4 -7 Q0 -3 4 -7" stroke="#1a4a1a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Person 3 – grün, beide Arme -->
+    <g transform="translate(426,116)">
+      <rect x="-8" y="-32" width="16" height="24" rx="4" fill="#228830"/>
+      <line x1="-8" y1="-24" x2="-26" y2="-44" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="8" y1="-24" x2="24" y2="-40" stroke="#ffcc88" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#2040a0" stroke-width="5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#2040a0" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="0" cy="-40" r="13" fill="#ffcc88"/>
+      <path d="M-11,-46 Q0,-56 11,-46" fill="#5a3010"/>
+      <circle cx="-4" cy="-42" r="2.2" fill="#333"/>
+      <circle cx="4" cy="-42" r="2.2" fill="#333"/>
+      <path d="M-4,-35 Q0,-30 4,-35" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <polygon points="-9,-50 0,-72 9,-50" fill="#5ab55a"/>
+      <circle cx="-9" cy="-50" r="4.5" fill="#e84444"/>
+      <circle cx="9" cy="-50" r="4.5" fill="#e84444"/>
+      <circle cx="0" cy="-72" r="5.5" fill="#e84444"/>
     </g>
+
+    <!-- Zuschauer links 1 -->
+    <g transform="translate(96,238)">
+      <rect x="-7" y="-30" width="14" height="22" rx="3" fill="#f28a2e"/>
+      <line x1="-7" y1="-22" x2="-20" y2="-40" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="7" y1="-22" x2="18" y2="-38" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#2040a0" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#2040a0" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="-38" r="12" fill="#ffcc88"/>
+      <path d="M-9,-43 Q0,-51 9,-43" fill="#803010"/>
+      <circle cx="-3" cy="-40" r="2" fill="#333"/>
+      <circle cx="3" cy="-40" r="2" fill="#333"/>
+      <ellipse cx="0" cy="-33" rx="2.8" ry="3.2" fill="#333"/>
+    </g>
+
+    <!-- Zuschauer links 2 -->
+    <g transform="translate(152,238) scale(0.88)">
+      <rect x="-7" y="-30" width="14" height="22" rx="3" fill="#9040c0"/>
+      <line x1="-7" y1="-22" x2="-18" y2="-38" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="7" y1="-22" x2="16" y2="-36" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#4a4a4a" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#4a4a4a" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="-38" r="12" fill="#ffcc88"/>
+      <path d="M-9,-43 Q0,-51 9,-43" fill="#f5c842"/>
+      <circle cx="-3" cy="-40" r="2" fill="#333"/>
+      <circle cx="3" cy="-40" r="2" fill="#333"/>
+      <path d="M-3,-33 Q0,-29 3,-33" stroke="#333" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Zuschauer rechts 1 -->
+    <g transform="translate(542,238)">
+      <rect x="-7" y="-30" width="14" height="22" rx="3" fill="#e84444"/>
+      <line x1="-7" y1="-22" x2="-20" y2="-42" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="7" y1="-22" x2="16" y2="-38" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#2040a0" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#2040a0" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="-38" r="12" fill="#ffcc88"/>
+      <path d="M-9,-43 Q0,-51 9,-43" fill="#5a3010"/>
+      <circle cx="-3" cy="-40" r="2" fill="#333"/>
+      <circle cx="3" cy="-40" r="2" fill="#333"/>
+      <path d="M-3,-33 Q0,-29 3,-33" stroke="#333" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Zuschauer rechts 2 -->
+    <g transform="translate(596,238) scale(0.8)">
+      <rect x="-7" y="-30" width="14" height="22" rx="3" fill="#4ab0e8"/>
+      <line x1="-7" y1="-22" x2="-17" y2="-38" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="7" y1="-22" x2="17" y2="-38" stroke="#ffcc88" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-3" y1="-8" x2="-5" y2="0" stroke="#4a4a4a" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="3" y1="-8" x2="5" y2="0" stroke="#4a4a4a" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="-38" r="12" fill="#ffcc88"/>
+      <path d="M-9,-43 Q0,-51 9,-43" fill="#803010"/>
+      <circle cx="-3" cy="-40" r="2" fill="#333"/>
+      <circle cx="3" cy="-40" r="2" fill="#333"/>
+      <ellipse cx="0" cy="-33" rx="2.5" ry="3" fill="#333"/>
+    </g>
+
+    <!-- Gummibär gelb -->
+    <g transform="translate(178,80) rotate(-18)">
+      <ellipse cx="0" cy="6" rx="12" ry="16" fill="url(#sch-by)"/>
+      <ellipse cx="-10" cy="3" rx="4.5" ry="7.5" fill="url(#sch-by)" transform="rotate(-20,-10,3)"/>
+      <ellipse cx="10" cy="3" rx="4.5" ry="7.5" fill="url(#sch-by)" transform="rotate(20,10,3)"/>
+      <ellipse cx="-4" cy="18" rx="4.5" ry="6" fill="url(#sch-by)"/>
+      <ellipse cx="4" cy="18" rx="4.5" ry="6" fill="url(#sch-by)"/>
+      <circle cx="0" cy="-9" r="11" fill="url(#sch-by)"/>
+      <circle cx="-7" cy="-17" r="4.5" fill="#e8a000"/>
+      <circle cx="7" cy="-17" r="4.5" fill="#e8a000"/>
+      <circle cx="-3.5" cy="-11" r="2.2" fill="#5a3a00"/>
+      <circle cx="3.5" cy="-11" r="2.2" fill="#5a3a00"/>
+      <path d="M-3.5,-5 Q0,-1 3.5,-5" stroke="#5a3a00" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Gummibär grün -->
+    <g transform="translate(510,55) rotate(14)">
+      <ellipse cx="0" cy="6" rx="13" ry="17" fill="url(#sch-bg2)"/>
+      <ellipse cx="-11" cy="3" rx="5" ry="8" fill="url(#sch-bg2)" transform="rotate(-20,-11,3)"/>
+      <ellipse cx="11" cy="3" rx="5" ry="8" fill="url(#sch-bg2)" transform="rotate(20,11,3)"/>
+      <ellipse cx="-5" cy="19" rx="5" ry="6.5" fill="url(#sch-bg2)"/>
+      <ellipse cx="5" cy="19" rx="5" ry="6.5" fill="url(#sch-bg2)"/>
+      <circle cx="0" cy="-10" r="12" fill="url(#sch-bg2)"/>
+      <circle cx="-8" cy="-18" r="5" fill="#28a028"/>
+      <circle cx="8" cy="-18" r="5" fill="#28a028"/>
+      <circle cx="-3.5" cy="-12" r="2.2" fill="#1a4a1a"/>
+      <circle cx="3.5" cy="-12" r="2.2" fill="#1a4a1a"/>
+      <path d="M-3.5,-6 Q0,-2 3.5,-6" stroke="#1a4a1a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Gummibär rot (kleiner) -->
+    <g transform="translate(338,42) scale(0.72) rotate(-10)">
+      <ellipse cx="0" cy="6" rx="12" ry="16" fill="#ff8888"/>
+      <ellipse cx="-10" cy="3" rx="4.5" ry="7.5" fill="#ff8888" transform="rotate(-20,-10,3)"/>
+      <ellipse cx="10" cy="3" rx="4.5" ry="7.5" fill="#ff8888" transform="rotate(20,10,3)"/>
+      <ellipse cx="-4" cy="18" rx="4.5" ry="6" fill="#ff8888"/>
+      <ellipse cx="4" cy="18" rx="4.5" ry="6" fill="#ff8888"/>
+      <circle cx="0" cy="-9" r="11" fill="#ffaaaa"/>
+      <circle cx="-7" cy="-17" r="4.5" fill="#cc2020"/>
+      <circle cx="7" cy="-17" r="4.5" fill="#cc2020"/>
+      <circle cx="-3.5" cy="-11" r="2.2" fill="#5a1010"/>
+      <circle cx="3.5" cy="-11" r="2.2" fill="#5a1010"/>
+      <path d="M-3.5,-5 Q0,-1 3.5,-5" stroke="#5a1010" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Grüne Schokolade fliegend -->
+    <g transform="translate(110,125) rotate(-22)">
+      <rect x="-20" y="-14" width="40" height="28" rx="5" fill="url(#sch-choc2)" stroke="#2a7020" stroke-width="2"/>
+      <line x1="-7" y1="-14" x2="-7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="7" y1="-14" x2="7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+    </g>
+    <g transform="translate(572,98) rotate(20)">
+      <rect x="-20" y="-14" width="40" height="28" rx="5" fill="url(#sch-choc2)" stroke="#2a7020" stroke-width="2"/>
+      <line x1="-7" y1="-14" x2="-7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="7" y1="-14" x2="7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+    </g>
+    <g transform="translate(440,28) rotate(38) scale(0.72)">
+      <rect x="-20" y="-14" width="40" height="28" rx="5" fill="url(#sch-choc2)" stroke="#2a7020" stroke-width="2"/>
+      <line x1="-7" y1="-14" x2="-7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="7" y1="-14" x2="7" y2="14" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#2a7020" stroke-width="1.8" opacity="0.7"/>
+    </g>
+
+    <!-- Konfetti -->
+    <circle cx="46" cy="90" r="5.5" fill="#e84444" opacity="0.8"/>
+    <circle cx="72" cy="52" r="4.5" fill="#f5c842" opacity="0.8"/>
+    <circle cx="118" cy="38" r="6" fill="#4ab0e8" opacity="0.75"/>
+    <circle cx="240" cy="22" r="4" fill="#e84444" opacity="0.8"/>
+    <circle cx="620" cy="52" r="5" fill="#5ab55a" opacity="0.8"/>
+    <circle cx="652" cy="82" r="4.5" fill="#f5c842" opacity="0.8"/>
+    <circle cx="606" cy="28" r="5" fill="#e84444" opacity="0.75"/>
+    <circle cx="395" cy="15" r="4" fill="#9040c0" opacity="0.8"/>
+    <rect x="56" y="150" width="11" height="6" fill="#f28a2e" rx="1" transform="rotate(32,61,153)"/>
+    <rect x="612" y="148" width="11" height="6" fill="#4ab0e8" rx="1" transform="rotate(-24,617,151)"/>
+    <rect x="200" y="22" width="10" height="6" fill="#5ab55a" rx="1" transform="rotate(16,205,25)"/>
+    <rect x="488" y="28" width="9" height="5" fill="#e84444" rx="1" transform="rotate(-22,492,30)"/>
+    <rect x="148" y="172" width="10" height="5" fill="#f5c842" rx="1" transform="rotate(42,153,174)"/>
+    <rect x="522" y="158" width="9" height="5" fill="#9040c0" rx="1" transform="rotate(-16,526,160)"/>
+
+    <!-- Label -->
+    <rect x="270" y="258" width="140" height="26" rx="13" fill="#2c3e50e0"/>
+    <text x="340" y="276" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🎉 Karneval!</text>
   </svg>`;
 }
 

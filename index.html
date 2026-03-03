@@ -252,30 +252,6 @@
       </g>
 
       <!-- ══════════════════════════════════════════════════ -->
-      <!--  SCHOKOLADE – grüne Schokotafel rechts unten      -->
-      <!-- ══════════════════════════════════════════════════ -->
-      <g class="karte-hotspot" onclick="oeffneOrt('schokolade')">
-        <!-- Schokotafel (grün!) von oben -->
-        <rect x="1390" y="480" width="180" height="130" rx="8" fill="#5ab55a" opacity="0.9"/>
-        <rect x="1390" y="480" width="180" height="130" rx="8" fill="none" stroke="#3a8a3a" stroke-width="3"/>
-        <!-- Tafelraster -->
-        <line x1="1450" y1="480" x2="1450" y2="610" stroke="#3a8a3a" stroke-width="2.5"/>
-        <line x1="1510" y1="480" x2="1510" y2="610" stroke="#3a8a3a" stroke-width="2.5"/>
-        <line x1="1390" y1="523" x2="1570" y2="523" stroke="#3a8a3a" stroke-width="2.5"/>
-        <line x1="1390" y1="566" x2="1570" y2="566" stroke="#3a8a3a" stroke-width="2.5"/>
-        <!-- Kuchenwerfen-Symbol -->
-        <text x="1430" y="472" font-size="18">🎂</text>
-        <text x="1530" y="478" font-size="14">→</text>
-        <!-- Smiley-Gummibärchen -->
-        <text x="1390" y="638" font-family="Nunito" font-size="11" fill="#2c3e5070">😊 Smiley-Gummibärchen</text>
-        <rect x="1385" y="475" width="195" height="170" fill="transparent"/>
-        <g class="hover-label">
-          <rect x="1390" y="535" width="185" height="26" rx="13" fill="#2c3e50e0"/>
-          <text x="1483" y="553" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🍫 Schokolade</text>
-        </g>
-      </g>
-
-      <!-- ══════════════════════════════════════════════════ -->
       <!--  HAUPTSTRASSE (die Straßen-Ort)                   -->
       <!-- ══════════════════════════════════════════════════ -->
       <!-- Schatten (Tiefe, Straße leicht eingedrückt in Landschaft) -->
@@ -291,7 +267,7 @@
       <!-- ── Fahrradfahrer mit Gummistiefeln ────────────── -->
 
       <!-- Fahrer 1 – nah (rote Jacke, gelbe Gummistiefel, blauer Helm) -->
-      <g opacity="0.88" transform="translate(215,510)">
+      <g opacity="0.88" transform="translate(100,518)">
         <!-- Hinterrad -->
         <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
         <circle cx="-15" cy="0" r="4" fill="#555"/>
@@ -329,7 +305,7 @@
       </g>
 
       <!-- Fahrer 2 – mittel-nah (blaue Jacke, grüne Gummistiefel, orange Helm) -->
-      <g opacity="0.78" transform="translate(560,440) scale(0.87)">
+      <g opacity="0.72" transform="translate(1060,378) scale(0.78)">
         <circle cx="-15" cy="0" r="14" fill="none" stroke="#555" stroke-width="2.5"/>
         <circle cx="-15" cy="0" r="4" fill="#555"/>
         <line x1="-15" y1="-14" x2="-15" y2="14" stroke="#999" stroke-width="1" opacity="0.5"/>
@@ -427,6 +403,19 @@
         <g class="hover-label">
           <rect x="290" y="488" width="155" height="26" rx="13" fill="#2c3e50e0"/>
           <text x="368" y="506" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🚲 Straßen</text>
+        </g>
+      </g>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!--  SCHOKOLADE – Karnevalsumzug auf der Straße       -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <g class="karte-hotspot" onclick="oeffneOrt('schokolade')">
+        <!-- PNG 680×300, skaliert auf 252×111, auf der Straße zw. Bauernhof und Büro -->
+        <image href="img/schokolade.png" x="530" y="320" width="252" height="111" preserveAspectRatio="xMidYMid meet"/>
+        <rect x="530" y="320" width="252" height="111" fill="transparent"/>
+        <g class="hover-label">
+          <rect x="570" y="398" width="170" height="26" rx="13" fill="#2c3e50e0"/>
+          <text x="655" y="416" font-family="Nunito" font-weight="800" font-size="13" fill="white" text-anchor="middle">🎉 Schokolade</text>
         </g>
       </g>
 
@@ -575,24 +564,21 @@
 
     <a class="ort-card" onclick="oeffneOrt('schokolade')">
       <svg class="ort-illu" viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
-        <rect width="300" height="225" fill="#fdf6e3"/>
-        <rect x="60" y="30" width="180" height="140" fill="#5ab55a" rx="10" stroke="#3a8a3a" stroke-width="4"/>
-        <line x1="120" y1="30" x2="120" y2="170" stroke="#3a8a3a" stroke-width="3"/>
-        <line x1="180" y1="30" x2="180" y2="170" stroke="#3a8a3a" stroke-width="3"/>
-        <line x1="60" y1="90" x2="240" y2="90" stroke="#3a8a3a" stroke-width="3"/>
-        <line x1="60" y1="130" x2="240" y2="130" stroke="#3a8a3a" stroke-width="3"/>
-        <rect x="40" y="12" width="220" height="28" fill="#c8a900" rx="5"/>
-        <text x="150" y="32" font-family="Nunito" font-weight="900" font-size="13" fill="white" text-anchor="middle">PUPDORF SCHOKO</text>
-        <!-- Gummibärchen -->
-        <ellipse cx="80" cy="200" rx="14" ry="18" fill="#f5c842"/>
-        <circle cx="74" cy="194" r="3" fill="#333"/>
-        <circle cx="86" cy="194" r="3" fill="#333"/>
-        <path d="M74 204 Q80 210 86 204" stroke="#333" stroke-width="1.5" fill="none"/>
-        <ellipse cx="120" cy="200" rx="12" ry="16" fill="#e84444"/>
-        <circle cx="115" cy="194" r="3" fill="#333"/>
-        <circle cx="125" cy="194" r="3" fill="#333"/>
-        <path d="M115 204 Q120 210 126 204" stroke="#333" stroke-width="1.5" fill="none"/>
-        <text x="150" y="218" font-family="Nunito" font-weight="900" font-size="11" fill="#3a2e1e" text-anchor="middle">🍫 Grüne Schokolade!</text>
+        <defs>
+          <linearGradient id="sch-sky-k" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6ab4e8"/><stop offset="100%" stop-color="#c8e8f8"/>
+          </linearGradient>
+        </defs>
+        <!-- Himmel -->
+        <rect width="300" height="225" fill="url(#sch-sky-k)"/>
+        <!-- Wolken -->
+        <g opacity="0.9"><ellipse cx="52" cy="26" rx="36" ry="13" fill="white"/><ellipse cx="76" cy="18" rx="24" ry="9" fill="white"/><ellipse cx="34" cy="30" rx="18" ry="8" fill="white"/></g>
+        <g opacity="0.8"><ellipse cx="236" cy="22" rx="30" ry="10" fill="white"/><ellipse cx="258" cy="15" rx="18" ry="8" fill="white"/></g>
+        <!-- Asphalt -->
+        <rect y="186" width="300" height="39" fill="#4a4840"/>
+        <rect y="186" width="300" height="5" fill="#a89060"/>
+        <!-- Schokolade-Parade PNG (680×300 → 340×150, y=86) -->
+        <image href="img/schokolade.png" x="-20" y="75" width="340" height="150"/>
       </svg>
       <div class="ort-body">
         <h2>Schokolade &amp; Karneval</h2>
@@ -912,50 +898,26 @@
       <!-- SEITE: Schokolade & Karneval -->
       <div class="buch-seite" style="background:white;border-radius:12px;overflow:hidden;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;flex-direction:column">
         <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <rect width="600" height="350" fill="#fdf6e3"/>
-          <!-- Schokoladentafel GRÜN -->
-          <rect x="120" y="40" width="260" height="190" fill="#5ab55a" rx="14" stroke="#3a8a3a" stroke-width="5"/>
-          <line x1="200" y1="40" x2="200" y2="230" stroke="#3a8a3a" stroke-width="4"/>
-          <line x1="280" y1="40" x2="280" y2="230" stroke="#3a8a3a" stroke-width="4"/>
-          <line x1="360" y1="40" x2="360" y2="230" stroke="#3a8a3a" stroke-width="4"/>
-          <line x1="120" y1="120" x2="380" y2="120" stroke="#3a8a3a" stroke-width="4"/>
-          <line x1="120" y1="175" x2="380" y2="175" stroke="#3a8a3a" stroke-width="4"/>
-          <!-- Verpackung -->
-          <rect x="100" y="14" width="300" height="36" fill="#c8a900" rx="6"/>
-          <text x="250" y="38" font-family="Nunito" font-weight="900" font-size="17" fill="white" text-anchor="middle">PUPDORF SCHOKO</text>
-          <!-- Staunendes Kind -->
-          <circle cx="510" cy="140" r="30" fill="#ffcc88"/>
-          <circle cx="498" cy="130" r="5" fill="#333"/>
-          <circle cx="520" cy="130" r="5" fill="#333"/>
-          <ellipse cx="509" cy="155" rx="9" ry="10" fill="#333"/>
-          <!-- Karneval Objekte -->
-          <!-- Kuchen fliegt -->
-          <rect x="20" y="60" width="70" height="55" fill="#f0a0c0" rx="10" transform="rotate(-15 55 87)"/>
-          <rect x="32" y="48" width="7" height="18" fill="#f5c842" rx="2" transform="rotate(-15 36 57)"/>
-          <rect x="48" y="44" width="7" height="18" fill="#e84444" rx="2" transform="rotate(-15 52 53)"/>
-          <ellipse cx="38" cy="46" rx="5" ry="7" fill="#ff8800" transform="rotate(-15 38 46)"/>
-          <ellipse cx="54" cy="41" rx="5" ry="7" fill="#ff8800" transform="rotate(-15 54 41)"/>
-          <!-- Gummibärchen smiley 1 -->
-          <ellipse cx="470" cy="55" rx="22" ry="28" fill="#f5c842"/>
-          <circle cx="461" cy="47" r="4" fill="#333"/>
-          <circle cx="479" cy="47" r="4" fill="#333"/>
-          <path d="M461 65 Q470 74 479 65" stroke="#333" stroke-width="2.5" fill="none"/>
-          <ellipse cx="450" cy="72" rx="7" ry="11" fill="#f5c842" stroke="#e8b800" stroke-width="1.5"/>
-          <ellipse cx="490" cy="72" rx="7" ry="11" fill="#f5c842" stroke="#e8b800" stroke-width="1.5"/>
-          <!-- Gummibärchen smiley 2 -->
-          <ellipse cx="60" cy="280" rx="18" ry="23" fill="#e84444"/>
-          <circle cx="52" cy="274" r="3.5" fill="#333"/>
-          <circle cx="68" cy="274" r="3.5" fill="#333"/>
-          <path d="M52 286 Q60 294 68 286" stroke="#333" stroke-width="2" fill="none"/>
-          <!-- Konfetti -->
-          <rect x="430" y="140" width="12" height="6" fill="#f28a2e" rx="1" transform="rotate(30 436 143)"/>
-          <rect x="80" y="200" width="10" height="5" fill="#4ab0e8" rx="1" transform="rotate(-20 85 202)"/>
-          <rect x="500" y="230" width="10" height="5" fill="#5ab55a" rx="1" transform="rotate(45 505 232)"/>
-          <rect x="150" y="290" width="10" height="5" fill="#f5c842" rx="1" transform="rotate(15 155 292)"/>
+          <defs>
+            <linearGradient id="sch-sky-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#6ab4e8"/><stop offset="100%" stop-color="#c8e8f8"/>
+            </linearGradient>
+          </defs>
+          <!-- Himmel -->
+          <rect width="600" height="350" fill="url(#sch-sky-b)"/>
+          <!-- Wolken -->
+          <g opacity="0.9"><ellipse cx="78" cy="36" rx="54" ry="19" fill="white"/><ellipse cx="116" cy="24" rx="36" ry="14" fill="white"/><ellipse cx="52" cy="44" rx="28" ry="12" fill="white"/></g>
+          <g opacity="0.8"><ellipse cx="472" cy="30" rx="46" ry="16" fill="white"/><ellipse cx="510" cy="20" rx="30" ry="12" fill="white"/></g>
+          <!-- Asphalt -->
+          <rect y="272" width="600" height="78" fill="#4a4840"/>
+          <rect y="272" width="600" height="7" fill="#a89060"/>
+          <line x1="0" y1="308" x2="600" y2="308" stroke="white" stroke-width="3" stroke-dasharray="40,22" opacity="0.5"/>
+          <!-- Schokolade-Parade PNG -->
+          <image href="img/schokolade.png" x="-15" y="70" width="630" height="278"/>
         </svg>
-        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#fdf6e3;border-top:4px solid #5ab55a">
-          <h2 style="font-weight:900;margin-bottom:0.4rem">🍫 Schokolade &amp; Karneval</h2>
-          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">In Pupdorf ist Schokolade immer <strong>grün</strong>. Alle Sorten, alle Marken – immer grün! Beim <strong>Karneval</strong> wird Kuchen geworfen und <strong>Smiley-Gummibärchen</strong> fliegen durch die Straßen.</p>
+        <div class="b-text" style="padding:1rem 1.4rem 1.2rem;background:#faeac8;border-top:4px solid #e8b020">
+          <h2 style="font-weight:900;margin-bottom:0.4rem">🎉 Schokolade &amp; Karneval</h2>
+          <p style="font-size:0.88rem;line-height:1.55;color:#3a2e1e">In Pupdorf ist Schokolade immer <strong>grün</strong>. Alle Sorten, alle Marken – immer grün! Beim <strong>Karneval</strong> fährt der Wagen durch die Straßen und <strong>Smiley-Gummibärchen</strong> und grüne Schokolade fliegen durch die Luft.</p>
         </div>
       </div>
 
