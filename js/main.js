@@ -1179,6 +1179,38 @@ function schokoladeSVG() {
       <ellipse cx="0" cy="-33" rx="2.5" ry="3" fill="#333"/>
     </g>
 
+    <!-- Kuchen 1 (links oben, fliegend) -->
+    <g transform="translate(54,112) rotate(-20)">
+      <rect x="-28" y="-14" width="56" height="42" rx="8" fill="#f0a0c0"/>
+      <path d="M-28,-14 Q-19,-27 -10,-14 Q-1,-27 8,-14 Q17,-27 28,-14" fill="#fff8f0" stroke="#e090b0" stroke-width="1.5"/>
+      <rect x="-28" y="-1" width="56" height="6" fill="#e07090" opacity="0.4"/>
+      <rect x="-14" y="-30" width="6" height="18" fill="#f5c842" rx="2"/>
+      <rect x="-4" y="-33" width="6" height="21" fill="#e84444" rx="2"/>
+      <rect x="8" y="-30" width="6" height="18" fill="#4ab0e8" rx="2"/>
+      <ellipse cx="-11" cy="-33" rx="4" ry="5.5" fill="#ff9920"/>
+      <ellipse cx="-11" cy="-36" rx="2" ry="2.8" fill="#ffe060" opacity="0.9"/>
+      <ellipse cx="-1" cy="-36" rx="4" ry="5.5" fill="#ff9920"/>
+      <ellipse cx="-1" cy="-39" rx="2" ry="2.8" fill="#ffe060" opacity="0.9"/>
+      <ellipse cx="11" cy="-33" rx="3.5" ry="5" fill="#ff9920"/>
+      <ellipse cx="11" cy="-36" rx="2" ry="2.5" fill="#ffe060" opacity="0.9"/>
+    </g>
+
+    <!-- Kuchen 2 (rechts, fliegend) -->
+    <g transform="translate(624,130) rotate(16) scale(0.85)">
+      <rect x="-28" y="-14" width="56" height="42" rx="8" fill="#f8c870"/>
+      <path d="M-28,-14 Q-19,-27 -10,-14 Q-1,-27 8,-14 Q17,-27 28,-14" fill="#fff8f0" stroke="#d8a020" stroke-width="1.5"/>
+      <rect x="-28" y="-1" width="56" height="6" fill="#d09020" opacity="0.4"/>
+      <rect x="-14" y="-30" width="6" height="18" fill="#5ab55a" rx="2"/>
+      <rect x="-4" y="-33" width="6" height="21" fill="#9040c0" rx="2"/>
+      <rect x="8" y="-30" width="6" height="18" fill="#e84444" rx="2"/>
+      <ellipse cx="-11" cy="-33" rx="4" ry="5.5" fill="#ff9920"/>
+      <ellipse cx="-11" cy="-36" rx="2" ry="2.8" fill="#ffe060" opacity="0.9"/>
+      <ellipse cx="-1" cy="-36" rx="4" ry="5.5" fill="#ff9920"/>
+      <ellipse cx="-1" cy="-39" rx="2" ry="2.8" fill="#ffe060" opacity="0.9"/>
+      <ellipse cx="11" cy="-33" rx="3.5" ry="5" fill="#ff9920"/>
+      <ellipse cx="11" cy="-36" rx="2" ry="2.5" fill="#ffe060" opacity="0.9"/>
+    </g>
+
     <!-- Gummibär gelb -->
     <g transform="translate(178,80) rotate(-18)">
       <ellipse cx="0" cy="6" rx="12" ry="16" fill="url(#sch-by)"/>
