@@ -825,50 +825,31 @@ function strassenSVG() {
 function wasserSVG() {
   return `<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" class="modal-illu">
     <defs>
-      <!-- Hintergrund-Himmel -->
       <linearGradient id="was-sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#5ab0e0"/>
-        <stop offset="100%" stop-color="#b8e4f8"/>
+        <stop offset="0%" stop-color="#5ab0e0"/><stop offset="100%" stop-color="#b8e4f8"/>
       </linearGradient>
-      <!-- Boden/Pflaster -->
       <linearGradient id="was-ground" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#b8a898"/>
-        <stop offset="100%" stop-color="#907860"/>
+        <stop offset="0%" stop-color="#b8a898"/><stop offset="100%" stop-color="#907860"/>
       </linearGradient>
-      <!-- Wasserstrom (von unten nach oben) -->
-      <linearGradient id="was-stream" x1="0" y1="1" x2="0" y2="0">
-        <stop offset="0%" stop-color="#2080c8"/>
-        <stop offset="60%" stop-color="#50b8f0"/>
-        <stop offset="100%" stop-color="#a0d8ff80"/>
-      </linearGradient>
-      <!-- Wassertropfen -->
-      <radialGradient id="was-drop" cx="35%" cy="30%" r="65%">
-        <stop offset="0%" stop-color="#c0eaff"/>
-        <stop offset="100%" stop-color="#3090d0"/>
+      <radialGradient id="was-basin-lg" cx="38%" cy="38%" r="70%">
+        <stop offset="0%" stop-color="#5898c8"/><stop offset="100%" stop-color="#1e5888"/>
+      </radialGradient>
+      <radialGradient id="was-basin-sm" cx="38%" cy="38%" r="70%">
+        <stop offset="0%" stop-color="#4888b8"/><stop offset="100%" stop-color="#1a4e7a"/>
       </radialGradient>
     </defs>
 
     <!-- Himmel -->
     <rect width="680" height="300" fill="url(#was-sky)"/>
-
-    <!-- Wolken -->
-    <g opacity="0.88">
-      <ellipse cx="80" cy="44" rx="44" ry="19" fill="white"/>
-      <ellipse cx="108" cy="36" rx="32" ry="16" fill="white"/>
-      <ellipse cx="54" cy="40" rx="26" ry="14" fill="white"/>
-    </g>
-    <g opacity="0.82">
-      <ellipse cx="590" cy="38" rx="40" ry="17" fill="white"/>
-      <ellipse cx="620" cy="30" rx="28" ry="14" fill="white"/>
-    </g>
+    <g opacity="0.88"><ellipse cx="80" cy="44" rx="44" ry="19" fill="white"/><ellipse cx="108" cy="36" rx="32" ry="16" fill="white"/><ellipse cx="54" cy="40" rx="26" ry="14" fill="white"/></g>
+    <g opacity="0.82"><ellipse cx="590" cy="38" rx="40" ry="17" fill="white"/><ellipse cx="620" cy="30" rx="28" ry="14" fill="white"/></g>
 
     <!-- Boden: Pflastersteine -->
     <rect y="244" width="680" height="56" fill="url(#was-ground)"/>
-    <!-- Pflasterfugen -->
     <line x1="0" y1="256" x2="680" y2="256" stroke="#807060" stroke-width="1.5" opacity="0.5"/>
     <line x1="0" y1="268" x2="680" y2="268" stroke="#807060" stroke-width="1.5" opacity="0.5"/>
     <line x1="0" y1="280" x2="680" y2="280" stroke="#807060" stroke-width="1.5" opacity="0.5"/>
-    <line x1="50" y1="244" x2="50" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
+    <line x1="50"  y1="244" x2="50"  y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
     <line x1="130" y1="244" x2="130" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
     <line x1="220" y1="244" x2="220" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
     <line x1="310" y1="244" x2="310" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
@@ -876,95 +857,131 @@ function wasserSVG() {
     <line x1="490" y1="244" x2="490" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
     <line x1="590" y1="244" x2="590" y2="300" stroke="#807060" stroke-width="1.5" opacity="0.4"/>
 
-    <!-- ── Fontäne 1 (groß, Mitte) ── -->
-    <!-- Sockel/Rohr -->
-    <rect x="326" y="195" width="28" height="50" fill="#909098" rx="5"/>
-    <rect x="322" y="240" width="36" height="8" fill="#808088" rx="3"/>
-    <!-- Düse oben -->
-    <ellipse cx="340" cy="195" rx="14" ry="6" fill="#707078"/>
-    <!-- Wasserstrahl – Hauptstrahl -->
-    <path d="M333 195 Q328 150 332 80 Q340 30 340 15" stroke="url(#was-stream)" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.85"/>
-    <path d="M340 195 Q340 140 340 15" stroke="url(#was-stream)" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.7"/>
-    <path d="M347 195 Q352 150 348 80 Q341 30 340 15" stroke="url(#was-stream)" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.85"/>
-    <!-- Seitenspritzer (links) -->
-    <path d="M334 180 Q310 140 295 100 Q290 80 288 55" stroke="#50b8f0" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.7"/>
-    <!-- Seitenspritzer (rechts) -->
-    <path d="M346 180 Q370 140 385 100 Q390 80 392 55" stroke="#50b8f0" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.7"/>
-    <!-- Tropfen ganz oben -->
-    <ellipse cx="340" cy="12" rx="10" ry="15" fill="url(#was-drop)"/>
-    <ellipse cx="340" cy="10" rx="5" ry="6" fill="#c8f0ff" opacity="0.6"/>
-    <!-- Seitenspritzer-Tropfen -->
-    <ellipse cx="287" cy="50" rx="8" ry="12" fill="url(#was-drop)" opacity="0.85"/>
-    <ellipse cx="393" cy="50" rx="8" ry="12" fill="url(#was-drop)" opacity="0.85"/>
-    <!-- Sprühwasser-Tröpfchen -->
-    <circle cx="305" cy="70" r="3.5" fill="#80ccf0" opacity="0.8"/>
-    <circle cx="375" cy="65" r="3" fill="#80ccf0" opacity="0.8"/>
-    <circle cx="318" cy="45" r="2.5" fill="#80ccf0" opacity="0.7"/>
-    <circle cx="362" cy="42" r="2.5" fill="#80ccf0" opacity="0.7"/>
-    <circle cx="295" cy="30" r="3" fill="#80ccf0" opacity="0.6"/>
-    <circle cx="385" cy="28" r="3" fill="#80ccf0" opacity="0.6"/>
-    <!-- Wasserpfütze am Boden -->
-    <ellipse cx="340" cy="244" rx="52" ry="10" fill="#3090d080" opacity="0.7"/>
-    <ellipse cx="340" cy="244" rx="35" ry="6" fill="#50b8f060" opacity="0.6"/>
+    <!-- ── Fontäne 1 – groß, Mitte (cx=340) ── -->
+    <ellipse cx="343" cy="252" rx="70" ry="14" fill="#000" opacity="0.18"/>
+    <ellipse cx="340" cy="249" rx="66" ry="18" fill="#a8a098"/>
+    <ellipse cx="340" cy="246" rx="63" ry="15" fill="#beb6ae"/>
+    <ellipse cx="340" cy="245" rx="56" ry="12" fill="url(#was-basin-lg)"/>
+    <ellipse cx="325" cy="242" rx="20" ry="4" fill="white" opacity="0.14" transform="rotate(-8 325 242)"/>
+    <ellipse cx="340" cy="244" rx="40" ry="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.18"/>
+    <ellipse cx="340" cy="244" rx="24" ry="5" fill="none" stroke="white" stroke-width="0.7" opacity="0.14"/>
+    <circle cx="337" cy="243" r="3" fill="white" opacity="0.44"/><circle cx="347" cy="241" r="2.5" fill="white" opacity="0.38"/>
+    <circle cx="328" cy="245" r="2" fill="white" opacity="0.34"/><circle cx="354" cy="244" r="2.5" fill="white" opacity="0.38"/>
+    <circle cx="340" cy="239" r="2" fill="white" opacity="0.32"/>
+    <path d="M334 246 L334 217 C334 214 337 211 340 210 C343 211 346 214 346 217 L346 246 Z" fill="#a8a098"/>
+    <path d="M336 246 L336 217 C336 215 338 212 340 211 C342 212 344 215 344 217 L344 246 Z" fill="#c0b8b0" opacity="0.55"/>
+    <ellipse cx="340" cy="211" rx="13" ry="4.5" fill="#909088"/>
+    <ellipse cx="340" cy="210" rx="10" ry="3.5" fill="#b0a8a0"/>
+    <path d="M336 210 C334 172 330 102 333 46 Q340 14 340 5" stroke="#2070b8" stroke-width="22" fill="none" stroke-linecap="round" opacity="0.11"/>
+    <path d="M337 210 C335 170 332 100 335 43 Q340 13 340 5" stroke="#4090d0" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.27"/>
+    <path d="M338 210 C337 167 335 97 337 40 Q340 13 340 5" stroke="#70b8e8" stroke-width="8"  fill="none" stroke-linecap="round" opacity="0.52"/>
+    <path d="M340 210 C339 165 338 95 339 38 Q340 13 340 5" stroke="#b0dcf8" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.72"/>
+    <path d="M340 210 C340 164 340 94 340 8"                stroke="white"   stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.40"/>
+    <path d="M337 200 Q294 160 272 108 Q262 77 259 47" stroke="#3080c8" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.28"/>
+    <path d="M337 200 Q294 160 272 108 Q262 77 259 47" stroke="#90ccf0" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.52"/>
+    <path d="M337 200 Q310 155 295 100 Q286 71 283 37" stroke="#3080c8" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.25"/>
+    <path d="M337 200 Q310 155 295 100 Q286 71 283 37" stroke="#90ccf0" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <path d="M337 200 Q322 152 313 95 Q307 64 304 27" stroke="#4890c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.27"/>
+    <path d="M337 200 Q322 152 313 95 Q307 64 304 27" stroke="#b0e0ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.46"/>
+    <path d="M343 200 Q386 160 408 108 Q418 77 421 47" stroke="#3080c8" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.28"/>
+    <path d="M343 200 Q386 160 408 108 Q418 77 421 47" stroke="#90ccf0" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.52"/>
+    <path d="M343 200 Q370 155 385 100 Q394 71 397 37" stroke="#3080c8" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.25"/>
+    <path d="M343 200 Q370 155 385 100 Q394 71 397 37" stroke="#90ccf0" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <path d="M343 200 Q358 152 367 95 Q373 64 376 27" stroke="#4890c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.27"/>
+    <path d="M343 200 Q358 152 367 95 Q373 64 376 27" stroke="#b0e0ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.46"/>
+    <ellipse cx="258" cy="43" rx="8" ry="12" fill="#60a8d8" opacity="0.80"/><ellipse cx="258" cy="42" rx="4" ry="5" fill="white" opacity="0.30"/>
+    <ellipse cx="282" cy="32" rx="6" ry="9"  fill="#70b8e8" opacity="0.72"/>
+    <ellipse cx="303" cy="23" rx="5" ry="7"  fill="#80c8f0" opacity="0.65"/>
+    <ellipse cx="422" cy="43" rx="8" ry="12" fill="#60a8d8" opacity="0.80"/><ellipse cx="422" cy="42" rx="4" ry="5" fill="white" opacity="0.30"/>
+    <ellipse cx="398" cy="32" rx="6" ry="9"  fill="#70b8e8" opacity="0.72"/>
+    <ellipse cx="377" cy="23" rx="5" ry="7"  fill="#80c8f0" opacity="0.65"/>
+    <ellipse cx="340" cy="4" rx="9" ry="13" fill="#68b0e0" opacity="0.88"/><ellipse cx="340" cy="3" rx="4.5" ry="6" fill="white" opacity="0.35"/>
+    <circle cx="307" cy="76" r="3"   fill="#70b8e8" opacity="0.70"/><circle cx="373" cy="72" r="2.5" fill="#70b8e8" opacity="0.70"/>
+    <circle cx="291" cy="61" r="2.5" fill="#80c8f0" opacity="0.64"/><circle cx="389" cy="57" r="2.5" fill="#80c8f0" opacity="0.64"/>
+    <circle cx="321" cy="50" r="2"   fill="#90d0f8" opacity="0.60"/><circle cx="359" cy="46" r="2"   fill="#90d0f8" opacity="0.60"/>
+    <circle cx="311" cy="30" r="1.8" fill="#a0d8ff" opacity="0.50"/><circle cx="369" cy="26" r="1.8" fill="#a0d8ff" opacity="0.50"/>
+    <circle cx="327" cy="19" r="1.5" fill="#b0e4ff" opacity="0.46"/><circle cx="353" cy="17" r="1.5" fill="#b0e4ff" opacity="0.46"/>
 
-    <!-- ── Fontäne 2 (links) ── -->
-    <rect x="122" y="210" width="20" height="35" fill="#909098" rx="4"/>
-    <ellipse cx="132" cy="210" rx="10" ry="5" fill="#707078"/>
-    <path d="M127 210 Q122 170 124 110 Q130 70 132 50" stroke="url(#was-stream)" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.8"/>
-    <path d="M132 210 Q132 160 132 50" stroke="url(#was-stream)" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.65"/>
-    <path d="M137 210 Q142 170 140 110 Q134 70 132 50" stroke="url(#was-stream)" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.8"/>
-    <ellipse cx="132" cy="46" rx="8" ry="12" fill="url(#was-drop)" opacity="0.9"/>
-    <!-- Seitenspritzer links klein -->
-    <path d="M127 195 Q108 165 100 130" stroke="#50b8f0" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.6"/>
-    <ellipse cx="99" cy="125" rx="6" ry="9" fill="url(#was-drop)" opacity="0.75"/>
-    <!-- Pfütze -->
-    <ellipse cx="132" cy="244" rx="35" ry="7" fill="#3090d070"/>
+    <!-- ── Fontäne 2 – links (cx=132) ── -->
+    <ellipse cx="135" cy="249" rx="47" ry="10" fill="#000" opacity="0.15"/>
+    <ellipse cx="132" cy="246" rx="45" ry="13" fill="#a8a098"/>
+    <ellipse cx="132" cy="244" rx="43" ry="11" fill="#beb6ae"/>
+    <ellipse cx="132" cy="243" rx="38" ry="9"  fill="url(#was-basin-sm)"/>
+    <ellipse cx="122" cy="241" rx="12" ry="3"  fill="white" opacity="0.12" transform="rotate(-6 122 241)"/>
+    <ellipse cx="132" cy="242" rx="26" ry="5"  fill="none" stroke="white" stroke-width="0.7" opacity="0.15"/>
+    <circle cx="130" cy="241" r="2.2" fill="white" opacity="0.40"/><circle cx="138" cy="239" r="1.8" fill="white" opacity="0.35"/><circle cx="124" cy="243" r="1.5" fill="white" opacity="0.32"/>
+    <path d="M128 244 L128 218 C128 216 130 214 132 213 C134 214 136 216 136 218 L136 244 Z" fill="#a8a098"/>
+    <path d="M130 244 L130 218 C130 217 131 215 132 214 C133 215 134 217 134 218 L134 244 Z" fill="#c0b8b0" opacity="0.5"/>
+    <ellipse cx="132" cy="213" rx="9" ry="3.5" fill="#909088"/>
+    <ellipse cx="132" cy="212" rx="7" ry="2.8" fill="#b0a8a0"/>
+    <path d="M130 212 C128 183 127 122 130 63 Q132 32 132 22" stroke="#2070b8" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.10"/>
+    <path d="M131 212 C129 181 129 120 131 61 Q132 31 132 22" stroke="#4090d0" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M132 212 C131 180 131 118 132 59 Q132 31 132 22" stroke="#70b8e8" stroke-width="6"  fill="none" stroke-linecap="round" opacity="0.50"/>
+    <path d="M132 212 C132 179 132 117 132 22"               stroke="#b0dcf8" stroke-width="3"  fill="none" stroke-linecap="round" opacity="0.68"/>
+    <path d="M132 212 C132 179 132 117 132 25"               stroke="white"   stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.38"/>
+    <path d="M130 203 Q108 168 98 130"  stroke="#3080c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M130 203 Q108 168 98 130"  stroke="#90ccf0" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <path d="M130 203 Q118 162 112 118" stroke="#4890c8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.24"/>
+    <path d="M130 203 Q118 162 112 118" stroke="#b0e0ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.44"/>
+    <path d="M134 203 Q154 168 162 130" stroke="#3080c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M134 203 Q154 168 162 130" stroke="#90ccf0" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <ellipse cx="97"  cy="126" rx="6" ry="9" fill="#60a8d8" opacity="0.75"/>
+    <ellipse cx="111" cy="114" rx="4.5" ry="7" fill="#70b8e8" opacity="0.68"/>
+    <ellipse cx="163" cy="126" rx="6" ry="9" fill="#60a8d8" opacity="0.70"/>
+    <ellipse cx="132" cy="20"  rx="7" ry="10" fill="#68b0e0" opacity="0.85"/><ellipse cx="132" cy="19" rx="3.5" ry="5" fill="white" opacity="0.30"/>
+    <circle cx="105" cy="148" r="2.2" fill="#80c8f0" opacity="0.64"/><circle cx="119" cy="132" r="1.8" fill="#90d0f8" opacity="0.58"/>
+    <circle cx="122" cy="55" r="1.8" fill="#a0d8ff" opacity="0.55"/><circle cx="142" cy="48" r="1.5" fill="#a0d8ff" opacity="0.52"/>
 
-    <!-- ── Fontäne 3 (rechts) ── -->
-    <rect x="538" y="215" width="20" height="30" fill="#909098" rx="4"/>
-    <ellipse cx="548" cy="215" rx="10" ry="5" fill="#707078"/>
-    <path d="M543 215 Q538 178 540 118 Q546 80 548 60" stroke="url(#was-stream)" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.8"/>
-    <path d="M548 215 Q548 165 548 60" stroke="url(#was-stream)" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.65"/>
-    <path d="M553 215 Q558 178 556 118 Q550 80 548 60" stroke="url(#was-stream)" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.8"/>
-    <ellipse cx="548" cy="56" rx="8" ry="12" fill="url(#was-drop)" opacity="0.9"/>
-    <path d="M553 200 Q572 170 580 138" stroke="#50b8f0" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.6"/>
-    <ellipse cx="581" cy="133" rx="6" ry="9" fill="url(#was-drop)" opacity="0.75"/>
-    <ellipse cx="548" cy="244" rx="35" ry="7" fill="#3090d070"/>
+    <!-- ── Fontäne 3 – rechts (cx=548) ── -->
+    <ellipse cx="551" cy="249" rx="45" ry="10" fill="#000" opacity="0.15"/>
+    <ellipse cx="548" cy="246" rx="43" ry="13" fill="#a8a098"/>
+    <ellipse cx="548" cy="244" rx="41" ry="11" fill="#beb6ae"/>
+    <ellipse cx="548" cy="243" rx="36" ry="9"  fill="url(#was-basin-sm)"/>
+    <ellipse cx="538" cy="241" rx="11" ry="3"  fill="white" opacity="0.12" transform="rotate(-6 538 241)"/>
+    <ellipse cx="548" cy="242" rx="24" ry="5"  fill="none" stroke="white" stroke-width="0.7" opacity="0.15"/>
+    <circle cx="546" cy="241" r="2.2" fill="white" opacity="0.40"/><circle cx="554" cy="239" r="1.8" fill="white" opacity="0.35"/><circle cx="540" cy="243" r="1.5" fill="white" opacity="0.32"/>
+    <path d="M544 244 L544 218 C544 216 546 214 548 213 C550 214 552 216 552 218 L552 244 Z" fill="#a8a098"/>
+    <path d="M546 244 L546 218 C546 217 547 215 548 214 C549 215 550 217 550 218 L550 244 Z" fill="#c0b8b0" opacity="0.5"/>
+    <ellipse cx="548" cy="213" rx="9" ry="3.5" fill="#909088"/>
+    <ellipse cx="548" cy="212" rx="7" ry="2.8" fill="#b0a8a0"/>
+    <path d="M546 212 C544 183 543 125 546 66 Q548 33 548 23" stroke="#2070b8" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.10"/>
+    <path d="M547 212 C545 181 545 122 547 63 Q548 32 548 23" stroke="#4090d0" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M548 212 C547 180 547 120 548 61 Q548 32 548 23" stroke="#70b8e8" stroke-width="6"  fill="none" stroke-linecap="round" opacity="0.50"/>
+    <path d="M548 212 C548 179 548 119 548 23"               stroke="#b0dcf8" stroke-width="3"  fill="none" stroke-linecap="round" opacity="0.68"/>
+    <path d="M548 212 C548 179 548 119 548 26"               stroke="white"   stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.38"/>
+    <path d="M546 203 Q524 168 514 130" stroke="#3080c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M546 203 Q524 168 514 130" stroke="#90ccf0" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <path d="M546 203 Q534 162 528 118" stroke="#4890c8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.24"/>
+    <path d="M546 203 Q534 162 528 118" stroke="#b0e0ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.44"/>
+    <path d="M550 203 Q570 168 580 130" stroke="#3080c8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.26"/>
+    <path d="M550 203 Q570 168 580 130" stroke="#90ccf0" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+    <ellipse cx="513" cy="126" rx="6" ry="9" fill="#60a8d8" opacity="0.75"/>
+    <ellipse cx="527" cy="114" rx="4.5" ry="7" fill="#70b8e8" opacity="0.68"/>
+    <ellipse cx="581" cy="126" rx="6" ry="9" fill="#60a8d8" opacity="0.70"/>
+    <ellipse cx="548" cy="21"  rx="7" ry="10" fill="#68b0e0" opacity="0.85"/><ellipse cx="548" cy="20" rx="3.5" ry="5" fill="white" opacity="0.30"/>
+    <circle cx="521" cy="148" r="2.2" fill="#80c8f0" opacity="0.64"/><circle cx="535" cy="132" r="1.8" fill="#90d0f8" opacity="0.58"/>
+    <circle cx="538" cy="55" r="1.8" fill="#a0d8ff" opacity="0.55"/><circle cx="558" cy="48" r="1.5" fill="#a0d8ff" opacity="0.52"/>
 
-    <!-- ── Kind mit Gummistiefeln (rechts von Mitte) ── -->
-    <!-- Schatten -->
+    <!-- ── Kind mit Gummistiefeln ── -->
     <ellipse cx="445" cy="248" rx="22" ry="5" fill="#00000030"/>
-    <!-- Körper (springend) -->
-    <!-- Beine (gespreizt, Gummistiefel) -->
     <path d="M440 222 Q430 234 425 244" stroke="#2a5080" stroke-width="8" stroke-linecap="round" fill="none"/>
     <path d="M450 222 Q460 234 465 244" stroke="#2a5080" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <!-- Gummistiefel links (gelb) -->
     <rect x="416" y="238" width="16" height="18" fill="#e0c020" rx="5"/>
-    <rect x="413" y="253" width="22" height="7" fill="#c0a010" rx="3"/>
-    <!-- Gummistiefel rechts (gelb) -->
+    <rect x="413" y="253" width="22" height="7"  fill="#c0a010" rx="3"/>
     <rect x="458" y="238" width="16" height="18" fill="#e0c020" rx="5"/>
-    <rect x="455" y="253" width="22" height="7" fill="#c0a010" rx="3"/>
-    <!-- Körper (türkiser Regenmantel) -->
+    <rect x="455" y="253" width="22" height="7"  fill="#c0a010" rx="3"/>
     <rect x="430" y="192" width="30" height="32" fill="#1890a0" rx="6"/>
-    <!-- Arme ausgestreckt (Gleichgewicht) -->
     <path d="M430 200 Q415 193 405 185" stroke="#ffcc88" stroke-width="8" stroke-linecap="round" fill="none"/>
     <path d="M460 200 Q475 193 485 185" stroke="#ffcc88" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <!-- Kopf -->
     <circle cx="445" cy="177" r="19" fill="#ffcc88"/>
-    <!-- Haar -->
     <path d="M428 175 Q430 158 445 156 Q460 158 462 175" fill="#c07020" stroke="#a05010" stroke-width="1.5"/>
-    <!-- Gesicht (überrascht/Spaß) -->
-    <circle cx="439" cy="174" r="3.5" fill="#5a3010"/>
-    <circle cx="451" cy="174" r="3.5" fill="#5a3010"/>
-    <circle cx="440" cy="173" r="1.3" fill="white"/>
-    <circle cx="452" cy="173" r="1.3" fill="white"/>
-    <!-- Offener Mund (Freude) -->
+    <circle cx="439" cy="174" r="3.5" fill="#5a3010"/><circle cx="451" cy="174" r="3.5" fill="#5a3010"/>
+    <circle cx="440" cy="173" r="1.3" fill="white"/><circle cx="452" cy="173" r="1.3" fill="white"/>
     <path d="M439 184 Q445 190 451 184" stroke="#a06030" stroke-width="2.5" fill="#f08060"/>
-    <!-- Wangen -->
     <ellipse cx="436" cy="180" rx="4" ry="2.5" fill="#e09070" opacity="0.55"/>
     <ellipse cx="454" cy="180" rx="4" ry="2.5" fill="#e09070" opacity="0.55"/>
 
-    <!-- Pfeil + Beschriftung rechts -->
+    <!-- Pfeil + Label -->
     <path d="M618 230 L618 80" stroke="#1060a0" stroke-width="3.5" stroke-linecap="round" fill="none"/>
     <polygon points="608,95 618,68 628,95" fill="#1060a0"/>
     <rect x="598" y="120" width="72" height="70" fill="white" rx="8" opacity="0.9"/>
