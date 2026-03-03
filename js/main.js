@@ -103,7 +103,7 @@ const ORTE = {
   },
 
   schokolade: {
-    titel: '🍫 Schokolade & Essen',
+    titel: '🎉 Schokolade & Karneval',
     svg: schokoladeSVG(),
     fakten: [
       { emoji: '💚', text: 'Schokolade ist in Pupdorf <strong>grün</strong>. Immer. Alle Sorten, alle Marken – grün.' },
