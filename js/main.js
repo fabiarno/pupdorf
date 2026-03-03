@@ -719,9 +719,8 @@ function strassenSVG() {
     <rect x="0" y="163" width="680" height="2" fill="#c8c8cc" opacity="0.7"/>
     <!-- Bordstein unten -->
     <rect x="0" y="278" width="680" height="6" fill="#9a9898"/>
-    <!-- Doppelte Mittellinien -->
-    <line x1="0" y1="218" x2="680" y2="218" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
-    <line x1="0" y1="232" x2="680" y2="232" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
+    <!-- Mittellinie -->
+    <line x1="0" y1="225" x2="680" y2="225" stroke="white" stroke-width="4" stroke-dasharray="36,20" opacity="0.85"/>
 
     <!-- Einbahnstraße-Schild (durchgestrichen) links -->
     <line x1="82" y1="148" x2="82" y2="95" stroke="#7a7a7a" stroke-width="5"/>
