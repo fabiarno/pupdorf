@@ -739,9 +739,6 @@ function strassenSVG() {
     <rect x="548" y="50" width="88" height="20" fill="#f8d460" rx="8" opacity="0.6"/>
     <text x="592" y="70" font-family="Nunito" font-weight="900" font-size="13" fill="#5a3a00" text-anchor="middle">Mitte</text>
     <text x="592" y="86" font-family="Nunito" font-weight="900" font-size="13" fill="#e03000" text-anchor="middle">erlaubt!</text>
-    <!-- Pfeile frei in der Luft -->
-    <g transform="translate(525, 28) rotate(-12)"><text font-family="Nunito" font-weight="900" font-size="22" fill="#2a5080">←</text></g>
-    <g transform="translate(648, 32) rotate(10)"><text font-family="Nunito" font-weight="900" font-size="22" fill="#2a5080">→</text></g>
 
     <!-- Radfahrer 1 – blau, gelbe Stiefel, fährt in Mitte -->
     <g transform="translate(210, 225)">
