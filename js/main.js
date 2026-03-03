@@ -1344,34 +1344,22 @@ function olympiaSVG() {
     <rect y="268" width="680" height="4" fill="#a0b8d0"/>
 
     <!-- ── Fahne auf Mast ── -->
-    <!-- Mast -->
-    <rect x="36" y="18" width="10" height="258" fill="#8a6030" rx="3"/>
-    <ellipse cx="41" cy="18" rx="8" ry="5" fill="#c09050"/>
-    <!-- Knauf oben -->
-    <ellipse cx="41" cy="14" rx="9" ry="9" fill="#e8b030" stroke="#c09020" stroke-width="1.5"/>
-    <!-- Fahne: 3 waagerechte Streifen (Orange / Weiß / Orange) wie Vorlage -->
-    <!-- Leichtes Wehen durch Kurven -->
-    <path d="M46 28 Q180 22 310 30 Q310 88 310 88 Q180 82 46 88 Z" fill="#f5801e"/>
-    <path d="M46 88 Q180 82 310 88 Q310 148 310 148 Q180 154 46 148 Z" fill="url(#oly-flag-white)"/>
-    <path d="M46 148 Q180 154 310 148 Q310 208 310 208 Q180 200 46 208 Z" fill="#f5801e"/>
-    <!-- Flaggen-Umriss -->
-    <path d="M46 28 Q180 22 310 30 L310 208 Q180 200 46 208 Z" fill="none" stroke="#d06010" stroke-width="1.5" opacity="0.5"/>
-    <!-- Ahornblatt ORANGE (in der Mitte der Flagge) -->
-    <g transform="translate(178,118)">
-      <!-- Ahornblatt-Pfad (stilisiert, erkennbar) -->
-      <path d="
-        M0,-38
-        L-5,-18 L-28,-22 L-18,-10 L-38,-2 L-22,2
-        L-26,18 L-12,12 L0,30
-        L12,12 L26,18 L22,2
-        L38,-2 L18,-10 L28,-22 L5,-18 Z"
-        fill="#f5801e" stroke="#d06010" stroke-width="1.5"/>
-      <!-- Ahornblatt Stamm -->
-      <rect x="-3" y="28" width="6" height="12" fill="#f5801e"/>
+    <!-- Mast (schlank) -->
+    <rect x="33" y="35" width="7" height="233" fill="#8a6030" rx="2"/>
+    <circle cx="36" cy="32" r="7" fill="#e8b030" stroke="#c09020" stroke-width="1.5"/>
+    <!-- Fahne: linker orangener Streifen -->
+    <rect x="40" y="42" width="33" height="76" fill="#f5801e"/>
+    <!-- Fahne: weißer Mittelteil -->
+    <rect x="73" y="42" width="66" height="76" fill="#f5f5f5"/>
+    <!-- Fahne: rechter orangener Streifen -->
+    <rect x="139" y="42" width="33" height="76" fill="#f5801e"/>
+    <!-- Fahne: Umriss -->
+    <rect x="40" y="42" width="132" height="76" fill="none" stroke="#d06010" stroke-width="1.2" opacity="0.5"/>
+    <!-- Ahornblatt (zentriert im weißen Bereich) -->
+    <g transform="translate(106,80) scale(0.85)">
+      <path d="M0,22 L-3,10 L-9,13 L-7,4 L-18,5 L-13,-1 L-25,-2 L-15,-5 L-17,-14 L-9,-10 L-10,-20 L-3,-16 L0,-26 L3,-16 L10,-20 L9,-10 L17,-14 L15,-5 L25,-2 L13,-1 L18,5 L7,4 L9,13 L3,10 Z" fill="#f5801e" stroke="#d06010" stroke-width="1.2"/>
+      <rect x="-2" y="22" width="4" height="8" fill="#f5801e"/>
     </g>
-    <!-- Fahnen-Bewegungslinien (Wind) -->
-    <path d="M130 48 Q200 44 280 50" stroke="white" stroke-width="1" opacity="0.25" fill="none"/>
-    <path d="M120 168 Q200 165 290 170" stroke="#d06010" stroke-width="1" opacity="0.2" fill="none"/>
 
     <!-- ── Podest ── -->
     <!-- Platz 2 (Silber, links) -->
@@ -1389,55 +1377,52 @@ function olympiaSVG() {
     <rect x="414" y="242" width="108" height="10" fill="#f8e8c8" rx="5" opacity="0.6"/>
     <text x="468" y="268" font-family="Nunito" font-weight="900" font-size="22" fill="#6a4820" text-anchor="middle">3</text>
 
-    <!-- ── Sieger-Figur auf Platz 1 ── -->
-    <!-- Schatten -->
-    <ellipse cx="340" cy="207" rx="20" ry="5" fill="#00000020"/>
-    <!-- Beine -->
-    <path d="M333 193 Q329 200 326 207" stroke="#2040a0" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M347 193 Q351 200 354 207" stroke="#2040a0" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <!-- Körper (roter Sportdress) -->
-    <rect x="326" y="165" width="28" height="30" fill="#d03020" rx="6"/>
-    <!-- Arme jubeln (V-Form hoch) -->
-    <path d="M326 173 Q312 160 305 145" stroke="#ffcc88" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M354 173 Q368 160 375 145" stroke="#ffcc88" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <!-- Kopf -->
-    <circle cx="340" cy="152" r="18" fill="#ffcc88"/>
-    <!-- Haare -->
-    <path d="M323 150 Q325 134 340 132 Q355 134 357 150" fill="#804010" stroke="#602808" stroke-width="1.5"/>
-    <!-- Gesicht (jubeln, Mund offen) -->
-    <circle cx="334" cy="149" r="3.2" fill="#5a3010"/>
-    <circle cx="346" cy="149" r="3.2" fill="#5a3010"/>
-    <circle cx="335" cy="148" r="1.2" fill="white"/>
-    <circle cx="347" cy="148" r="1.2" fill="white"/>
-    <path d="M333 159 Q340 166 347 159" stroke="#a06030" stroke-width="2.5" fill="#f08060"/>
-    <ellipse cx="331" cy="155" rx="4" ry="2.5" fill="#e09070" opacity="0.5"/>
-    <ellipse cx="349" cy="155" rx="4" ry="2.5" fill="#e09070" opacity="0.5"/>
-    <!-- Medaille (Gold) -->
-    <line x1="340" y1="165" x2="340" y2="176" stroke="#c8a010" stroke-width="2"/>
-    <circle cx="340" cy="180" r="9" fill="#f5c842" stroke="#c8a010" stroke-width="2"/>
-    <circle cx="340" cy="180" r="5" fill="#e8b820" opacity="0.7"/>
+    <!-- ── Figur auf Platz 1 (Gold) ── -->
+    <line x1="334" y1="195" x2="331" y2="205" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <line x1="346" y1="195" x2="349" y2="205" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <rect x="329" y="173" width="22" height="22" fill="#d03020" rx="5"/>
+    <path d="M329 179 Q315 167 308 153" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M351 179 Q365 167 372 153" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="340" cy="162" r="11" fill="#ffcc88"/>
+    <path d="M330 161 Q332 151 340 150 Q348 151 350 161" fill="#804010" stroke="#602808" stroke-width="1.2"/>
+    <circle cx="336" cy="161" r="2.5" fill="#5a3010"/>
+    <circle cx="344" cy="161" r="2.5" fill="#5a3010"/>
+    <circle cx="337" cy="160" r="1" fill="white"/>
+    <circle cx="345" cy="160" r="1" fill="white"/>
+    <path d="M334 169 Q340 175 346 169" stroke="#a06030" stroke-width="2.2" fill="#f08060" stroke-linecap="round"/>
+    <line x1="340" y1="173" x2="340" y2="181" stroke="#c8a010" stroke-width="1.5"/>
+    <circle cx="340" cy="184" r="8" fill="#f5c842" stroke="#c8a010" stroke-width="1.8"/>
+    <circle cx="340" cy="184" r="4" fill="#e8b820" opacity="0.7"/>
 
-    <!-- ── Figur auf Platz 2 (kleiner) ── -->
-    <circle cx="212" cy="212" r="14" fill="#ffaa66"/>
-    <path d="M200 225 Q197 232 195 240" stroke="#2040a0" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <path d="M224 225 Q227 232 229 240" stroke="#2040a0" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <rect x="200" y="225" width="24" height="26" fill="#3060c0" rx="5"/>
-    <path d="M200 230 Q190 222 185 213" stroke="#ffaa66" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <path d="M224 230 Q234 222 239 213" stroke="#ffaa66" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <!-- Medaille Silber -->
-    <line x1="212" y1="225" x2="212" y2="234" stroke="#a0b0c0" stroke-width="1.5"/>
-    <circle cx="212" cy="238" r="7" fill="#d0dde8" stroke="#90a0b8" stroke-width="1.5"/>
+    <!-- ── Figur auf Platz 2 (Silber) ── -->
+    <line x1="206" y1="218" x2="203" y2="228" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <line x1="218" y1="218" x2="221" y2="228" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <rect x="201" y="196" width="22" height="22" fill="#3060c0" rx="5"/>
+    <path d="M201 202 Q187 190 180 176" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M223 202 Q237 190 244 176" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="212" cy="185" r="11" fill="#ffcc88"/>
+    <path d="M202 184 Q204 174 212 173 Q220 174 222 184" fill="#a06030" stroke="#804020" stroke-width="1.2"/>
+    <circle cx="208" cy="184" r="2.5" fill="#5a3010"/>
+    <circle cx="216" cy="184" r="2.5" fill="#5a3010"/>
+    <circle cx="209" cy="183" r="1" fill="white"/>
+    <circle cx="217" cy="183" r="1" fill="white"/>
+    <path d="M207 192 Q212 197 217 192" stroke="#a06030" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <line x1="212" y1="196" x2="212" y2="204" stroke="#90a8c0" stroke-width="1.5"/>
+    <circle cx="212" cy="207" r="7" fill="#d0dde8" stroke="#90a0b8" stroke-width="1.5"/>
 
-    <!-- ── Figur auf Platz 3 (kleiner) ── -->
-    <circle cx="468" cy="226" r="13" fill="#ffcc88"/>
-    <path d="M457 238 Q454 245 452 253" stroke="#2040a0" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <path d="M479 238 Q482 245 484 253" stroke="#2040a0" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <rect x="458" y="238" width="20" height="22" fill="#40a040" rx="5"/>
-    <path d="M458 243 Q449 236 445 228" stroke="#ffcc88" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <path d="M478 243 Q487 236 491 228" stroke="#ffcc88" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <!-- Medaille Bronze -->
-    <line x1="468" y1="238" x2="468" y2="246" stroke="#b09050" stroke-width="1.5"/>
-    <circle cx="468" cy="250" r="6" fill="#d4a860" stroke="#a07830" stroke-width="1.5"/>
+    <!-- ── Figur auf Platz 3 (Bronze) ── -->
+    <line x1="462" y1="232" x2="459" y2="242" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <line x1="474" y1="232" x2="477" y2="242" stroke="#1a3090" stroke-width="5" stroke-linecap="round"/>
+    <rect x="457" y="210" width="22" height="22" fill="#38a038" rx="5"/>
+    <path d="M457 216 Q444 218 438 228" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M479 216 Q492 218 498 228" stroke="#ffcc88" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="468" cy="199" r="11" fill="#ffcc88"/>
+    <path d="M458 198 Q460 188 468 187 Q476 188 478 198" fill="#503010" stroke="#402010" stroke-width="1.2"/>
+    <circle cx="464" cy="198" r="2.5" fill="#5a3010"/>
+    <circle cx="472" cy="198" r="2.5" fill="#5a3010"/>
+    <path d="M463 206 Q468 210 473 206" stroke="#a06030" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <line x1="468" y1="210" x2="468" y2="218" stroke="#b09050" stroke-width="1.5"/>
+    <circle cx="468" cy="221" r="7" fill="#d4a860" stroke="#a07830" stroke-width="1.5"/>
 
     <!-- ── Olympische Ringe (oben rechts) ── -->
     <g transform="translate(490,58)">
@@ -1448,10 +1433,6 @@ function olympiaSVG() {
       <circle cx="63" cy="20" r="22" fill="none" stroke="#3a9030" stroke-width="5.5"/>
     </g>
 
-    <!-- Label -->
-    <rect x="460" y="148" width="196" height="46" fill="white" rx="10" stroke="#f0a020" stroke-width="2" opacity="0.93"/>
-    <text x="558" y="169" font-family="Nunito" font-weight="900" font-size="13" fill="#5a3a00" text-anchor="middle">Pupdorf Olympia</text>
-    <text x="558" y="186" font-family="Nunito" font-size="11" fill="#a07030" text-anchor="middle">Ahornblatt in Orange!</text>
   </svg>`;
 }
 
